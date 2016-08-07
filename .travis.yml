@@ -1,0 +1,27 @@
+language:
+  - generic
+  
+dist: trusty
+
+sudo: false
+
+addons:
+  apt:
+    packages:
+    - texlive-latex-extra
+    - texlive-luatex
+    - cm-super
+    - texlive-bibtex-extra
+    - latexmk
+    - tex4ht
+    - texlive-fonts-recommended
+    - texlive-lang-italian
+  
+script:
+  - make compile
+
+after_failure:
+  - cat main.log
+
+before_deploy:
+- git fetch --tags
