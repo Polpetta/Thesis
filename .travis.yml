@@ -1,27 +1,29 @@
 language:
   - generic
-  
+
 dist: trusty
 
-sudo: false
+sudo: true
 
 addons:
   apt:
     packages:
-    - texlive-latex-extra
-    - texlive-luatex
-    - cm-super
-    - texlive-bibtex-extra
-    - latexmk
-    - tex4ht
-    - texlive-fonts-recommended
-    - texlive-lang-italian
-  
+      - texlive-latex-extra
+      - texlive-luatex
+      - cm-super
+      - texlive-bibtex-extra
+      - latexmk
+      - tex4ht
+      - biber
+      - texlive-fonts-recommended
+      - texlive-lang-italian
+      - latex-xcolor
+
 script:
   - make compile
 
 after_failure:
-  - cat tesi.log
+  - cat Tesi.log
 
 before_deploy:
 - git fetch --tags
