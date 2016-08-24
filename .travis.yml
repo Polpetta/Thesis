@@ -1,29 +1,32 @@
 language:
-  - generic
-
+- generic
 dist: trusty
-
 sudo: true
-
 addons:
   apt:
     packages:
-      - texlive-latex-extra
-      - texlive-luatex
-      - cm-super
-      - texlive-bibtex-extra
-      - latexmk
-      - tex4ht
-      - biber
-      - texlive-fonts-recommended
-      - texlive-lang-italian
-      - latex-xcolor
-
+    - texlive-latex-extra
+    - texlive-luatex
+    - cm-super
+    - texlive-bibtex-extra
+    - latexmk
+    - tex4ht
+    - biber
+    - texlive-fonts-recommended
+    - texlive-lang-italian
+    - latex-xcolor
 script:
-  - make compile
-
+- make compile
 after_failure:
-  - cat Tesi.log
-
+- cat Tesi.log
 before_deploy:
 - git fetch --tags
+deploy:
+  provider: releases
+  api_key:
+    secure: PPfXlQ3PfBguVclTRERcVCVg/dCBNWFCPefgziAbiivcXe2QX6teB5PeCV59VIsPG2EXpEvx9EZcYFdM4bGaklR0GqzpROIQZe90uxM9gptOp5KQDfV9y2eSG+JW0vgFExtcjARQFxkfviZ+6/9gjOE1OC1TlPKhaOXy9j7dtMWCkbAzO7cVv5WXkZvTBM6uhspvwJ3XB7F7lY7liSoKkchJIRmsnBtwA+4wpbQ/e+JUfR57NY3yAheovpkLsHdKrDCFRXiwpjIPgmUCCHexcmQcTZeeE3tZCuuxHF2DPE5MCtK/Tosqb+l/AOQ7uh8scbq44MqQXoQJu381m8XGCl31mn3AOqF6AZvD8zDX5k17+4sLptqzRP5fgk+00LEvXzVmsR6qDExxn/n78mFdkFSV3/1y5BlL8yHaBm+r00E/BVNc6MW31JXOmcaZjR2B5Y5eL4K76CLucy+a+j7v4aYV3sAnAvflFzMziorHVF6v0sYAeguxCethUDpsO91yuZ/9JoAyExnyCP5hTmf5cyfFEet6Iu+dttNaW6rtMjm8IeGYt14cp21YJP9ZErM8CjreH+5zeT3G5P5jp9a3rNAD9QojbOzEK+U1PCeSByOJW3HZvVdOCGXYMe4gJYnQdffXmarjd1ksDMdgMdKLgW2i/Wr353RVjb01SPh7n5o=
+  file: Tesi.pdf
+  skip_cleanup: true
+  on:
+    repo: Polpetta/Thesis
+    tags: true
