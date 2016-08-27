@@ -6,22 +6,23 @@
 \section{L'azienda PastBook}
 
 % Reference: http://pastbook.pr.co/
-PastBook, viene aperta a Milano nel 2011 come un hobbie. Nel 2012 il fondatore,
-capo tecnico e \glslink{scrumMaster}{Scrum Master} di eBay Italia Stefano
-Cutello, sposta l'azienda ad Amsterdam per entrare nell'accelleratore per
-startup Rockstart. Grazie ai finanziamenti dell'accelleratore e alla brillante
-idea la startup cresce diventando nel 2016 una società a tutti gli effetti.
+PastBook, viene aperta a Milano nel 2011 come un \textit{hobbie}. Nel 2012 il
+fondatore, capo tecnico e \glslink{scrumMaster}{Scrum Master} di eBay Italia
+Stefano Cutello, sposta l'azienda ad Amsterdam per entrare nell'accelleratore
+per \gls{startup} Rockstart. Grazie ai finanziamenti dell'accelleratore e alla
+brillante idea la \gls{startup} cresce diventando nel 2016 una società a tutti
+gli effetti.
 
 L'idea di PastBook è quella di fornire un libro dei ricordi alle
-persone, prendendo i momenti direttamente dai social network a cui tutti siamo
-abiuati ad usare. Fornendo l'integrazione a diverse piattaforme l'applicazione
-permette di creare in un unico sito il proprio album, per poi
+persone, prendendo i momenti direttamente dai \textit{social network} a cui
+tutti siamo abiuati ad usare. Fornendo l'integrazione a diverse piattaforme
+l'applicazione permette di creare in un unico sito il proprio album, per poi
 poterlo ordinare con diverse grandezze e ottenere così una copia stampata.
 
 \subsection{Personale}
 
 All'interno di PastBook il lavoro è suddiviso in diversi ruoli: servizio
-clienti, programmatori e lato maketing.
+clienti, programmatori e lato \textit{marketing}.
 
 Il servizio clienti si occupa di processare eventuali richieste dei clienti,
 come per esempio modificare un libro dopo aver eseguito il pagamento, ottenere
@@ -32,10 +33,10 @@ infatti mantenere aggiornata la piattaforma, aggiungendo funzionalità
 per attirare continuamente nuovi clienti e rendere il sito il più appetibile
 possibile.
 
-Il reparto maketing è legato al reparto tecnico. Ogni nuova funzionalità viene
-infatti annunciata tramite i Social Network dell'azienda, per ottenere una
-massima diffusione. Vengono anche pensate a strategie di mercato, come prezzi
-speciali o offerte per nuovi prodotti.
+Il reparto \textit{marketing} è legato al reparto tecnico. Ogni nuova
+funzionalità viene infatti annunciata tramite i \textit{social network}
+dell'azienda, per ottenere una massima diffusione. Vengono anche pensate a
+strategie di mercato, come prezzi speciali o offerte per nuovi prodotti.
 
 \subsection{Organizzazione interna}
 
@@ -45,13 +46,14 @@ al suo interno aderisce alla tecnica \gls{agile}, in particolar modo
 
 \subsection{Organizzazione dello sviluppo nel reparto tecnico}
 \label{intro:OrganizzazioneSviluppoRepartoTecnico}
+
 All'interno del reparto tecnico dove avviene lo sviluppo del codice sono state
 adottate varie convenzioni riguardo all'organizzazione del sistema di
 versionamento e allo stile di scrittura del codice.
 
 \subsubsection{Sitema di versionamento}
-Il sistema di vesionamento, come precedentemente accennato in
-\ref{intro:attivitaSettimanali}, presenta diversi branch specifici per i vari
+
+Il sistema di vesionamento, presenta diversi branch specifici per i vari
 ambienti di lavoro:
 \begin{itemize}
 
@@ -67,8 +69,8 @@ di qualità.
 
 Quando è necessario aggiungere nuove funzionalità i programmatori sono
 obbligati e creare un nuovo ramo a partire da \textit{develop}, che abbia come
-suffisso la scritta "feature/". Dopo questo suffisso, è necessario dare al ramo
-un nome esplicativo che però non risulti troppo lungo.
+suffisso la scritta "\textit{feature}/". Dopo questo suffisso, è necessario dare
+al ramo un nome esplicativo che però non risulti troppo lungo.
 
 \subsubsection{Progettazione}
 Le funzionalità prima di essere implementate attraversano una fase di
@@ -93,9 +95,10 @@ aggiornano riguardo alla situazione dei vari compiti da svolgere.
 
 \subsection{Attività settimanali}
 \label{intro:attivitaSettimanali}
+
 Ogni lunedì di ogni settimana il reparto tecnico è chiamato all'attività di
-deploy delle nuove funzionalità sviluppate la settimana prima. L'attività di
-deploy si suddivide nei seguenti passi:
+\textit{deploy} delle nuove funzionalità sviluppate la settimana prima.
+L'attività di \textit{deploy} si suddivide nei seguenti passi:
 \begin{enumerate}
 
 \item Fusione dei vari branch della nuova feature sviluppata nel ramo di
@@ -105,7 +108,7 @@ deploy si suddivide nei seguenti passi:
 problemi;
 \item Una volta accertato che il tutto funzioni, fusione del branch develop nel
 branch \textit{qa};
-\item Ottenuta l'approvazione del capo tecnico, avviene il deploy
+\item Ottenuta l'approvazione del capo tecnico, avviene il \textit{deploy}
 della nuova funzionalità nell'ambiente di produzione e il ramo \textit{qa}
 viene fuso nel ramo \textit{prod}, in cui viene conservato tutto il codice che
 è attualmente eseguito nell'ambiente di produzione.
