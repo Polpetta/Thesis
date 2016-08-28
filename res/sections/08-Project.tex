@@ -17,12 +17,11 @@ semplice se il tutto è assistito da un \textit{bot}, che rende il processo più
 \subsection{L'era dei \textit{bot}}
 
 Dal lancio iniziale sulla piattaforma di messaggistica di Telegram dei
-\textit{bot}, si
-è potuto notare come il mondo dell'informatica si sia attivato verso questa
-tecnologia. L'entrata di Facebook tramite la sua applicazione di messaggistica
-Messenger ha segnato un importante passo anche nel modo in cui le aziende
-possono interagire con i propri clienti. È ora possibile scrivere direttamente
-alle pagine dei servizi a cui si è interessati per ottenere aiuto o
+\textit{bot}, si è potuto notare come ci sia stato un maggior interessamento
+verso questa tecnologia. L'entrata di Facebook tramite la sua applicazione di
+messaggistica Messenger ha segnato un importante passo anche nel modo in cui le
+aziende possono interagire con i propri clienti. È ora possibile scrivere
+direttamente alle pagine dei servizi a cui si è interessati per ottenere aiuto o
 informazioni in pochi secondi, facendo risparmiare agli utenti la fatica di
 andarsele a cercare nel sito della compagnia.
 
@@ -37,24 +36,22 @@ degli esseri umani.
 \section{PastBot}
 
 Appena uscita la possibilità di creare \textit{bot} su Facebook e collegarli
-alle pagine
-delle aziende PastBook si è subito attivata per creare il suo \textit{bot} che
-aiuti le
-persone nella creazione degli album in maniera interattiva rendendo facile il
-loro acquisto in seguito. Questo permette anche agli utenti la creazione e
-acquisto di album comodamente e direttamente da Facebook.
+alle pagine delle aziende PastBook si è subito attivata per creare il suo
+\textit{bot} che aiuti le persone nella creazione degli album in maniera
+interattiva rendendo facile il loro acquisto in seguito. Questo permette anche
+agli utenti la creazione e acquisto di album comodamente e direttamente da
+Facebook.
 
 Una volta arrivato nella pagina della società, l'utente non deve far altro che
 scrivergli un messaggio. Al primo messaggio si attiverà il \textit{bot} che
 gli risponderà cortesemente illustrandogli le sue funzionalità e comandi.
 L'utente potrà chiedere aiuto al \textit{bot}, che lo guiderà nei passi
-necessari per
-creare un album. Quando finalmente l'utente ha inviato il numero minimo delle
-foto necessarie per creare l'album, verrà informato da PastBot che gli offrirà
-la possibilità di acquistarlo. Questo porterà l'utente in una procedura
-automatica di acquisto, in cui gli unici campi richiesti saranno solamente
-selezionare il tipo di pagamento, la località dove spedire il libro dei
-ricordi appena creato e in che formato lo si desidera. \\
+necessari per creare un album. Quando finalmente l'utente ha inviato il numero
+minimo delle foto necessarie per creare l'album, verrà informato da PastBot che
+gli offrirà la possibilità di acquistarlo. Questo porterà l'utente in una
+procedura automatica di acquisto, in cui gli unici campi richiesti saranno
+solamente selezionare il tipo di pagamento, la località dove spedire il libro
+dei ricordi appena creato e in che formato lo si desidera. \\
 
 Essendo l'utente un essere umano si è dovuto considerare dei possibili errori
 che esso può commettere:
@@ -72,38 +69,33 @@ chiave del comando), chiedendogli di effettuare di nuovo l'operazione richiesta.
 possibile che l'utente possa commettere un errore nella selezione e possa
 inviare anche altri contenuti, come file generici o video. In questo caso, il
 \textit{bot} ignorerà i contenti diversi da immagini che sono stati inviati,
-senza
-lanciare un messaggio di errore o fermare l'operazione di caricamento. Questa
-scelta è stata presa in quando è possibile che questo tipo di errore avvenga
-maggiormente quando l'utente vuole inviare un gran numero di foto nella chat, e
-eseguire azioni come segnalare l'errore o fermare il processo di salvataggio
-delle immagini potrebbe portare a reazioni come frustrazione e fastidio nel
-dover eseguire di nuovo queste operazioni.
+senza lanciare un messaggio di errore o fermare l'operazione di caricamento.
+Questa scelta è stata presa in quando è possibile che questo tipo di errore
+avvenga maggiormente quando l'utente vuole inviare un gran numero di foto nella
+chat, e eseguire azioni come segnalare l'errore o fermare il processo di
+salvataggio delle immagini potrebbe portare a reazioni come frustrazione e
+fastidio nel dover eseguire di nuovo queste operazioni.
 
 \paragraph*{Errori di interpretazioni} È anche possibile che le persone
 commettano degli errori nell'interpretare il senso della frase che il
-\textit{bot} manda
-loro. Questo potrebbe portare a un errore nella procedura richiesta dal
-\textit{bot}. Un
-tipico esempio potrebbe essere richiedere la lista delle foto di un album che è
-attualmente vuoto. In questo caso il \textit{bot} segnalerà all'utente che
-l'azione non
-è disponibile, e provvederà a fornirgli una lista di azioni che può
-intraprendere. In questa maniera si inviterà l'utente a continuare la
-discussione con il \textit{bot}.
+\textit{bot} manda loro. Questo potrebbe portare a un errore nella procedura
+richiesta dal \textit{bot}. Un tipico esempio potrebbe essere richiedere la
+lista delle foto di un album che è attualmente vuoto. In questo caso il
+\textit{bot} segnalerà all'utente che l'azione non è disponibile, e provvederà
+a fornirgli una lista di azioni che può intraprendere. In questa maniera si
+inviterà l'utente a continuare attivamente la discussione.
 
 \subsection{Azioni intraprendibili dall'utente}
 
 L'utente può intraprendere con PastBot diversi tipi di azioni. Di seguito si
-elencano quali sono le possibili:
+elencano le possibili:
 
 %magari è meglio usare una tabella qui?
 \begin{itemize}
 
   \item richiedere informazioni riguardo al funzionamento del \textit{bot};
-  \item richiedere informazioni riguardo ai costi di spedizione e ai costi
-degli album, nonché la lista delle diverse configurazioni disponibili per i
-formati degli album;
+  \item richiedere informazioni riguardo ai costi di spedizione e ai formati
+degli album;
   \item creare un nuovo album;
   \item inviare foto al \textit{bot} tramite la chat utente;
   \item vedere la lista delle foto inviate e attualmente presenti all'interno
@@ -119,8 +111,8 @@ creando;
 
 \subsubsection{Amazon AWS Lambda}
 %https://aws.amazon.com/lambda/
-PastBook basa i suoi servizi nel \textit{cloud} tramite Amazon AWS Services. Per
-realizzare il \textit{bot} è quindi stato deciso di pensarlo utilizzando
+PastBook basa i suoi servizi nel \textit{cloud} grazie a Amazon AWS Services.
+Per realizzare il \textit{bot} è quindi stato deciso di pensarlo utilizzando
 un'architettura serverless con database non relazionali (ovvero di tipo
 \glslink{nosql}{NoSQL}). Un architettura di questo tipo porta a diversi
 vantaggi:
@@ -129,8 +121,8 @@ vantaggi:
 
   \item nessun costo di amministrazione dei server in cui il programma viene
 eseguito;
-  \item scaling automatico dell'applicazione in base alle richieste in arrivo,
-per offrire un servizio all'utenza senza interruzioni;
+  \item \textit{scaling} automatico dell'applicazione in base alle richieste in
+arrivo, per offrire un servizio all'utenza senza interruzioni;
   \item i costi sono legati solamente al tempo di esecuzione effettivo del
 programma nel \textit{cloud};
   \item risorse automaticamente gestite;
@@ -138,9 +130,8 @@ programma nel \textit{cloud};
   \item raccolta automatica di metriche e statistiche sull'utilizzo delle
 risorse;
   \item tutto l'ambiente è all'interno dello stesso \textit{cloud}, permettendo
-una
-comunicazione interna molto rapida e riducendo i tempi di chiamate delle varie
-API.
+una comunicazione interna molto rapida e riducendo i tempi di chiamate delle
+varie API.
 \end{itemize}
 
 Questo tipo di vantaggi ha permesso anche durante il tirocinio di focalizzarsi
@@ -148,23 +139,19 @@ prevalentemente nella stesura del codice senza preoccuparsi della parte di
 amministrazione del sistema.
 
 Il servizio \textit{cloud} utilizzato nello specifico si chiama Amazon AWS
-Lambda, e
-permette di configurare quante risorse per quanto tempo il programma potrà
-avere. Per poter automatizzare anche questa configurazione, creando quindi un
-sistema completamente automatizzato per la distribuzione del software, si è
-deciso di utilizzare il tool open source Apex.
+Lambda, e permette di configurare quante risorse per quanto tempo il programma
+potrà avere. Per poter automatizzare anche questa configurazione, creando
+quindi un sistema completamente automatizzato per la distribuzione del
+codice, si è deciso di utilizzare il tool open source Apex.
 
 \subsubsection{Apex}
 % http://apex.run/
 Apex è un tool che permette di automatizzare la fase di distribuzione del
 codice sorgente con configurazioni personalizzabili in base all'ambiente in cui
-si distribuisce il programma. Oltre a queste funzionalità, permette anche:
+si distribuisce il programma. Oltre a queste funzionalità, permette anche di:
 \begin{itemize}
   \item eseguire la funzione direttamente da linea di comando (il codice verrà
 comunque eseguito in remoto);
   \item visualizzazione di metriche sull'utilizzo del programma;
-  \item visualizzazione di \textit{log}.
+  \item visualizzazione di \textit{log} di esecuzione.
 \end{itemize}
-
-Questo ha permesso di sviluppare il codice del bot in maniera più rapida dopo
-aver eseguito una configurazione iniziale dell'ambiente di lavoro.
