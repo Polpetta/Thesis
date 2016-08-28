@@ -140,9 +140,19 @@ amministrazione del sistema.
 
 Il servizio \textit{cloud} utilizzato nello specifico si chiama Amazon AWS
 Lambda, e permette di configurare quante risorse per quanto tempo il programma
-potrà avere. Per poter automatizzare anche questa configurazione, creando
+potrà avere.
+AWS Lambda permette di caricare il codice sotto forma di "funzioni". Queste
+funzioni non sono altro che porzioni di codice (che possono essere composte da
+più file).
+Nella configurazione sarà poi necessario definire il metodo della
+"funzione" da invocare al sopraggiungere di una richiesta. A questa funzione
+verrà passato un evento sotto forma di oggetto
+\glslink{javascript_object_notation}{JSON}. I campi per l'oggetto sono
+definibili e personalizzabili nella configurazione della funzione, oppure si può
+scegliere di ricevere tutti i campi dell'evento.
+Per poter automatizzare anche questa configurazione, creando
 quindi un sistema completamente automatizzato per la distribuzione del
-codice, si è deciso di utilizzare il tool open source Apex.
+codice, si è deciso di utilizzare lo strumento open source Apex.
 
 \subsubsection{Apex}
 % http://apex.run/
@@ -154,4 +164,95 @@ si distribuisce il programma. Oltre a queste funzionalità, permette anche di:
 comunque eseguito in remoto);
   \item visualizzazione di metriche sull'utilizzo del programma;
   \item visualizzazione di \textit{log} di esecuzione.
+\end{itemize}
+
+Per utilizzare questo strumento è stato necessario creare la struttura del
+progetto secondo quanto specificato dalla documentazione del programma.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.7]{project_structure}
+  \caption{Tipica struttura di un progetto Apex}
+\end{figure}
+
+% http://apex.run/#structuring-projects
+Come è possibile notare nella figura, sono presenti diversi file di
+configurazione di tipo \glslink{javascript_object_notation}{JSON}. Prima
+dell'estensione del file è possibile notare come siano appuntati i vari tipi di
+environment, per cui è possibile creare una configurazione diversa.
+All'interno del file "project.<environment>.json" è possibile inserire i
+seguenti campi:
+\begin{itemize}
+  \item \textbf{name}: il nome del progetto;
+  \item \textbf{description}: una descrizione del progetto (questo campo può
+essere opzionale);
+  \item \textbf{runtime}: specifica a Apex il tipo di linguaggio e la versione
+dell'interprete che è necessario utilizzare. Le versioni attualmente supportate
+dallo strumento sono maggiori di quelle che permette il servizio Amazon Lambda,
+che è limitato solamente ai linguaggi come JavaScript, Python e Java. Le
+opzioni disponibile per questo campo sono:
+  \begin{itemize}
+    \item java (utilizzo di Java versione 8)
+    \item python (versione 2.7)
+    \item nodejs (versione 0.10)
+    \item nodejs4.3 (versione 4.3)
+    \item golang (qualsiasi versione)
+  \end{itemize}
+
+  \item \textbf{memory}: la memoria che le varie macchine lambda disporranno.
+La memoria utilizzabile varia da un minimo di 128 MB di RAM fino a un massimo
+di 1536MB di RAM. Questo campo richiede l'inserimento di un intero;
+  \item \textbf{timeout}: il tempo massimo di esecuzione della singola funzione
+lambda: infatti è possibile che la macchina abbia dei periodi di esecuzioni più
+lunghi che non sono desiderati (soprattutto, per esempio, in ambienti
+\textit{realtime}). Se l'esecuzione supera il limite qui impostato,
+l'esecuzione verrà interrotta. Questo valore attualmente può essere impostato a
+un massimo di 5 minuti;
+  %http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
+  \item \textbf{role}: all'interno dell'ambiente Amazon AWS sono presenti i
+ruoli, che danno la possibilità di definire i permessi delle varie risorse
+all'interno del servizio, siano essi utenti della compagnia o codice in
+esecuzione. Ogni permesso è identificato tramite un \textit{Amazon Resource
+Names} (anche abbreviato in ARN), che segue la seguente definizione:
+\begin{verbatim}
+  arn:partition:service:region:account-id:resource
+\end{verbatim}
+dove:
+  \begin{itemize}
+    \item[arn] identifica che si tratta di un ruolo;
+
+    \item[partition] indica il tipo di luogo in cui si trova la risorsa.
+Attualmente è solamente disponibile il valore "aws";
+
+    \item[service] indica il servizio. Nel caso della configurazione necessaria
+per il tirocinio, il valore è stato impostato a "lambda";
+
+    \item[region] indica la regione dove questa risorsa è allocata. Amazon AWS
+Services è un servizio presente in più regioni del mondo, e ogni regione
+permette di avere una propria configurazione;
+
+    \item[account-id] indica l'id dell'\textit{account} con cui si sta
+assegnando il permesso;
+
+    \item[resource] è il nome della risorsa, che è univoco per quel determinato
+servizio nella regione selezionata.
+  \end{itemize}
+  L'assegnazione di un ruolo è obbligatoria e se non correttamente configurato
+durante l'esecuzione del codice si potrebbero riscontrare problemi con i
+permessi.
+
+  \item \textbf{name-template}: questo campo indica il nome che la funzione
+avrà quando sarà caricata nel servizio Amazon Lambda. Questo nome infatti può
+essere personalizzato usando delle sequenze pre-definite. Seguendo le
+convenzioni stabilite all'interno di PastBook, il nome è stato definito in
+questa maniera:
+\begin{verbatim}
+  {{.Project.Environment}}-{{.Function.Name}}
+\end{verbatim}
+Dove nella prima parte sarà il tipo di ambiente in cui verrà caricata la
+funzione (ovvero o \textit{dev} o \textit{qa} o \textit{prod}) mentre nella
+seconda si avrà il nome della cartella che ospita il codice della funzione;
+
+  \item \textbf{handler}: questo parametro indica il nome del metodo della
+funzione che Amazon Lambda chiamerà quando ne sarà richiesta l'esecuzione.
 \end{itemize}
