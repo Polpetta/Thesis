@@ -169,6 +169,8 @@ comunque eseguito in remoto);
 Per utilizzare questo strumento è stato necessario creare la struttura del
 progetto secondo quanto specificato dalla documentazione del programma.
 
+\paragraph*{Struttura di un progetto Apex}
+
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.7]{project_structure}
@@ -258,3 +260,31 @@ seconda si avrà il nome della cartella che ospita il codice della funzione;
   \item \textbf{handler}: questo parametro indica il nome del metodo della
 funzione che Amazon Lambda chiamerà quando ne sarà richiesta l'esecuzione.
 \end{itemize}
+
+
+Una volta definito il file di configurazione per il progetto è possibile
+cominciare a lavorare sulle funzioni che poi verranno caricate nel servizio
+Amazon Lambda. Queste funzioni devono trovarsi all'interno di una propria
+cartella all'interno di "function". Il nome della cartella indicherà anche il
+nome della funzione. Per ogni funzione è poi possibile scrivere il codice che
+verrà eseguito.
+
+
+\paragraph*{Personalizzazione delle configurazioni} Apex è uno strumento
+flessibile che permette di definire in maniera dettagliata ulteriori
+configurazioni per ogni funzione, tramite la definizione di un file
+"function.<environment>.json". Anche questo file è un oggetto di tipo
+\glslink{javascript_object_notation}{JSON}, con gli stessi campi del file
+"project.<environment>.json": ciò permette una ridefinizione dei valori dei
+campi che si vuole personalizzare per quella funzione, consentendo quindi
+la creazione di una configurazione globale per tutto il progetto e una
+personalizzata per ogni funzione.
+Come convenzione interna della compagnia è stato deciso di nominare tutti i
+file che vengono poi eseguiti dal servizio Lambda con il nome di
+\textit{index.js}.
+
+
+\paragraph{Gestione e caricamento delle dipendenze} Il \textit{bot} durante lo
+sviluppo ha richiesto la necessità di dipendenze di terze parti, e per questo è
+stato deciso di integrarle tramite il gestore di moduli JavaScript NPM. 
+%indicare cosa succede quando si carica il tutto
