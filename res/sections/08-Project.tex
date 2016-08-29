@@ -156,7 +156,7 @@ codice, si è deciso di utilizzare lo strumento open source Apex.
 
 \subsubsection{Apex}
 % http://apex.run/
-Apex è un tool che permette di automatizzare la fase di distribuzione del
+Apex è uno strumento che permette di automatizzare la fase di distribuzione del
 codice sorgente con configurazioni personalizzabili in base all'ambiente in cui
 si distribuisce il programma. Oltre a queste funzionalità, permette anche di:
 \begin{itemize}
@@ -186,11 +186,11 @@ seguenti campi:
   \item \textbf{name}: il nome del progetto;
   \item \textbf{description}: una descrizione del progetto (questo campo può
 essere opzionale);
-  \item \textbf{runtime}: specifica a Apex il tipo di linguaggio e la versione
-dell'interprete che è necessario utilizzare. Le versioni attualmente supportate
-dallo strumento sono maggiori di quelle che permette il servizio Amazon Lambda,
-che è limitato solamente ai linguaggi come JavaScript, Python e Java. Le
-opzioni disponibile per questo campo sono:
+  \item \textbf{runtime}: specifica ad Apex il tipo di linguaggio e la versione
+dell'interprete per il linguaggio scelto che è necessario utilizzare. Le
+versioni attualmente supportate dallo strumento sono maggiori di quelle che
+permette il servizio Amazon Lambda, che è limitato solamente ai linguaggi come
+JavaScript, Python e Java. Le opzioni disponibile per questo campo sono:
   \begin{itemize}
     \item java (utilizzo di Java versione 8)
     \item python (versione 2.7)
@@ -201,13 +201,15 @@ opzioni disponibile per questo campo sono:
 
   \item \textbf{memory}: la memoria che le varie macchine lambda disporranno.
 La memoria utilizzabile varia da un minimo di 128 MB di RAM fino a un massimo
-di 1536MB di RAM. Questo campo richiede l'inserimento di un intero;
-  \item \textbf{timeout}: il tempo massimo di esecuzione della singola funzione
-lambda: infatti è possibile che la macchina abbia dei periodi di esecuzioni più
-lunghi che non sono desiderati (soprattutto, per esempio, in ambienti
-\textit{realtime}). Se l'esecuzione supera il limite qui impostato,
+di 1536MB di RAM. Questo campo richiede l'inserimento di un valore intero;
+
+  \item \textbf{timeout}: indica il tempo massimo di esecuzione della singola
+funzione lambda: infatti è possibile che la macchina abbia dei periodi di
+esecuzione più lunghi che non sono desiderati (soprattutto, per esempio, in
+ambienti \textit{realtime}). Se l'esecuzione supera il limite impostato,
 l'esecuzione verrà interrotta. Questo valore attualmente può essere impostato a
 un massimo di 5 minuti;
+
   %http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
   \item \textbf{role}: all'interno dell'ambiente Amazon AWS sono presenti i
 ruoli, che danno la possibilità di definire i permessi delle varie risorse
@@ -243,7 +245,7 @@ permessi.
 
   \item \textbf{name-template}: questo campo indica il nome che la funzione
 avrà quando sarà caricata nel servizio Amazon Lambda. Questo nome infatti può
-essere personalizzato usando delle sequenze pre-definite. Seguendo le
+essere personalizzato usando delle sequenze predefinite. Seguendo le
 convenzioni stabilite all'interno di PastBook, il nome è stato definito in
 questa maniera:
 \begin{verbatim}
