@@ -286,5 +286,8 @@ file che vengono poi eseguiti dal servizio Lambda con il nome di
 
 \paragraph{Gestione e caricamento delle dipendenze} Il \textit{bot} durante lo
 sviluppo ha richiesto la necessità di dipendenze di terze parti, e per questo è
-stato deciso di integrarle tramite il gestore di moduli JavaScript NPM. 
+stato deciso di integrarle tramite il gestore di moduli JavaScript NPM.
+All'azione di caricamento, Apex riconosce la dipendenza da altri moduli
+JavaScript, provvedendo quindi a generare un file .zip che li contenga tutti e
+a caricarli nel servizio.
 %indicare cosa succede quando si carica il tutto
