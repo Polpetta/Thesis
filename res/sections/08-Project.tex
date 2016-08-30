@@ -326,7 +326,42 @@ presenti su quell'utente; % FIXME: descrizione non corretta, da rivedere.
 provvede ad aggiungere quell'immagine nel database di PastBot assegnandola
 all'ultima collezione di foto attiva.
 \end{itemize}
+
+Questa suddivisione tra API e il bot che ha il compito di ricevere i messaggi è
+stata determinata anche grazie al servizio Amazon AWS APIGateway
 % TODO: parlare anche del bot "processFacebookMessengerCallback" e spiegare
 % meglio che cosa fa.
 
+
+\paragraph*{Gestione e instradamento delle richieste}
+APIGateway è uno dei molti servizi presenti all'interno di Amazon AWS Services
+che permette la definizione e la gestione di API in maniera semplice.
+Oltre a una facile gestione, si hanno anche ulteriori vantaggi:
+\begin{itemize}
+  \item integrazione nativa di con tutti gli altri servizi offerti da Amazon
+AWS;
+  \item gestione integrata dei permessi e controllo degli accessi;
+  \item monitoraggio del volume di richieste;
+  \item versionamento delle API;
+  \item grazie alla distribuzione del servizio in varie parti del mondo viene
+assicurata una bassa latenza per prestazioni maggiori.
+\end{itemize}
+%Questo servizio permette inoltre anche la definizione di API in base
+%all'ambiente desiderato, e si integra autonomamente con le funzioni Lambda. Ciò
+%ha permesso di distribuire in maniera facile il codice e gli indirizzi per le
+%API in base all'ambiente desiderato.
+La definizione di un determinato URL permette di configurare l'evento ad esso
+associato in base al tipo di richiesta CRUD. Al momento della definizione, è
+necessario selezionare quale servizio gestirà la richiesta. Ai fini del
+progetto, a ogni URL è stata associata una chiamata a una specifica funzione
+Lambda.
+
+In questa maniera, tramite l'utilizzo di un gestore di API si è potuto definire
+un servizio serverless ben incapsulato: infatti chi andrà a effettuare le
+chiamate alle varie API non sarà a conoscenza di come esse sono strutturate
+internamente e di come esse verranno gestite.
 % TODO: da parlare anche del servizio API Gateway.
+% TODO: parlare e introdurre anche Swagger.
+% FIXME: definizione di URL?
+% FIXME: definizione di crud?
+% FIXME: definizione di backend?
