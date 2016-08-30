@@ -290,3 +290,43 @@ stato deciso di integrarle tramite il gestore di moduli JavaScript NPM.
 All'azione di caricamento, Apex riconosce la dipendenza da altri moduli
 JavaScript, provvedendo quindi a generare un file .zip che li contenga tutti e
 a caricarli nel servizio.
+
+
+\paragraph*{Progettazione della struttura serverless} La progettazione di
+un'archittettura di tipo \textit{serverless} ha portato alla creazione di due
+parti principali del bot, ovvero una parte dedicata solamente alla ricezione
+dei messaggi e all'interazione con l'utente e la rimanente per eseguire le
+operazioni sui database non relazionali.
+% FIXME: meglio aggiungere la definizione API come voce glossario?
+La parte riguardante le operazioni sui database non relazionali è stata
+suddivisa ulteriormente, e ogni funzionalità è stata posta in una "funzione"
+AWS Lambda apposita, in maniera tale da aver una miglior gestione delle
+risorse. Si è deciso di chiamare questa parte \textbf{API}. Le API decise in
+fase di progettazione sono le seguenti:
+\begin{itemize}
+  \item \textbf{addPastBotMessage}: aggiunge i messaggi ricevuti nel database
+ai fini di raccolta dati;
+
+  \item \textbf{createPastBotCollection}: questa API si occupa della creazione
+di nuovi album;
+
+  \item \textbf{createPastBotUser}: si occupa della creazione di nuovi utenti
+che scriveranno PastBot;
+
+  \item \textbf{deletePastBotCollectionPhoto}: si occupa della cancellazione di
+una singola foto da una determinata collezione;
+
+  \item \textbf{getPastBotCollection}: ritorna la collezione attualmente attiva
+dato un id di un utente iscritto;
+
+  \item \textbf{getPastBotUser}: ritorna tutte le informazioni attualmente
+presenti su quell'utente; % FIXME: descrizione non corretta, da rivedere.
+
+  \item \textbf{putPastBotCollectionPhoto}: dato un URL di un'immagine valido,
+provvede ad aggiungere quell'immagine nel database di PastBot assegnandola
+all'ultima collezione di foto attiva.
+\end{itemize}
+% TODO: parlare anche del bot "processFacebookMessengerCallback" e spiegare
+% meglio che cosa fa.
+
+% TODO: da parlare anche del servizio API Gateway.
