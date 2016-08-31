@@ -328,15 +328,15 @@ all'ultima collezione di foto attiva.
 \end{itemize}
 
 Questa suddivisione tra API e il bot che ha il compito di ricevere i messaggi è
-stata determinata anche grazie al servizio Amazon AWS APIGateway
+stata determinata anche grazie al servizio Amazon AWS APIGateway.
 % TODO: parlare anche del bot "processFacebookMessengerCallback" e spiegare
 % meglio che cosa fa.
 
 
 \paragraph*{Gestione e instradamento delle richieste}
-APIGateway è uno dei molti servizi presenti all'interno di Amazon AWS Services
-che permette la definizione e la gestione di API in maniera semplice.
-Oltre a una facile gestione, si hanno anche ulteriori vantaggi:
+APIGateway è uno dei molti servizi presenti all'interno di Amazon AWS Services.
+Oltre a permettere la definizione e la gestione di API in maniera
+semplice mette anche a disposizione:
 \begin{itemize}
   \item integrazione nativa di con tutti gli altri servizi offerti da Amazon
 AWS;
@@ -360,8 +360,42 @@ In questa maniera, tramite l'utilizzo di un gestore di API si è potuto definire
 un servizio serverless ben incapsulato: infatti chi andrà a effettuare le
 chiamate alle varie API non sarà a conoscenza di come esse sono strutturate
 internamente e di come esse verranno gestite.
+Le API hanno richiesto una loro definizione e una loro progettazione prima di
+essere implementate su APIGateway, e per compiere questo passo si è ricorsi
+allo strumento Swagger.
 % TODO: da parlare anche del servizio API Gateway.
+
+
+\paragraph*{Definizione e progettazione delle API}
+Swagger è uno strumento potente che permette la rappresentazione di API di
+tipo RESTful. È utilizzabile tramite la definizione di un file di
+configurazione di tipo YAML, e utilizzando questo strumento è necessario oltre
+alla definizione della API scriverne la relativa documentazione: in  questa
+maniera si vengono a definire i punti d'accesso all'applicazione e se ne compie
+anche una loro descrizione. È possibile definire il file di tipo YAML tramite
+l'aiuto di un apposito editor di testo.
+
+La decisione di usare questo strumento per definire i punti d'accesso
+all'applicazione è stata presa in merito al supporto nativo che il servizio
+Amazon AWS APIGateway fornisce. Quindi si è proceduti nella seguente maniera:
+\begin{enumerate}
+  \item progettazione dei punti d'accesso all'applicazione;
+  \item definizione dei punti d'accesso in un file Swagger;
+  \item configurazione del servizio APIGateway tramite il caricamento del file
+Swagger.
+\end{enumerate}
+
+
+L'utilizzo di un file di configurazione porta alla possibilità di
+tenere il file sotto uno strumento di versionamento, e quindi di poterne avere
+sempre una storia associata al progetto, inoltre, in caso ci siano problemi o
+errori sarà più facile individuali essendo la definizione il tutta in un unico
+file, e non distribuita nell'interfaccia grafica dello strumento di comando di
+APIGateway.
 % TODO: parlare e introdurre anche Swagger.
 % FIXME: definizione di URL?
 % FIXME: definizione di crud?
 % FIXME: definizione di backend?
+% FIXME: definizione di API?
+% FIXME: definizione di REST?
+% FIXME: definiznioe di YAML?
