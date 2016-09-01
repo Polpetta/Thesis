@@ -292,6 +292,7 @@ JavaScript, provvedendo quindi a generare un file .zip che li contenga tutti e
 a caricarli nel servizio.
 
 
+% TODO: spiegare meglio cos'è l'architettura serverless?
 \paragraph*{Progettazione della struttura serverless} La progettazione di
 un'archittettura di tipo \textit{serverless} ha portato alla creazione di due
 parti principali del bot, ovvero una parte dedicata solamente alla ricezione
@@ -392,7 +393,34 @@ sempre una storia associata al progetto, inoltre, in caso ci siano problemi o
 errori sarà più facile individuali essendo la definizione il tutta in un unico
 file, e non distribuita nell'interfaccia grafica dello strumento di comando di
 APIGateway.
+Il sistema di versionamento utilizzato durante il tirocinio è stato Git
 % TODO: parlare e introdurre anche Swagger.
+
+
+% FIXME: rivedere l'ordine di quando si parla di git, forse è meglio spostarlo
+%prima
+\paragraph*{Git}
+\label{tecnologie:git}
+Git è un sistema di versionamento, ovvero uno strumento che aiuta i
+programmatori a tenere traccia delle modifiche che un file o una porzione di
+codice ricevono. Utilizzare questo sistema di versionamento ha diversi vantaggi
+anche a livello organizzativo, e ha permesso durante la codifica di
+sperimentare diverse soluzioni ai problemi incontrati tramite l'utilizzo di
+diversi rami di sviluppo. Grazie a tale strumento, si è anche potuto evitare
+casi di sovrascrittura del codice, ovvero quando due programmatori vanno a
+modificare una medesima porzione del programma.
+
+A ogni versione stabile del software raggiunta nel ramo \textit{prod}, si è
+deciso di rilasciare un \textit{tag}, ovvero un'etichetta che identifica in
+maniera univoca quella determinata versione del codice. Così facendo, si può
+avere uno storico delle versioni stabili.
+% Il resto su git è già stato detto nell'introduzione
+
+\paragraph*{DnamoDB}
+DynamoDB è un altro dei servizi che Amazon AWS mette a disposizione. Questo
+servizio offre un database di tipo \glslink{nosql}{NoSQL}.
+% TODO: parlare anche di DynamoDB
+% TODO: parlare anche delle API di Facebook Messenger
 % FIXME: definizione di URL?
 % FIXME: definizione di crud?
 % FIXME: definizione di backend?
