@@ -287,6 +287,17 @@ file che vengono poi eseguiti dal servizio Lambda con il nome di
 \paragraph*{Gestione e caricamento delle dipendenze} Il \textit{bot} durante lo
 sviluppo ha richiesto la necessità di dipendenze di terze parti, e per questo è
 stato deciso di integrarle tramite il gestore di moduli JavaScript NPM.
+% TODO: parlare di NPM?
+
+NPM è un acronimo per Node Package Manager, e provvede a fornire una serie di
+moduli creati da altri utenti. Questi moduli possono instaurare delle dipendeze
+tra di loro, creando un sistema in cui il riutilizzo gioca un ruolo chiave.
+Questa cooperazione di pacchetti permette la creazione di altro software in
+maniera più semplice.
+NPM offre anche la possibilità di rendere i pacchetti privati e non
+condivisibili pubblicamente, permettendo ad aziende di sviluppare codice
+proprietario in moduli per riutilizzarlo per diversi progetti interni.
+
 All'azione di caricamento, Apex riconosce la dipendenza da altri moduli
 JavaScript, provvedendo quindi a generare un file .zip che li contenga tutti e
 a caricarli nel servizio.
@@ -418,9 +429,59 @@ avere uno storico delle versioni stabili.
 
 \paragraph*{DynamoDB}
 DynamoDB è un altro dei servizi che Amazon AWS mette a disposizione. Questo
-servizio offre un database di tipo \glslink{nosql}{NoSQL}.
+servizio offre un database flessibile di tipo \glslink{nosql}{NoSQL}, per tutti
+quei servizi che necessitano di poca latenza e debbano scalare in un futuro.
+AWS DynamoDB è totalmente gestito da Amazon, ed è consigliato per le
+applicazioni legate al mondo del web.
+Ai fini di PastBot, DynamoDB è stato essenziale per salvare i messaggi, gli
+utenti e gli album con le relative foto facilmente inviando direttamente
+oggetti di tipo \glslink{javascript_object_notation}{JSON}.
 % TODO: parlare anche di DynamoDB
+
+\paragraph*{Integrazione con Messenger e Facebook}
+PastBot è nato per essere integrato con le API della piattaforma di
+messaggistica istantanea Facebook Messenger.
+Prima di poter cominciare a sviluppare un bot per la piattaforma Messenger è
+necessario creare un'applicazione dalla sezione sviluppatori di Facebook.
+Una volta creata l'applicazione, è stato possibile creare un codice univoco
+utilizzabile dal bot per inviare e ricevere contenuti.
+Messenger mette a disposizione una lista selezionabile di eventi che si desidera
+inviare al bot, dove gli eventi sono:
+\begin{itemize}
+  \item ricezione di un messaggio;
+  \item pressione di un bottone o di un link dal menù permanente;
+  \item ricezione di un messaggio dal bottone "Invia a Messenger";
+  \item ricezione della notifica di ricezione del messaggio da parte
+dell'utente;
+  \item ricezione del messaggio inviato all'utente (anche detto \textit{echo}).
+\end{itemize}
+
+Le azioni eseguibili dal bot sono la notifica all'utente che si otterrà a breve
+una risposta e l'invio di messaggi, che possono essere di diverso tipo:
+\begin{itemize}
+  \item messaggi di testo;
+  \item immagini;
+  \item video;
+  \item immagini con risposte rapide. Le risposte rapide sono dei bottoni
+presenti subito sotto il messaggio del bot, che possono aiutare l'utente perché
+non è necessario digitare testo per rispondere al bot, ma è possibile
+selezionare una risposta in maniera rapida;
+  \item messaggi composti da titolo, sottotitolo, un'immagine e dei bottoni
+opzionali;
+  \item invio di ricevute di acquisto.
+\end{itemize}
+
+Durante lo sviluppo del bot avere a disposizione diversi tipi di messaggi da
+poter inviare si è rivelato molto utili al fine di poter creare una maggiore
+interazione con l'utente e ottenere in generale un risultato migliore e più
+appetibile per l'utenza.
 % TODO: parlare anche delle API di Facebook Messenger
+
+L'applicazione creata è poi stata associata a una pagina di Facebook. In questa
+maniera gli utenti, scrivendo alla pagina, mandano il messaggio direttamente al
+bot che provvederà poi a rispondergli nella maniera adeguata.
+% TODO: parlare dell'integrazione con Facebook?
+
 % FIXME: definizione di URL?
 % FIXME: definizione di crud?
 % FIXME: definizione di backend?
