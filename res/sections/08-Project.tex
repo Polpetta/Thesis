@@ -29,7 +29,7 @@ andarsele a cercare nel sito della compagnia.
 %igent-service-luis
 %https://wit.ai/
 Questo ha fatto spingere i grandi colossi come Microsoft e Facebook stessa a
-spingere molto verso la branchia dell'intelligenza artificiale, per poter dare
+investire verso la branchia dell'intelligenza artificiale, per poter dare
 alle macchine la possibilità di interpretare al meglio il linguaggio naturale
 degli esseri umani.
 
@@ -72,9 +72,9 @@ inviare anche altri contenuti, come file generici o video. In questo caso, il
 senza lanciare un messaggio di errore o fermare l'operazione di caricamento.
 Questa scelta è stata presa in quando è possibile che questo tipo di errore
 avvenga maggiormente quando l'utente vuole inviare un gran numero di foto nella
-chat, e eseguire azioni come segnalare l'errore o fermare il processo di
+chat, ed eseguire azioni come segnalare l'errore o fermare il processo di
 salvataggio delle immagini potrebbe portare a reazioni come frustrazione e
-fastidio nel dover eseguire di nuovo queste operazioni.
+fastidio.
 
 \paragraph*{Errori di interpretazioni} È anche possibile che le persone
 commettano degli errori nell'interpretare il senso della frase che il
@@ -83,7 +83,7 @@ richiesta dal \textit{bot}. Un tipico esempio potrebbe essere richiedere la
 lista delle foto di un album che è attualmente vuoto. In questo caso il
 \textit{bot} segnalerà all'utente che l'azione non è disponibile, e provvederà
 a fornirgli una lista di azioni che può intraprendere. In questa maniera si
-inviterà l'utente a continuare attivamente la discussione.
+inviterà a continuare attivamente la conversazione.
 
 \subsection{Azioni intraprendibili dall'utente}
 
@@ -111,34 +111,35 @@ creando;
 
 \subsubsection{Amazon AWS Lambda}
 %https://aws.amazon.com/lambda/
-PastBook basa i suoi servizi nel \textit{cloud} grazie a Amazon AWS Services.
+% TODO: inserire logo
+PastBook basa i suoi servizi nel \gls{cloud} grazie a Amazon AWS Services.
 Per realizzare il \textit{bot} è quindi stato deciso di pensarlo utilizzando
-un'architettura serverless con database non relazionali (ovvero di tipo
-\glslink{nosql}{NoSQL}). Un'architettura di questo tipo porta a diversi
-vantaggi:
+un'architettura \glslink{serverless}{serverless} con database non relazionali
+(ovvero di tipo \glslink{nosql}{NoSQL}). Un'architettura di questo tipo porta a
+diversi vantaggi:
 
 \begin{itemize}
 
   \item nessun costo di amministrazione dei server in cui il programma viene
 eseguito;
-  \item \textit{scaling} automatico dell'applicazione in base alle richieste in
-arrivo, per offrire un servizio all'utenza senza interruzioni;
+  \item l'applicazione ha la possibilità di scalare in automatico in base alle
+richieste in arrivo, per offrire un servizio all'utenza senza interruzioni;
   \item i costi sono legati solamente al tempo di esecuzione effettivo del
-programma nel \textit{cloud};
+programma nel \gls{cloud};
   \item risorse automaticamente gestite;
-  \item \textit{log} automatico dell'applicazione;
+  \item reigstrazione automatica degli eventi dell'applicazione;
   \item raccolta automatica di metriche e statistiche sull'utilizzo delle
 risorse;
-  \item tutto l'ambiente è all'interno dello stesso \textit{cloud}, permettendo
+  \item tutto l'ambiente è all'interno dello stesso \gls{cloud}, permettendo
 una comunicazione interna molto rapida e riducendo i tempi di chiamate delle
-varie API.
+varie \gls{api}.
 \end{itemize}
 
 Questo tipo di vantaggi ha permesso anche durante il tirocinio di focalizzarsi
 prevalentemente nella stesura del codice senza preoccuparsi della parte di
 amministrazione del sistema.
 
-Il servizio \textit{cloud} utilizzato nello specifico si chiama Amazon AWS
+Il servizio \gls{cloud} utilizzato nello specifico si chiama Amazon AWS
 Lambda, e permette di configurare quante risorse per quanto tempo il programma
 potrà avere.
 AWS Lambda permette di caricare il codice sotto forma di "funzioni". Queste
@@ -156,6 +157,7 @@ codice, si è deciso di utilizzare lo strumento open source Apex.
 
 \subsubsection{Apex}
 % http://apex.run/
+% TODO: inserire logo
 Apex è uno strumento che permette di automatizzare la fase di distribuzione del
 codice sorgente con configurazioni personalizzabili in base all'ambiente in cui
 si distribuisce il programma. Oltre a queste funzionalità, permette anche di:
@@ -163,7 +165,7 @@ si distribuisce il programma. Oltre a queste funzionalità, permette anche di:
   \item eseguire la funzione direttamente da linea di comando (il codice verrà
 comunque eseguito in remoto);
   \item visualizzazione di metriche sull'utilizzo del programma;
-  \item visualizzazione di \textit{log} di esecuzione.
+  \item visualizzazione dei registri di esecuzione.
 \end{itemize}
 
 Per utilizzare questo strumento è stato necessario creare la struttura del
@@ -201,21 +203,20 @@ JavaScript, Python e Java. Le opzioni disponibile per questo campo sono:
     \item golang (qualsiasi versione)
   \end{itemize}
 
-  \item \textbf{memory}: la memoria che le varie macchine lambda disporranno.
+  \item \textbf{memory}: la memoria che le varie macchine Lambda disporranno.
 La memoria utilizzabile varia da un minimo di 128 MB di RAM fino a un massimo
 di 1536MB di RAM. Questo campo richiede l'inserimento di un valore intero;
 
   \item \textbf{timeout}: indica il tempo massimo di esecuzione della singola
-funzione lambda: infatti è possibile che la macchina abbia dei periodi di
-esecuzione più lunghi che non sono desiderati (soprattutto, per esempio, in
-ambienti \textit{realtime}). Se l'esecuzione supera il limite impostato,
-l'esecuzione verrà interrotta. Questo valore attualmente può essere impostato a
-un massimo di 5 minuti;
+funzione Lambda: infatti è possibile che la macchina abbia dei periodi di
+esecuzione più lunghi di quelli desiderati. Se l'esecuzione supera il limite
+impostato, l'esecuzione della funzione verrà interrotta. Questo valore
+attualmente può essere impostato a un massimo di 5 minuti;
 
   %http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
   \item \textbf{role}: all'interno dell'ambiente Amazon AWS sono presenti i
 ruoli, che danno la possibilità di definire i permessi delle varie risorse
-all'interno del servizio, siano essi utenti della compagnia o codice in
+all'interno del servizio, siano essi utenti della compagnia o servizi in
 esecuzione. Ogni permesso è identificato tramite un \textit{Amazon Resource
 Names} (anche abbreviato in ARN), che segue la seguente definizione:
 \begin{verbatim}
@@ -241,7 +242,7 @@ assegnando il permesso;
     \item[resource] è il nome della risorsa, che è univoco per quel determinato
 servizio nella regione selezionata.
   \end{itemize}
-  L'assegnazione di un ruolo è obbligatoria e se non correttamente configurato
+  L'assegnazione di un ruolo è obbligatorio e se non correttamente configurato
 durante l'esecuzione del codice si potrebbero riscontrare problemi con i
 permessi.
 
@@ -273,21 +274,20 @@ verrà eseguito.
 \paragraph*{Personalizzazione delle configurazioni} Apex è uno strumento
 flessibile che permette di definire in maniera dettagliata ulteriori
 configurazioni per ogni funzione, tramite la definizione di un file
-"function.<environment>.json". Anche questo file è un oggetto di tipo
+"\textit{function.<environment>.json}". Anche questo file è un oggetto di tipo
 \glslink{javascript_object_notation}{JSON}, con gli stessi campi del file
-"project.<environment>.json": ciò permette una ridefinizione dei valori dei
-campi che si vuole personalizzare per quella funzione, consentendo quindi
+"\textit{project.<environment>.json}": ciò permette una ridefinizione dei valori
+dei campi che si vuole personalizzare per quella funzione, consentendo quindi
 la creazione di una configurazione globale per tutto il progetto e una
-personalizzata per ogni funzione.
+personalizzata per ogni funzionalità.
 Come convenzione interna della compagnia è stato deciso di nominare tutti i
 file che vengono poi eseguiti dal servizio Lambda con il nome di
 \textit{index.js}.
 
-
-\paragraph*{Gestione e caricamento delle dipendenze} Il \textit{bot} durante lo
-sviluppo ha richiesto la necessità di dipendenze di terze parti, e per questo è
-stato deciso di integrarle tramite il gestore di moduli JavaScript NPM.
-% TODO: parlare di NPM?
+% TODO: logo npm?
+\paragraph*{NPM} Il \textit{bot} durante lo sviluppo ha richiesto la necessità
+di dipendenze di terze parti, e per questo è stato deciso di integrarle tramite
+il gestore di moduli JavaScript NPM.
 
 NPM è un acronimo per Node Package Manager, e provvede a fornire una serie di
 moduli creati da altri utenti. Questi moduli possono instaurare delle dipendeze
@@ -295,35 +295,33 @@ tra di loro, creando un sistema in cui il riutilizzo gioca un ruolo chiave.
 Questa cooperazione di pacchetti permette la creazione di altro software in
 maniera più semplice.
 NPM offre anche la possibilità di rendere i pacchetti privati e non
-condivisibili pubblicamente, permettendo ad aziende di sviluppare codice
+condivisibili pubblicamente, consentendo ad aziende di sviluppare codice
 proprietario in moduli per riutilizzarlo per diversi progetti interni.
 
 All'azione di caricamento, Apex riconosce la dipendenza da altri moduli
 JavaScript, provvedendo quindi a generare un file .zip che li contenga tutti e
 a caricarli nel servizio.
 
-
-% TODO: spiegare meglio cos'è l'architettura serverless?
-\paragraph*{Progettazione della struttura serverless} La progettazione di
-un'archittettura di tipo \textit{serverless} ha portato alla creazione di due
-parti principali del bot, ovvero una parte dedicata solamente alla ricezione
-dei messaggi e all'interazione con l'utente e la rimanente per eseguire le
-operazioni sui database non relazionali.
+\paragraph*{Progettazione della struttura \glslink{serverless}{serverless}} La
+progettazione di un'architettura di tipo \glslink{serverless}{serverless} ha
+portato alla creazione di due parti principali del \textit{bot}, ovvero una
+parte dedicata solamente alla ricezione dei messaggi e all'interazione con
+l'utente e la rimanente per eseguire le operazioni sui database non relazionali.
 % FIXME: meglio aggiungere la definizione API come voce glossario?
 La parte riguardante le operazioni sui database non relazionali è stata
 suddivisa ulteriormente, e ogni funzionalità è stata posta in una "funzione"
 AWS Lambda apposita, in maniera tale da aver una miglior gestione delle
-risorse. Si è deciso di chiamare questa parte \textbf{API}. Le API decise in
-fase di progettazione sono le seguenti:
+risorse. Si è deciso di chiamare questa parte \gls{api}. Le \gls{api} decise in
+fase di progettazione sono state le seguenti:
 \begin{itemize}
   \item \textbf{addPastBotMessage}: aggiunge i messaggi ricevuti nel database
 ai fini di raccolta dati;
 
-  \item \textbf{createPastBotCollection}: questa API si occupa della creazione
-di nuovi album;
+  \item \textbf{createPastBotCollection}: questa \gls{api} si occupa della
+creazione di nuovi album;
 
-  \item \textbf{createPastBotUser}: si occupa della creazione di nuovi utenti
-che scriveranno PastBot;
+  \item \textbf{createPastBotUser}: si occupa della creazione dei nuovi utenti
+che scriveranno a PastBot;
 
   \item \textbf{deletePastBotCollectionPhoto}: si occupa della cancellazione di
 una singola foto da una determinata collezione;
@@ -332,60 +330,53 @@ una singola foto da una determinata collezione;
 dato un id di un utente iscritto;
 
   \item \textbf{getPastBotUser}: ritorna tutte le informazioni attualmente
-presenti su quell'utente; % FIXME: descrizione non corretta, da rivedere.
+presenti su quell'utente, come la lista delle collezioni create e la lista
+attualmente attiva e ;
 
-  \item \textbf{putPastBotCollectionPhoto}: dato un URL di un'immagine valido,
-provvede ad aggiungere quell'immagine nel database di PastBot assegnandola
-all'ultima collezione di foto attiva.
+  \item \textbf{putPastBotCollectionPhoto}: dato un \gls{url} di un'immagine
+valido, provvede ad aggiungere quell'immagine nel database di PastBot
+assegnandola all'ultima collezione di foto attiva.
 \end{itemize}
 
-Questa suddivisione tra API e il bot che ha il compito di ricevere i messaggi è
-stata determinata anche grazie al servizio Amazon AWS APIGateway.
-% TODO: parlare anche del bot "processFacebookMessengerCallback" e spiegare
-% meglio che cosa fa.
-
+Questa suddivisione tra \gls{api} e il bot che ha il compito di ricevere i
+messaggi è stata determinata anche grazie al servizio Amazon AWS APIGateway.
 
 \paragraph*{Gestione e instradamento delle richieste}
 APIGateway è uno dei molti servizi presenti all'interno di Amazon AWS Services.
-Oltre a permettere la definizione e la gestione di API in maniera
+Oltre a permettere la definizione e la gestione di \gls{api} in maniera
 semplice mette anche a disposizione:
 \begin{itemize}
   \item integrazione nativa di con tutti gli altri servizi offerti da Amazon
 AWS;
   \item gestione integrata dei permessi e controllo degli accessi;
   \item monitoraggio del volume di richieste;
-  \item versionamento delle API;
+  \item versionamento delle \gls{api};
   \item grazie alla distribuzione del servizio in varie parti del mondo viene
 assicurata una bassa latenza per prestazioni maggiori.
 \end{itemize}
-%Questo servizio permette inoltre anche la definizione di API in base
-%all'ambiente desiderato, e si integra autonomamente con le funzioni Lambda. Ciò
-%ha permesso di distribuire in maniera facile il codice e gli indirizzi per le
-%API in base all'ambiente desiderato.
-La definizione di un determinato URL permette di configurare l'evento ad esso
-associato in base al tipo di richiesta CRUD. Al momento della definizione, è
-necessario selezionare quale servizio gestirà la richiesta. Ai fini del
-progetto, a ogni URL è stata associata una chiamata a una specifica funzione
-Lambda.
+La definizione di un determinato \gls{url} permette di configurare l'evento ad
+esso associato in base al tipo di richiesta \gls{crud}. Al momento della
+definizione, è necessario selezionare quale servizio gestirà la richiesta. Ai
+fini del progetto, a ogni \gls{url} è stata associata una chiamata a una
+specifica funzione Lambda.
 
-In questa maniera, tramite l'utilizzo di un gestore di API si è potuto definire
-un servizio serverless ben incapsulato: infatti chi andrà a effettuare le
-chiamate alle varie API non sarà a conoscenza di come esse sono strutturate
-internamente e di come esse verranno gestite.
-Le API hanno richiesto una loro definizione e una loro progettazione prima di
-essere implementate su APIGateway, e per compiere questo passo si è ricorsi
-allo strumento Swagger.
-% TODO: da parlare anche del servizio API Gateway.
+In questa maniera, tramite l'utilizzo di un gestore di \gls{api} si è potuto
+definire un servizio \glslink{serverless}{serverless} ben incapsulato: infatti
+chi andrà a effettuare le chiamate alle varie \gls{api} non sarà a conoscenza di
+come esse sono strutturate internamente e di come esse verranno gestite.
+Le \gls{api} hanno richiesto una loro definizione e una loro progettazione
+prima di essere implementate su APIGateway, e per compiere questo passo si è
+ricorsi allo strumento Swagger.
 
 
-\paragraph*{Definizione e progettazione delle API}
-Swagger è uno strumento potente che permette la rappresentazione di API di
-tipo RESTful. È utilizzabile tramite la definizione di un file di
-configurazione di tipo YAML, e utilizzando questo strumento è necessario oltre
-alla definizione della API scriverne la relativa documentazione: in  questa
+\paragraph*{Definizione e progettazione delle \gls{api}}
+Swagger è uno strumento potente che permette la rappresentazione di \gls{api}
+per il web. È utilizzabile tramite la definizione di un file di configurazione
+di tipo \gls{yaml}, e utilizzando questo strumento è necessario oltre alla
+definizione della \gls{api} scriverne la relativa documentazione: in questa
 maniera si vengono a definire i punti d'accesso all'applicazione e se ne compie
-anche una loro descrizione. È possibile definire il file di tipo YAML tramite
-l'aiuto di un apposito editor di testo.
+anche una loro descrizione. È possibile definire il file di tipo \gls{yaml}
+tramite l'aiuto di un apposito editor di testo.
 
 La decisione di usare questo strumento per definire i punti d'accesso
 all'applicazione è stata presa in merito al supporto nativo che il servizio
@@ -401,11 +392,10 @@ Swagger.
 L'utilizzo di un file di configurazione porta alla possibilità di
 tenere il file sotto uno strumento di versionamento, e quindi di poterne avere
 sempre una storia associata al progetto, inoltre, in caso ci siano problemi o
-errori sarà più facile individuali essendo la definizione il tutta in un unico
+errori sarà più facile individuali essendo la definizione tutta in un unico
 file, e non distribuita nell'interfaccia grafica dello strumento di comando di
 APIGateway.
 Il sistema di versionamento utilizzato durante il tirocinio è stato Git
-% TODO: parlare e introdurre anche Swagger.
 
 
 % FIXME: rivedere l'ordine di quando si parla di git, forse è meglio spostarlo
@@ -434,17 +424,20 @@ quei servizi che necessitano di poca latenza e debbano scalare in un futuro.
 AWS DynamoDB è totalmente gestito da Amazon, ed è consigliato per le
 applicazioni legate al mondo del web.
 Ai fini di PastBot, DynamoDB è stato essenziale per salvare i messaggi, gli
-utenti e gli album con le relative foto facilmente inviando direttamente
-oggetti di tipo \glslink{javascript_object_notation}{JSON}.
-% TODO: parlare anche di DynamoDB
+utenti e gli album con le relative foto. Il trasferimento dei dati è stato
+eseguito inviando direttamente oggetti di tipo
+\glslink{javascript_object_notation}{JSON} al database.
 
 \paragraph*{Integrazione con Messenger e Facebook}
-PastBot è nato per essere integrato con le API della piattaforma di
+PastBot è nato per essere integrato con le \gls{api} della piattaforma di
 messaggistica istantanea Facebook Messenger.
 Prima di poter cominciare a sviluppare un bot per la piattaforma Messenger è
-necessario creare un'applicazione dalla sezione sviluppatori di Facebook.
-Una volta creata l'applicazione, è stato possibile creare un codice univoco
-utilizzabile dal bot per inviare e ricevere contenuti.
+necessario creare un'applicazione dalla sezione dedicata agli sviluppatori per
+Facebook.
+Una volta creata l'applicazione, è stato possibile creare un codice
+identificativo univoco utilizzabile dal \textit{bot} per inviare e ricevere
+contenuti.
+
 Messenger mette a disposizione una lista selezionabile di eventi che si desidera
 inviare al bot, dove gli eventi sono:
 \begin{itemize}
@@ -462,10 +455,10 @@ una risposta e l'invio di messaggi, che possono essere di diverso tipo:
   \item messaggi di testo;
   \item immagini;
   \item video;
-  \item immagini con risposte rapide. Le risposte rapide sono dei bottoni
-presenti subito sotto il messaggio del bot, che possono aiutare l'utente perché
-non è necessario digitare testo per rispondere al bot, ma è possibile
-selezionare una risposta in maniera rapida;
+  \item immagini con risposte rapide\footnote{Le risposte rapide sono dei
+bottoni presenti subito sotto il messaggio del bot, che possono aiutare
+l'utente perché non è necessario digitare testo per rispondere al bot, ma è
+possibile selezionare una risposta in maniera rapida.};
   \item messaggi composti da titolo, sottotitolo, un'immagine e dei bottoni
 opzionali;
   \item invio di ricevute di acquisto.
@@ -474,15 +467,8 @@ opzionali;
 Durante lo sviluppo del bot avere a disposizione diversi tipi di messaggi da
 poter inviare si è rivelato molto utili al fine di poter creare una maggiore
 interazione con l'utente e ottenere in generale un risultato migliore e più
-appetibile per l'utenza.
-% TODO: parlare anche delle API di Facebook Messenger
+appetibile.
 
 L'applicazione creata è poi stata associata a una pagina di Facebook. In questa
 maniera gli utenti, scrivendo alla pagina, mandano il messaggio direttamente al
 bot che provvederà poi a rispondergli nella maniera adeguata.
-% TODO: parlare dell'integrazione con Facebook?
-
-% FIXME: definizione di backend?
-% FIXME: definizione di API?
-% FIXME: definizione di REST?
-% FIXME: definiznioe di YAML?
