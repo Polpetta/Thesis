@@ -157,7 +157,12 @@ codice, si è deciso di utilizzare lo strumento open source Apex.
 
 \subsubsection{Apex}
 % http://apex.run/
-% TODO: inserire logo
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{ApexLogo}
+  \caption{Logo di Apex}
+\end{figure}
+
 Apex è uno strumento che permette di automatizzare la fase di distribuzione del
 codice sorgente con configurazioni personalizzabili in base all'ambiente in cui
 si distribuisce il programma. Oltre a queste funzionalità, permette anche di:
@@ -270,7 +275,6 @@ cartella all'interno di "function". Il nome della cartella indicherà anche il
 nome della funzione. Per ogni funzione è poi possibile scrivere il codice che
 verrà eseguito.
 
-
 \paragraph*{Personalizzazione delle configurazioni} Apex è uno strumento
 flessibile che permette di definire in maniera dettagliata ulteriori
 configurazioni per ogni funzione, tramite la definizione di un file
@@ -284,10 +288,16 @@ Come convenzione interna della compagnia è stato deciso di nominare tutti i
 file che vengono poi eseguiti dal servizio Lambda con il nome di
 \textit{index.js}.
 
-% TODO: logo npm?
-\paragraph*{NPM} Il \textit{bot} durante lo sviluppo ha richiesto la necessità
-di dipendenze di terze parti, e per questo è stato deciso di integrarle tramite
-il gestore di moduli JavaScript NPM.
+\subsubsection{NPM}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.08]{NpmLogo}
+  \caption{Logo di NPM}
+\end{figure}
+
+Il \textit{bot} durante lo sviluppo ha richiesto la
+necessità di dipendenze di terze parti, e per questo è stato deciso di
+integrarle tramite il gestore di moduli JavaScript NPM.
 
 NPM è un acronimo per Node Package Manager, e provvede a fornire una serie di
 moduli creati da altri utenti. Questi moduli possono instaurare delle dipendeze
@@ -302,8 +312,8 @@ All'azione di caricamento, Apex riconosce la dipendenza da altri moduli
 JavaScript, provvedendo quindi a generare un file .zip che li contenga tutti e
 a caricarli nel servizio.
 
-\paragraph*{Progettazione della struttura \glslink{serverless}{serverless}} La
-progettazione di un'architettura di tipo \glslink{serverless}{serverless} ha
+\subsubsection{Progettazione della struttura \glslink{serverless}{serverless}}
+La progettazione di un'architettura di tipo \glslink{serverless}{serverless} ha
 portato alla creazione di due parti principali del \textit{bot}, ovvero una
 parte dedicata solamente alla ricezione dei messaggi e all'interazione con
 l'utente e la rimanente per eseguire le operazioni sui database non relazionali.
@@ -331,7 +341,7 @@ dato un id di un utente iscritto;
 
   \item \textbf{getPastBotUser}: ritorna tutte le informazioni attualmente
 presenti su quell'utente, come la lista delle collezioni create e la lista
-attualmente attiva e ;
+attualmente attiva;
 
   \item \textbf{putPastBotCollectionPhoto}: dato un \gls{url} di un'immagine
 valido, provvede ad aggiungere quell'immagine nel database di PastBot
@@ -341,8 +351,14 @@ assegnandola all'ultima collezione di foto attiva.
 Questa suddivisione tra \gls{api} e il bot che ha il compito di ricevere i
 messaggi è stata determinata anche grazie al servizio Amazon AWS APIGateway.
 
-\paragraph*{Gestione e instradamento delle richieste}
-APIGateway è uno dei molti servizi presenti all'interno di Amazon AWS Services.
+\subsubsection{APIGateway}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{ApigatewayLogo}
+  \caption{Logo di APIGateway}
+\end{figure}
+APIGateway è uno dei molti servizi presenti all'interno di Amazon AWS Services
+e serve per la gestione e instradamento delle richieste.
 Oltre a permettere la definizione e la gestione di \gls{api} in maniera
 semplice mette anche a disposizione:
 \begin{itemize}
@@ -369,18 +385,23 @@ prima di essere implementate su APIGateway, e per compiere questo passo si è
 ricorsi allo strumento Swagger.
 
 
-\paragraph*{Definizione e progettazione delle \gls{api}}
+\subsubsection{Swagger}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{SwaggerLogo}
+  \caption{Logo di Swagger}
+\end{figure}
 Swagger è uno strumento potente che permette la rappresentazione di \gls{api}
-per il web. È utilizzabile tramite la definizione di un file di configurazione
-di tipo \gls{yaml}, e utilizzando questo strumento è necessario oltre alla
-definizione della \gls{api} scriverne la relativa documentazione: in questa
-maniera si vengono a definire i punti d'accesso all'applicazione e se ne compie
-anche una loro descrizione. È possibile definire il file di tipo \gls{yaml}
-tramite l'aiuto di un apposito editor di testo.
+per il web con relativa documentazione. È utilizzabile tramite la definizione
+di un file di configurazione di tipo \gls{yaml}: in questa maniera si vengono a
+definire i punti d'accesso all'applicazione e se ne compie anche una loro
+descrizione. È possibile definire il file di tipo \gls{yaml} tramite l'aiuto di
+un apposito editor di testo.
 
 La decisione di usare questo strumento per definire i punti d'accesso
 all'applicazione è stata presa in merito al supporto nativo che il servizio
-Amazon AWS APIGateway fornisce. Quindi si è proceduti nella seguente maniera:
+Amazon AWS APIGateway fornisce a Swagger. Quindi si è proceduti nella seguente
+maniera:
 \begin{enumerate}
   \item progettazione dei punti d'accesso all'applicazione;
   \item definizione dei punti d'accesso in un file Swagger;
@@ -395,13 +416,17 @@ sempre una storia associata al progetto, inoltre, in caso ci siano problemi o
 errori sarà più facile individuali essendo la definizione tutta in un unico
 file, e non distribuita nell'interfaccia grafica dello strumento di comando di
 APIGateway.
-Il sistema di versionamento utilizzato durante il tirocinio è stato Git
+Il sistema di versionamento utilizzato durante il tirocinio è stato Git.
 
 
 % FIXME: rivedere l'ordine di quando si parla di git, forse è meglio spostarlo
 %prima
-\paragraph*{Git}
-\label{tecnologie:git}
+\subsubsection{Git}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{GitLogo}
+  \caption{Logo di Git}
+\end{figure}
 Git è un sistema di versionamento, ovvero uno strumento che aiuta i
 programmatori a tenere traccia delle modifiche che un file o una porzione di
 codice ricevono. Utilizzare questo sistema di versionamento ha diversi vantaggi
@@ -417,9 +442,14 @@ maniera univoca quella determinata versione del codice. Così facendo, si può
 avere uno storico delle versioni stabili.
 % Il resto su git è già stato detto nell'introduzione
 
-\paragraph*{DynamoDB}
+\subsubsection{DynamoDB}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.08]{DynamoDBLogo}
+  \caption{Logo di DynamoDB}
+\end{figure}
 DynamoDB è un altro dei servizi che Amazon AWS mette a disposizione. Questo
-servizio offre un database flessibile di tipo \glslink{nosql}{NoSQL}, per tutti
+offre un database flessibile di tipo \glslink{nosql}{NoSQL}, per tutti
 quei servizi che necessitano di poca latenza e debbano scalare in un futuro.
 AWS DynamoDB è totalmente gestito da Amazon, ed è consigliato per le
 applicazioni legate al mondo del web.
@@ -428,7 +458,12 @@ utenti e gli album con le relative foto. Il trasferimento dei dati è stato
 eseguito inviando direttamente oggetti di tipo
 \glslink{javascript_object_notation}{JSON} al database.
 
-\paragraph*{Integrazione con Messenger e Facebook}
+\subsubsection{Messenger e Facebook}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{MessengerLogo}
+  \caption{Logo di Messenger}
+\end{figure}
 PastBot è nato per essere integrato con le \gls{api} della piattaforma di
 messaggistica istantanea Facebook Messenger.
 Prima di poter cominciare a sviluppare un bot per la piattaforma Messenger è
@@ -461,14 +496,42 @@ l'utente perché non è necessario digitare testo per rispondere al bot, ma è
 possibile selezionare una risposta in maniera rapida.};
   \item messaggi composti da titolo, sottotitolo, un'immagine e dei bottoni
 opzionali;
-  \item invio di ricevute di acquisto.
+  \item invio di ricevute d'acquisto.
 \end{itemize}
 
-Durante lo sviluppo del bot avere a disposizione diversi tipi di messaggi da
-poter inviare si è rivelato molto utili al fine di poter creare una maggiore
-interazione con l'utente e ottenere in generale un risultato migliore e più
-appetibile.
+Durante lo sviluppo del \textit{bot} avere a disposizione diversi tipi di
+messaggi da poter inviare si è rivelato molto utile al fine di poter creare una
+maggiore interazione con l'utente e ottenere in generale un risultato migliore
+e più appetibile.
 
 L'applicazione creata è poi stata associata a una pagina di Facebook. In questa
 maniera gli utenti, scrivendo alla pagina, mandano il messaggio direttamente al
 bot che provvederà poi a rispondergli nella maniera adeguata.
+
+
+\subsubsection{DashBot}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{DashBotLogo}
+  \caption{Logo di DashBot}
+\end{figure}
+La compagnia ha ritenuto importante raccogliere dati sull'utilizzo del
+\textit{bot} per poter offrire un servizio migliore all'utenza in futuro. Per
+adempiere a questo obiettivo è stato deciso di utilizzare la piattaforma web
+\textit{dashbot.io}. DashBot è un servizio web gratuito che mette a
+disposizione delle \gls{api} ai programmatori dove poter inviare i messaggi
+ricevuti e i messaggi che si ha intenzione di inviare. Una volta inviato il
+contenuto del messaggio, il servizio si preoccuperà di analizzarne il contenuto
+ed estrapolarne le informazioni sull'utente (nazionalità, sesso, lingua madre)
+e sul tipo di contenuto inviato (testo o allegato). In base a questi fattori, è
+in grado di creare statistiche riguardo a:
+\begin{itemize}
+  \item livello di intrattenimento;
+  \item ritorno dell'utenza;
+  \item numero di messaggi scambiati per utente;
+  \item conteggio dei messaggi ricevuti e inviati;
+  \item tipo di testo ricevuto;
+  \item lunghezza delle sessioni di chat per utente.
+\end{itemize}
+I dati vengono poi mostrati tramite diversi tipi di grafici e permette di avere
+una visione generale sull'utilizzo del \textit{bot} e sul suo gradimento.
