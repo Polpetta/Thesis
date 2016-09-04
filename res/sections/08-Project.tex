@@ -11,7 +11,7 @@ Facebook o Instagram. Ma questi momenti tendono a svanire col tempo o possono
 perdersi nella vastità di internet. Quello che PastBook offre è la
 possibilità di renderli permanenti in un album fotografico prendendo i momenti
 salvati nei \textit{social network}. Questa operazione è resa ancora più
-semplice se il tutto è assistito da un \textit{bot}, che rende il processo più e
+semplice se il tutto è assistito da un \textit{bot}, che rende il processo più
 \textit{user-friendly}.
 
 \subsection{L'era dei \textit{bot}}
@@ -44,7 +44,7 @@ Appena uscita la possibilità di creare \textit{bot} su Facebook e collegarli
 alle pagine delle aziende PastBook si è subito attivata per creare il suo
 \textit{bot} che aiuti le persone nella creazione degli album in maniera
 interattiva rendendo facile il loro acquisto in seguito. Questo permette anche
-agli utenti la creazione e acquisto di album comodamente e direttamente da
+agli utenti la creazione e l'acquisto di album comodamente e direttamente da
 Facebook.
 
 Una volta arrivato nella pagina della società, l'utente non deve far altro che
@@ -81,7 +81,7 @@ chat, ed eseguire azioni come segnalare l'errore o fermare il processo di
 salvataggio delle immagini potrebbe portare a reazioni come frustrazione e
 fastidio.
 
-\paragraph*{Errori di interpretazioni} È anche possibile che le persone
+\paragraph*{Errori di interpretazione} È anche possibile che le persone
 commettano degli errori nell'interpretare il senso della frase che il
 \textit{bot} manda loro. Questo potrebbe portare a un errore nella procedura
 richiesta dal \textit{bot}. Un tipico esempio potrebbe essere richiedere la
@@ -93,7 +93,7 @@ inviterà a continuare attivamente la conversazione.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.35]{PastBotLandingPage}
-  \caption{Presentazione del bot all'utenza finale}
+  \caption{Presentazione del \textit{bot} all'utenza finale}
 \end{figure}
 
 \subsection{Azioni intraprendibili dall'utente}
@@ -168,7 +168,7 @@ definibili e personalizzabili nella configurazione della funzione, oppure si pu�
 scegliere di ricevere tutti i campi dell'evento.
 Per poter automatizzare anche questa configurazione, creando
 quindi un sistema completamente automatizzato per la distribuzione del
-codice, si è deciso di utilizzare lo strumento open source Apex.
+codice, si è deciso di utilizzare lo strumento liberamente disponibile Apex.
 
 \subsubsection{Apex}
 % http://apex.run/
@@ -203,7 +203,7 @@ progetto secondo quanto specificato dalla documentazione del programma.
 Come è possibile notare nella figura, sono presenti diversi file di
 configurazione di tipo \glslink{javascript_object_notation}{JSON}. Prima
 dell'estensione del file è possibile notare come siano appuntati i vari tipi di
-environment, per cui è possibile creare una configurazione diversa.
+\textit{environment}, per cui è possibile creare una configurazione diversa.
 All'interno del file "project.<environment>.json" è possibile inserire i
 seguenti campi:
 \begin{itemize}
@@ -214,7 +214,7 @@ essere opzionale);
 dell'interprete per il linguaggio scelto che è necessario utilizzare. Le
 versioni attualmente supportate dallo strumento sono maggiori di quelle che
 permette il servizio Amazon Lambda, che è limitato solamente ai linguaggi come
-JavaScript, Python e Java. Le opzioni disponibile per questo campo sono:
+JavaScript, Python e Java. Le opzioni disponibili per questo campo sono:
   \begin{itemize}
     \item java (utilizzo di Java versione 8)
     \item python (versione 2.7)
@@ -238,7 +238,7 @@ attualmente può essere impostato a un massimo di 5 minuti;
 ruoli, che danno la possibilità di definire i permessi delle varie risorse
 all'interno del servizio, siano essi utenti della compagnia o servizi in
 esecuzione. Ogni permesso è identificato tramite un \textit{Amazon Resource
-Names} (anche abbreviato in ARN), che segue la seguente definizione:
+Name} (anche abbreviato in ARN), che segue la seguente definizione:
 \begin{verbatim}
   arn:partition:service:region:account-id:resource
 \end{verbatim}
@@ -274,9 +274,10 @@ questa maniera:
 \begin{verbatim}
   {{.Project.Environment}}-{{.Function.Name}}
 \end{verbatim}
-Dove nella prima parte sarà il tipo di ambiente in cui verrà caricata la
-funzione (ovvero o \textit{dev} o \textit{qa} o \textit{prod}) mentre nella
-seconda si avrà il nome della cartella che ospita il codice della funzione;
+Dove nella prima parte sarà il tipo di ambiente (\textit{environment}) in cui
+verrà caricata la funzione (ovvero o \textit{dev} o \textit{qa} o
+\textit{prod}) mentre nella seconda si avrà il nome della cartella che ospita
+il codice della funzione;
 
   \item \textbf{handler}: questo parametro indica il nome del metodo della
 funzione che Amazon Lambda chiamerà quando ne sarà richiesta l'esecuzione.
@@ -366,6 +367,8 @@ assegnandola all'ultima collezione di foto attiva.
 Questa suddivisione tra \gls{api} e il bot che ha il compito di ricevere i
 messaggi è stata determinata anche grazie al servizio Amazon AWS APIGateway.
 
+\newpage
+
 \subsubsection{APIGateway}
 \begin{figure}[H]
   \centering
@@ -373,7 +376,7 @@ messaggi è stata determinata anche grazie al servizio Amazon AWS APIGateway.
   \caption{Logo di APIGateway}
 \end{figure}
 APIGateway è uno dei molti servizi presenti all'interno di Amazon AWS Services
-e serve per la gestione e instradamento delle richieste.
+e serve per la gestione e l'instradamento delle richieste.
 Oltre a permettere la definizione e la gestione di \gls{api} in maniera
 semplice mette anche a disposizione:
 \begin{itemize}
@@ -433,9 +436,8 @@ file, e non distribuita nell'interfaccia grafica dello strumento di comando di
 APIGateway.
 Il sistema di versionamento utilizzato durante il tirocinio è stato Git.
 
+\newpage
 
-% FIXME: rivedere l'ordine di quando si parla di git, forse è meglio spostarlo
-%prima
 \subsubsection{Git}
 \begin{figure}[H]
   \centering
@@ -481,15 +483,15 @@ eseguito inviando direttamente oggetti di tipo
 \end{figure}
 PastBot è nato per essere integrato con le \gls{api} della piattaforma di
 messaggistica istantanea Facebook Messenger.
-Prima di poter cominciare a sviluppare un bot per la piattaforma Messenger è
-necessario creare un'applicazione dalla sezione dedicata agli sviluppatori per
-Facebook.
+Prima di poter cominciare a sviluppare un \textit{bot} per la piattaforma
+Messenger è necessario creare un'applicazione dalla sezione dedicata agli
+sviluppatori per Facebook.
 Una volta creata l'applicazione, è stato possibile creare un codice
 identificativo univoco utilizzabile dal \textit{bot} per inviare e ricevere
 contenuti.
 
 Messenger mette a disposizione una lista selezionabile di eventi che si desidera
-inviare al bot, dove gli eventi sono:
+inviare al \textit{bot}, dove gli eventi sono:
 \begin{itemize}
   \item ricezione di un messaggio;
   \item pressione di un bottone o di un link dal menù permanente;
@@ -499,15 +501,16 @@ dell'utente;
   \item ricezione del messaggio inviato all'utente (anche detto \textit{echo}).
 \end{itemize}
 
-Le azioni eseguibili dal bot sono la notifica all'utente che si otterrà a breve
-una risposta e l'invio di messaggi, che possono essere di diverso tipo:
+Le azioni eseguibili dal \textit{bot} sono la notifica all'utente che si
+otterrà a breve una risposta e l'invio di messaggi, che possono essere di
+diverso tipo:
 \begin{itemize}
   \item messaggi di testo;
   \item immagini;
   \item video;
-  \item immagini con risposte rapide\footnote{Le risposte rapide sono dei
-bottoni presenti subito sotto il messaggio del bot, che possono aiutare
-l'utente perché non è necessario digitare testo per rispondere al bot, ma è
+  \item messaggi di testo con risposte rapide\footnote{Le risposte rapide sono
+dei bottoni presenti subito sotto il messaggio del \textit{bot}, che possono
+aiutare l'utente perché non è necessario digitare testo per rispondergli, ma è
 possibile selezionare una risposta in maniera rapida.};
   \item messaggi composti da titolo, sottotitolo, un'immagine e dei bottoni
 opzionali;
@@ -521,7 +524,7 @@ e più appetibile.
 
 L'applicazione creata è poi stata associata a una pagina di Facebook. In questa
 maniera gli utenti, scrivendo alla pagina, mandano il messaggio direttamente al
-bot che provvederà poi a rispondergli nella maniera adeguata.
+\textit{bot} che provvederà poi a rispondergli nella maniera adeguata.
 
 
 \subsubsection{DashBot}
