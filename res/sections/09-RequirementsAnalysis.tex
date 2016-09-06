@@ -20,3 +20,47 @@ accolta favorevolmente in buona parte.
 Si è quindi passati all'interazione con il reparto di codifica, che ha dovuto
 eseguire un'analisi dei requisiti per estrapolare i casi d'uso prima di poter
 cominciare a progettare il prodotto.
+
+\section{Requisiti di PastBot}
+
+PastBot suddivide l'utenza in due categorie principali:
+l'utenza non registrata, ovvero che non ha mai scritto al bot e
+l'utenza registrata, cioè che ha almeno una volta scritto al bot.
+
+\subsection{Caso d'uso UC0: caso d'uso generale}
+\label{uc:uc0}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{useCase/UC0}
+  \caption{Caso d'uso UC0: caso d'uso generale}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Non Autenticato, Utente Autenticato;
+  \item \textbf{Descrizione}: un utente inanzitutto deve iniziare la
+conversazione con il bot. Dopo di che avrà a disposizione il sistema di
+conversazione in cui poter mandare messaggi al bot;
+  \item \textbf{Precondizione}: l'utente deve aver un account Messenger e deve
+averci effettuato la connessione;
+  \item \textbf{Postcondizione}: il sistema ha erogato le funzionalità
+richieste dall'utente;
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item L'Utente Non Autenticato può iniziare una conversazione per la prima
+volta in assoluto
+    \item L'Utente Autenticato può inviare una richiesta di creazione nuovo
+album % FIXME: ref
+    \item L'Utente Autenticato può inviare una richiesta visualizzazione album
+esistente
+    \item L'Utente Autenticato può inviare richiesta informazione sui costi
+    \item L'Utente Autenticato può inviare comando di aiuto
+    \item L'Utente Autenticato può inviare richiesta di visualizzazione
+dell'album nel sito web
+    \item L'Utente Autenticato può inviare un comando non valido
+    \item L'Utente Autenticato può inviare uno \textit{sticker}
+    \item L'Utente Autenticato può inviare un allegato % FIXME: ref
+    \item L'Utente Autenticato può visualizzare il menù permanente.
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}: nessuno.
+\end{itemize}
