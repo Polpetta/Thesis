@@ -65,6 +65,32 @@ dell'album nel sito web
   \item \textbf{Scenari alternativi}: nessuno.
 \end{itemize}
 
+
+% \newpage % TODO: non penso serva, meglio controllare però
+
+\subsection{UC1: inizio conversazione per la prima volta in assoluto}
+\label{uc:uc1}
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Non Autenticato;
+  \item \textbf{Descrizione}: L'Utente Non Autenticato vuole scrivere al bot
+per la prima volta in assoluto. Per fare questa azione dovrà premere il bottone
+"Inizia" presente in Messenger.
+  \item \textbf{Precondizione}: L'Utente Non Autenticato è iscritto alla
+piattaforma di messaggistica Facebook Messenger
+  \item \textbf{Postcondizione}: L'Utente Non Autenticato ha inviato con
+successo il suo primo messaggio al bot
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item L'Utente Non Autenticato clicca sul bottone apposito per iniziare la
+conversazione
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}: nessuno
+\end{itemize}
+
+
+
+%%% INIZIO SEZIONE USE CASE 2 %%%
 \newpage
 
 \subsection{UC2: invio richiesta di creazione di un nuovo album}
@@ -94,7 +120,74 @@ il proprio album
   \item \textbf{Scenari alternativi}: nessuno.
 \end{itemize}
 
+%\newpage
 
+\subsection{UC2.1: risposta affermativa al messaggio di conferma Creazione
+nuovo album}
+\label{uc:uc2.1}
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Autenticato;
+  \item \textbf{Descrizione}: L'Utente Autenticato conferma la decisione di
+voler creare un nuovo album
+  \item \textbf{Precondizione}: L'Utente Autenticato ha richiesto la creazione
+di un nuovo album
+  \item \textbf{Postcondizione}: L'Utente Autenticato ha confermato con
+successo la volontà di creare un nuovo album
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item L'Utente Autenticato conferma positivamente la creazione di un nuovo
+album
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}: nessuno
+\end{itemize}
+
+
+%\newpage
+
+\subsection{UC2.2: risposta negativa al messaggio di conferma Creazione nuovo
+album}
+\label{uc:uc2.2}
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Autenticato;
+  \item \textbf{Descrizione}: L'Utente Autenticato decide di non voler più
+creare un nuovo album
+  \item \textbf{Precondizione}: L'Utente Autenticato ha richiesto la creazione
+di un nuovo album
+  \item \textbf{Postcondizione}: L'Utente Autenticato ha confermato con
+successo la volontà di non procedere alla creazione di un nuovo album
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item L'Utente Autenticato conferma negativamente la creazione di un nuovo
+album
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}: nessuno
+\end{itemize}
+
+
+%\newpage
+
+\subsection{UC2.3: creazione di un nuovo album}
+\label{uc:uc2.3}
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Autenticato;
+  \item \textbf{Descrizione}: Si ottiene un nuovo album vuoto in cui sarà
+possibile inserire nuove foto
+  \item \textbf{Precondizione}: L'Utente Autenticato ha confermato
+positivamente la volontà di creare un nuovo album
+  \item \textbf{Postcondizione}: L'Utente Autenticato dispone di un nuovo album
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item L'Utente Autenticato ha confermato positivamente la creazione di un
+nuovo album
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}: nessuno
+\end{itemize}
+
+
+%%% FINE SEZIONE USE CASE 2 %%%
 \newpage
 
 \subsection{UC3: invio richiesta di visualizzazione foto dell'album esistente}
@@ -162,6 +255,7 @@ aiuto
   \item \textbf{Scenari alternativi}: nessuno
 \end{itemize}
 
+% TODO: descrizione di tutti gli altri casi d'uso senza l'immagine!
 
 % TEMPLATE USECASE
 %\newpage
