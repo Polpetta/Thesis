@@ -95,6 +95,39 @@ il proprio album
 \end{itemize}
 
 
+\newpage
+
+\subsection{UC3: invio richiesta di visualizzazione foto dell'album esistente}
+\label{uc:uc3}
+
+% FIXME: manca scenario alternativo in UC0.png in cui se viene richiesta una
+%lista di un album senza nulla viene segnalato un messaggio di errore.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{useCase/UC3}
+  \caption{UC3: invio richiesta di visualizzazione foto dell'album esistente}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Autenticato;
+  \item \textbf{Descrizione}: l'Utente può richiedere la visualizzazione della
+lista delle foto attualmente caricate, su cui può decidere di cancellarne
+alcune, di visualizzarle senza perdita di risoluzione di di acquistarle in un
+album.
+  \item \textbf{Precondizione}: l'Utente Autenticato ha cominciato la
+conversazione con il bot
+  \item \textbf{Postcondizione}: l'Utente Autenticato ha visualizzato con
+successo la lista delle foto presenti nel proprio album
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item L'Utente Autenticato cancella una singola foto dall'album
+    \item L'Utente Autenticato visualizza una singola foto dell'album alla
+massima risoluzione disponibile
+    \item L'Utente Autenticato richiede l'acquisto dell'album
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}: % FIXME: manca il fatto di un album vuoto
+\end{itemize}
 
 
 
