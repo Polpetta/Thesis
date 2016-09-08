@@ -27,13 +27,13 @@ PastBot suddivide l'utenza in due categorie principali:
 l'utenza non registrata, ovvero che non ha mai scritto al bot e
 l'utenza registrata, cioè che ha almeno una volta scritto al bot.
 
-\subsection{Caso d'uso UC0: caso d'uso generale}
+\subsection{UC0: caso d'uso generale}
 \label{uc:uc0}
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.4]{useCase/UC0}
-  \caption{Caso d'uso UC0: caso d'uso generale}
+  \caption{UC0: caso d'uso generale}
 \end{figure}
 
 \begin{itemize}
@@ -188,9 +188,11 @@ nuovo album
 
 
 %%% FINE SEZIONE USE CASE 2 %%%
+
+%%% INIZIO SEZIONE USE CASE 3 %%%
 \newpage
 
-\subsection{UC3: invio richiesta di visualizzazione foto dell'album esistente}
+\subsection{UC3: visualizzazione foto dell'album attivo}
 \label{uc:uc3}
 
 % FIXME: manca scenario alternativo in UC0.png in cui se viene richiesta una
@@ -199,7 +201,7 @@ nuovo album
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.35]{useCase/UC3}
-  \caption{UC3: invio richiesta di visualizzazione foto dell'album esistente}
+  \caption{UC3: visualizzazione foto dell'album attivo}
 \end{figure}
 
 \begin{itemize}
@@ -222,6 +224,80 @@ massima risoluzione disponibile
   \item \textbf{Scenari alternativi}: % FIXME: manca il fatto di un album vuoto
 \end{itemize}
 
+
+%\newpage
+
+\subsection{UC3.1: cancellazione singola foto}
+\label{uc:uc3.1}
+
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Autenticato;
+  \item \textbf{Descrizione}: L'Utente Autenticato richiede la cancellazione di
+una foto dall'album
+  \item \textbf{Precondizione}: L'Utente Autenticato ha la lista delle foto
+presenti nell'album
+  \item \textbf{Postcondizione}: L'Utente Autenticato ha rimosso con successo
+una foto dall'album
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item L'Utente Autenticato invia la richiesta per rimuovere una foto
+dall'album
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}:
+  \begin{enumerate}
+    \item L'Utente Autenticato riceve un messaggio di errore nella
+cancellazione della foto % ref?
+  \end{enumerate}
+\end{itemize}
+
+
+%\newpage
+
+\subsection{UC3.2: visualizzazione singola foto nel browser}
+\label{uc:uc3.2}
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Autenticato;
+  \item \textbf{Descrizione}: L'Utente Autenticato vuole visualizzare in maniera
+dettagliata e con la massima qualità disponibile una foto presente nell'album
+  \item \textbf{Precondizione}: L'Utente Autenticato ha la lista delle foto
+presenti nell'album
+  \item \textbf{Postcondizione}: L'Utente Autenticato ha visualizzato con
+successo una foto dall'album
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item L'Utente Autenticato visualizza la foto dall'album
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}: nessuno
+\end{itemize}
+
+
+%\newpage
+
+\subsection{UC3.4: acquisto album}
+\label{uc:uc3.4}
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Autenticato;
+  \item \textbf{Descrizione}: L'Utente Autenticato è soddisfatto dell'album
+creato e vuole procederne all'aquisto.
+  \item \textbf{Precondizione}: L'Utente Autenticato ha la lista delle foto
+presenti nell'album e in quell'album ci sono almeno 20 foto
+  \item \textbf{Postcondizione}: L'Utente Autenticato ha acquistato con
+successo l'album
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item L'Utente Autenticato acquista l'album
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}:
+  \begin{enumerate}
+    \item L'Utente Autenticato ottiene un messaggio di errore di acquisto album
+  \end{enumerate}
+\end{itemize}
+
+
+%%% FINE SEZIONE USE CASE 3 %%%
 \newpage
 
 \subsection{UC11: visualizzazione menù permanente}
