@@ -480,21 +480,26 @@ di successo di salvataggio dell'allegato
 
 
 %\newpage
-%
-%\subsection{UC10: invio richiesta di creazione di un nuovo album}
-%\label{uc:uc10}
 
-%\begin{itemize}
-%  \item \textbf{Attori}: Utente Non Autenticato, Utente Autenticato;
-%  \item \textbf{Descrizione}:
-%  \item \textbf{Precondizione}:
-%  \item \textbf{Postcondizione}:
-%  \item \textbf{Flusso principale}:
-%  \begin{enumerate}
-%    \item
-%  \end{enumerate}
-%  \item \textbf{Scenari alternativi}:
-%\end{itemize}
+\subsection{UC10: visualizzazione messaggio di errore per tipo di allegato non
+valido}
+\label{uc:uc10}
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Autenticato;
+  \item \textbf{Descrizione}: questo messaggio di errore viene visualizzato
+quando viene inviato un tipo di allegato che non sia una immagine a PastBot
+  \item \textbf{Precondizione}: l'Utente Autenticato ha cominciato la
+conversazione con il bot
+  \item \textbf{Postcondizione}: l'Utente Autenticato visualizza un messaggio
+di errore
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item l'Utente Autenticato invia un allegato che non è un0immagine
+supportata.
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}: nessuno
+\end{itemize}
 
 
 \newpage
