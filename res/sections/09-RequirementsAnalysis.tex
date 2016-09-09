@@ -343,6 +343,160 @@ all'impossibilità di effettuare l'acquisto per mancanza di foto
 
 
 %%% FINE SEZIONE USE CASE 3 %%%
+
+
+%\newpage
+
+\subsection{UC4: invio richiesta di informazioni sui costi}
+\label{uc:uc4}
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Autenticato;
+  \item \textbf{Descrizione}: permette all'Utente Autenticato di avere
+informazioni riguardo ai costi degli album e ai relativi costi di spedizione
+  \item \textbf{Precondizione}: L'Utente Autenticato ha cominciato la
+conversazione con il bot
+  \item \textbf{Postcondizione}: L'Utente Autenticato ha visualizzato con
+successo le informazioni sui costi
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item L'Utente Autenticato richiede le informazioni relative ai costi
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}: nessuno
+\end{itemize}
+
+
+%\newpage
+
+\subsection{UC5: invio comando di aiuto}
+\label{uc:uc5}
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Autenticato;
+  \item \textbf{Descrizione}: in caso l'Utente Autenticato si trovi in una
+situazione di difficoltà e non sappia quale operazione intraprendere, ha la
+possibilità di chiedere aiuto per ricevedere delle istruzioni su come
+utilizzare PastBot
+  \item \textbf{Precondizione}: L'Utente Autenticato ha cominciato la
+conversazione con il bot
+  \item \textbf{Postcondizione}: L'Utente Autenticato ha visualizzato con
+successo le istruzioni sull'utilizzo di PastBot
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item L'Utente Autenticato richiede le informazioni sull'utilizzo di
+PastBot
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}: nessuno
+\end{itemize}
+
+
+%\newpage
+
+\subsection{UC6: invio richiesta di visualizzazione album nel sito web}
+\label{uc:uc6}
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Autenticato;
+  \item \textbf{Descrizione}: è possibile visualizzare l'album nel sito web
+dell'azienda
+  \item \textbf{Precondizione}: l'Utente Autenticato ha cominciato la
+conversazione con il bot
+  \item \textbf{Postcondizione}: l'Utente Autenticato viene reindirizzato al
+sito della compagnia con successo
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item l'Utente Autenticato invia la richiesta di visualizzare l'album nel
+sito della compagnia
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}: nessuno
+\end{itemize}
+
+%\newpage
+
+\subsection{UC7: invio di un comando non valido}
+\label{uc:uc7}
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Autenticato;
+  \item \textbf{Descrizione}: è possibile che venga inviato un comando non
+interpretabile da parte di PastBot. Questo farà mandare a PastBot un messaggio
+con le istruzioni e il suo utilizzo
+  \item \textbf{Precondizione}: l'Utente Autenticato ha cominciato la
+conversazione con il bot
+  \item \textbf{Postcondizione}: l'Utente Autenticato riceve con successo un
+messaggio di aiuto
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item l'Utente Autenticato invia un comando non valido per PastBot
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}: nessuno
+\end{itemize}
+
+
+%\newpage
+
+\subsection{UC8: invio di uno sticker}
+\label{uc:uc8}
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Autenticato;
+  \item \textbf{Descrizione}: è possibile da parte degli utenti che utilizzano
+la piattaforma di chat Messenger inviare anche degli \textit{stickers} a PastBot
+  \item \textbf{Precondizione}: l'Utente Autenticato ha cominciato la
+conversazione con il bot
+  \item \textbf{Postcondizione}: l'Utente Autenticato visualizza con successo
+la risposta di PastBot
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item l'Utente Autenticato invia uno \textit{sticker}
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}: nessuno
+\end{itemize}
+
+
+%\newpage
+
+\subsection{UC9: invio allegato}
+\label{uc:uc9}
+
+\begin{itemize}
+  \item \textbf{Attori}: Utente Autenticato;
+  \item \textbf{Descrizione}: Si ha la possibilità di inviare degli allegati a
+PastBot, per esempio per poter popolare il proprio album con delle immagini.
+  \item \textbf{Precondizione}: l'Utente Autenticato ha cominciato la
+conversazione con il bot
+  \item \textbf{Postcondizione}: l'Utente Autenticato visualizza un messaggio
+di successo di salvataggio dell'allegato
+  \item \textbf{Flusso principale}:
+  \begin{enumerate}
+    \item l'Utente Autenticato invia un allegato a PastBot
+  \end{enumerate}
+  \item \textbf{Scenari alternativi}:
+  \begin{enumerate}
+    \item visualizzazione messaggio di errore per tipo di allegato non valido
+    %ref da inserire per UC10
+  \end{enumerate}
+\end{itemize}
+
+
+%\newpage
+%
+%\subsection{UC10: invio richiesta di creazione di un nuovo album}
+%\label{uc:uc10}
+
+%\begin{itemize}
+%  \item \textbf{Attori}: Utente Non Autenticato, Utente Autenticato;
+%  \item \textbf{Descrizione}:
+%  \item \textbf{Precondizione}:
+%  \item \textbf{Postcondizione}:
+%  \item \textbf{Flusso principale}:
+%  \begin{enumerate}
+%    \item
+%  \end{enumerate}
+%  \item \textbf{Scenari alternativi}:
+%\end{itemize}
+
+
 \newpage
 
 \subsection{UC11: visualizzazione menù permanente}
@@ -421,9 +575,9 @@ album
 %è vuoto
 \end{itemize}
 
-
-
 % TODO: descrizione di tutti gli altri casi d'uso senza l'immagine!
+
+
 
 % TEMPLATE USECASE
 %\newpage
