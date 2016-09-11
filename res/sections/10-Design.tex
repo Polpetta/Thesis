@@ -126,3 +126,12 @@ un messaggio di errore, altrimenti verrà creato un nuovo album, che porterà a
 sua volta un identificativo univoco.
 
 \subsection{\textit{Webhook}}
+
+Le classi all'interno di questo componente si occupano di gestire l'intera
+interazione con gli utenti, dalla ricezione del messaggio fino alla loro
+risposta. Le operazioni relative al salvataggio e recupero di informazioni sono
+effettuate tramite le API, creando quindi un livello di indirettezza e una
+maggiore estendibilità.
+Il nome \textit{webhook} è stato dato per differenziare il bot dalle API.
+Essendo infatti il bot scritto con le stesse tecnologie delle API si è dovuto
+porre una differenza a livello di nome, per evitare incomprensioni.
