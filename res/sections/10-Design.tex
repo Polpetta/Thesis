@@ -1,3 +1,47 @@
 % PROGETTAZIONE E CODIFICA
 
 \chapter{Progettazione e codifica}
+
+\section{Progettazione ed implementazione delle API}
+
+\subsection{Descrizione dell'architettura}
+
+Dato l'utilizzo dell'architettura \textit{serverless}, non si è applicato nella
+scrittura delle API alcun tipo particolare di \textit{pattern}. L'architettura
+di tipo \textit{serverless} infatti definisce in modo chiaro la delegazione
+delle varie responsabilità a componenti molto piccoli e ben definiti. Questo
+inoltre permette di avere tempi di risposta molto brevi.
+La parte dedicata alla interazione con gli utenti è stata chiamata
+\textit{webhook} a livello progettuale, per distinguerla dalle API.
+
+\subsection{Descrizione delle API}
+Come già accennato nella sezione \ref{prj:serverless:api}, le funzionalità più
+importanti sono state suddivise in differenti API, ognuna delle quali risiede
+in una propria istanza di AWS Lambda.
+
+Comparando questa architettura con un classico pattern \textbf{MVC}, queste API
+corrisponderebbero al \textit{Model}, che si occupa di gestire parti della
+logica della applicazione. Essendo queste parti costituite da una sola
+responsabilità e con un solo compito, la loro implementazione si è
+concretizzata nella realizzazione di una sola classe per API.
+
+\section{Descrizione di \textit{webhook}}
+La parte dedicata all'interazione con gli utenti è stata realizzata sempre
+usando l'architettura \textit{serverless}, ma essendo la sua complessità
+maggiore la strutturazione a classi è stata necessaria al fine di mantenere una
+facile comprensione del programma e una buona estendibilità. Tuttavia, per la
+natura del servizio che PastBot ricopre, si è scelto di usare una modellazione
+ad eventi per gestire le richieste provenienti dalla piattaforma Facebook
+Messenger. In base agli eventi che vengono gestiti PastBot si occupa di fare le
+chiamate alle API corrette. Comparandolo con il pattern di tipo \textbf{MVC},
+\textit{webhook} si occupa di ricoprire la \textit{View} e il
+\textit{Controller}.
+
+\section{Descrizione delle classi}
+Di seguito si eseguirà una descrizione delle classi più significative che
+compongono PastBot e le relative API, suddivise in base alla componente alla
+quale appartengono.
+
+\subsection{API}
+
+\subsection{\textit{Webhook}}
