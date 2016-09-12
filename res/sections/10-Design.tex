@@ -61,7 +61,21 @@ Per evitare ripetizioni, è riportato qui uno schema generico di una classe:
   \caption{Rappresentazione UML di una API}
 \end{figure}
 
-% TODO: parlare magari degli argomenti passati al metodo index?
+\label{design:api:params}
+È importante segnalare come il servizio Amazon AWS Lambda passi sempre tre
+parametri al metodo che andrà a invocare. Questi metodi sono:
+\begin{itemize}
+  \item \textbf{event}: è un oggetto in formato JSON che contiene i campi
+dell'evento che viene inviato alla funzione lambda. Questi campi possono essere
+definiti in maniera specifica tramite APIGateway.
+  \item \textbf{context}: AWS Lambda usa questo parametro al fine di poter
+ottenere informazioni a tempo di esecuzione sul tipo di funzione lambda che si
+sta eseguendo.
+  \item \textbf{callback}: tramite questo parametro è possibile, se necessario,
+ritornare dati (in formato JSON) al chiamante o segnalare uno stato di errore
+durante l'esecuzione. Essendo questo parametro opzionale, se non se ne farà uso
+la risposta che si otterrà sarà un valore nullo.
+\end{itemize}
 
 \subsection{api::putPastBotCollectionPhoto}
 
