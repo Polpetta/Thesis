@@ -156,3 +156,68 @@ porre una differenza a livello di nome, per evitare incomprensioni.
   \caption{Diagramma delle classi per la parte di PastBot relativa
 all'interazione con gli utenti.}
 \end{figure}
+
+Messenger attua una politica di concatenazione dei messaggi in arrivo: se un
+utente invia per esempio due messaggi in rapida successione, viene generato un
+solo evento, che conterrà un \textit{array} di messaggi inviati dall'utente. È
+quindi stato creato inizialmente una classe \textbf{EntryProcessor} la quale si
+occupa di ricevere l'evento e di estrarne i messaggi in esso contenuto. I
+messaggi vengono posti in una coda di esecuzione, che viene "eseguita" quando
+tutti i messaggi vengono estratti dall'evento.
+Questa coda viene quindi passata alla classe \textbf{MessagingEventProcessor},
+che si occupa di elaborare singolarmente e in maniera asincrona ogni messaggio
+presente nella lista. In questa maniera, vengono gestite diversi eventi nello
+stesso tempo di esecuzione, velocizzando il tempo di risposta e diminuendo il
+tempo di attesa dell'utente. Un svantaggio di questa scelta è che le richieste,
+essendo processate in maniera indipendente, possono venire ritornate in maniera
+non ordinata. Si è comunque scelto di mantenere un approccio asincrono in
+quanto è stato ritenuto più importante avere una buona velocità di risposta.
+
+Per ogni messaggio ottenuto si identifica il tipo di messaggio, e in base al
+tipo di messaggio viene chiamato il metodo adatto.
+I tipi di messaggi che l'utente può inviare su Messenger sono i seguenti:
+\begin{itemize}
+  \item Messaggio di testo
+  \item \textit{Sticker}
+  \item Allegati
+\end{itemize}
+I messaggi di testo vengono ulteriormente analizzati nel metodo
+\textbf{processText} che invidua specificatamente il tipo di comando che
+l'utente ha mandato. Questa sezione è stata studiata in maniera tale che in
+futuro possa essere utilizzato un sistema per interpretare il linguaggio
+artificiale, in maniera tale da avere una miglior gestione delle richieste
+effettuate dagli utenti.
+
+Il meotodo \textbf{processASyncAttachments} si occupa dell'invio delle foto
+alla rispettiva API. L'invio delle foto viene effettuato in maniera asincrona
+tramite l'utilizzo della classe \textit{Promise} messa a disposizione dal
+linguaggio JavaScript. Vengono effettuate multiple chiamate alla stessa API
+tramite la classe \textbf{PastBookAPI}, che si occupa di prendere le immagini
+inviate dall'utente e inoltrarle alle API messe a disposizione dal servizio di
+salvataggio file \textit{Filestorage}.
+L'allegato non viene direttamente inviato al bot. Messenger infatti invia l'URL
+dell'allegato. Questo permette di velocizzare ulteriormente le operazioni, in
+quanto si manipola una stringa di testa e non un file binario che potrebbe
+pesare diversi \textit{MegaByte}.
+
+\paragraph*{La classe Messaging} Questa classe si occupa di inviare i messaggi
+in risposta all'utente. Per effettuare questa operazione si utilizza la classe
+\textbf{FBMessenger}, che permette in questa maniera di fornire un ulteriore
+livello di indirettezza. Le classi \textbf{ButtonAdder} e \textbf{Utils} sono
+state create per dividere le responsabilità presenti nella classe classe
+\textbf{Messaging}. \textbf{ButtonAdder} si occupa della creazione e
+resistuzione dei bottoni grafici che poi verranno visualizzati dagli utenti.
+Questi bottoni devono essere degli oggetti di tipo JSON che seguano quanto
+specificato dalla documentazione di Messenger.
+\textbf{Utils} contiene un metodo per ottenere il numero di foto presenti in un
+album. Questo metodo è stato utilizzato soprattutto per operazioni di conteggio.
+
+% FIXME: la freccia nel diagramma ha direzione opposta, da correggere.
+\paragraph*{La classe FBMessenger} La responsabilità di questa classe è, come
+già accennato, quella di inviare i messaggi agli utenti. Il metodo
+\textbf{send} si occupa di inviare i dati alle API di Messenger. Tutti gli
+altri metodo impostano i dati da inviare, contenendo il testo del messaggio in
+base alla richiesta dell'utente.
+
+
+% TODO: le statistiche di dashbot dove vanno?
