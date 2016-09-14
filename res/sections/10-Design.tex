@@ -99,7 +99,7 @@ richieste. Viene eseguita quindi una interrogazione del database degli utenti,
 in cui verrà cercato l'\textit{id} fornito nell'oggetto della richiesta. Se
 l'utente viene trovato, verranno ritornate le informazioni su di esso e la
 lista degli album (denominati anche \textit{collection}) creati da quell'utente
-tramite il bot.
+tramite il \textit{bot}.
 Se l'utente non è presente nella base di dati viene ritornato nell'oggetto uno
 stato di errore.
 
@@ -146,9 +146,9 @@ interazione con gli utenti, dalla ricezione del messaggio fino alla loro
 risposta. Le operazioni relative al salvataggio e recupero di informazioni sono
 effettuate tramite le API, creando quindi un livello di indirettezza e una
 maggiore estendibilità.
-Il nome \textit{webhook} è stato dato per differenziare il bot dalle API.
-Essendo infatti il bot scritto con le stesse tecnologie delle API si è dovuto
-porre una differenza a livello di nome, per evitare incomprensioni.
+Il nome \textit{webhook} è stato dato per differenziare il \textit{bot} dalle
+API. Essendo infatti il \textit{bot} scritto con le stesse tecnologie delle API
+si è dovuto porre una differenza a livello di nome, per evitare incomprensioni.
 
 \begin{figure}[H]
   \centering
@@ -197,7 +197,8 @@ linguaggio JavaScript. Vengono effettuate multiple chiamate alla stessa API
 tramite la classe \textbf{PastBotAPI}, che si occupa di prendere le immagini
 inviate dall'utente e inoltrarle alle API messe a disposizione dal servizio di
 salvataggio file \textit{Filestorage}.
-L'allegato non viene direttamente inviato al bot. Messenger infatti invia l'URL
+L'allegato non viene direttamente inviato al \textit{bot}. Messenger infatti
+invia l'URL
 dell'allegato. Questo permette di velocizzare ulteriormente le operazioni, in
 quanto si manipola una stringa di testa e non un file binario che potrebbe
 pesare diversi \textit{MegaByte}.
@@ -220,6 +221,6 @@ già accennato, quella di inviare i messaggi agli utenti. Il metodo
 altri metodi impostano i dati da inviare, contenendo il testo del messaggio
 formulato in base alla proprietà che l'utente detiene. Da qui si è deciso di
 integrarsi con il modulo NPM per le statistiche di \textit{Dashbot}. A ogni
-messaggio che il bot invia si applica un tipo particolare di etichetta. In
-questa maniera nelle statistiche è possibile conoscere il tipo di messaggio più
-inviato da parte del bot.
+messaggio che il \textit{bot} invia si applica un tipo particolare di
+etichetta. In questa maniera nelle statistiche è possibile conoscere il tipo di
+messaggio più inviato da parte del \textit{bot}.
