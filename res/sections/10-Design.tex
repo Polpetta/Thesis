@@ -212,7 +212,11 @@ invia l'URL dell'allegato. Questo permette di velocizzare ulteriormente le
 operazioni, in quanto si manipola una stringa di testo e non un file binario
 che potrebbe essere più oneroso da processare.
 
-% TODO: manca processSticker!
+\textbf{processSticker} ha la responsabilità di occuparsi degli sticker
+ricevuti. Se lo \textit{sticker} inviato è il simbolo del classico "mi piace"
+di Facebook PastBot risponderà nella stessa maniera, altrimenti, verrà inviato
+un altro simbolo, in maniera tale da menterene la conversazione attiva e
+intrattenere l'utente.
 
 \paragraph*{La classe Messaging} Questa classe si occupa di inviare i messaggi
 in risposta all'utente. Per effettuare questa operazione si utilizza la classe
