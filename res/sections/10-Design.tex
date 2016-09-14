@@ -174,7 +174,9 @@ non ordinata. Si è comunque scelto di mantenere un approccio asincrono in
 quanto è stato ritenuto più importante avere una buona velocità di risposta.
 
 Per ogni messaggio ottenuto si identifica il tipo di messaggio, e in base al
-tipo di messaggio viene chiamato il metodo adatto.
+tipo di messaggio viene chiamato il metodo adatto. Grazie al modulo NPM
+\textit{Dashbot} è possibile storicizzare i dati ricevuti per poterne poi
+eseguire un'analisi dettagliata sull'utenza.
 I tipi di messaggi che l'utente può inviare su Messenger sono i seguenti:
 \begin{itemize}
   \item Messaggio di testo
@@ -192,7 +194,7 @@ Il meotodo \textbf{processASyncAttachments} si occupa dell'invio delle foto
 alla rispettiva API. L'invio delle foto viene effettuato in maniera asincrona
 tramite l'utilizzo della classe \textit{Promise} messa a disposizione dal
 linguaggio JavaScript. Vengono effettuate multiple chiamate alla stessa API
-tramite la classe \textbf{PastBookAPI}, che si occupa di prendere le immagini
+tramite la classe \textbf{PastBotAPI}, che si occupa di prendere le immagini
 inviate dall'utente e inoltrarle alle API messe a disposizione dal servizio di
 salvataggio file \textit{Filestorage}.
 L'allegato non viene direttamente inviato al bot. Messenger infatti invia l'URL
@@ -212,12 +214,12 @@ specificato dalla documentazione di Messenger.
 \textbf{Utils} contiene un metodo per ottenere il numero di foto presenti in un
 album. Questo metodo è stato utilizzato soprattutto per operazioni di conteggio.
 
-% FIXME: la freccia nel diagramma ha direzione opposta, da correggere.
 \paragraph*{La classe FBMessenger} La responsabilità di questa classe è, come
 già accennato, quella di inviare i messaggi agli utenti. Il metodo
 \textbf{send} si occupa di inviare i dati alle API di Messenger. Tutti gli
-altri metodo impostano i dati da inviare, contenendo il testo del messaggio in
-base alla richiesta dell'utente.
-
-
-% TODO: le statistiche di dashbot dove vanno?
+altri metodi impostano i dati da inviare, contenendo il testo del messaggio
+formulato in base alla proprietà che l'utente detiene. Da qui si è deciso di
+integrarsi con il modulo NPM per le statistiche di \textit{Dashbot}. A ogni
+messaggio che il bot invia si applica un tipo particolare di etichetta. In
+questa maniera nelle statistiche è possibile conoscere il tipo di messaggio più
+inviato da parte del bot.
