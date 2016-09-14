@@ -1,0 +1,39 @@
+% VERIFICA E VALIDAZIONE
+
+\chapter{Verifica e Validazione}
+
+L'attività di verifica e validazione è stata valutata in base al tempo
+disponibile durante il tirocinio. È stato impostante soprattutto cercare un
+buon equilibrio nell'eseguire l'attività di verifica: troppo tempo investito
+nell'attività di verifica avrebbe portato ad un altro rischio di non finire
+completamente il prodotto, mentre non investire abbastanza tempo avrebbe
+portato alla creazione di un prodotto di scarsa qualità.
+
+La qualità del prodotto è stata valutata non solamente nei termini del
+soddisfacimento dei requisiti, ma anche nei termini di soddisfazione dei
+clienti: portare a termine un prodotto che fosse in grado di attirare nuova
+clientela è, per PastBook, un obiettivo importante. È quindi stato necessario
+valutare la qualità sotto questi due aspetti.
+
+È stata utilizzata la verifica come strumento per il controllo relativo
+al codice e alla documentazione prodotta mentre la validazione ha accertato
+che il prodotto finito soddisfacesse tutti i requisiti fissati in fase di
+analisi.
+
+La verifica e la validazione hanno trovato maggiormente posto nell'analisi
+dinamica del codice: l'analisi dinamica è stata effettuata utilizzando test
+ripetibili che permettessero di individuare possibili errori sul codice
+scritto durante la loro esecuzione.
+I due tipi di test più utilizzati sono stati i test di unità e i test di
+integrazione.
+I test di unità si sono applicati soprattutto nelle situazioni in cui si è
+voluto verificare il corretto funzionamento di piccole porzioni di codice,
+mentre i test d'integrazione sono stati effettuati quando si è voluto
+verificare che l'integrazione tra le varie parti funzionasse senza problemi.
+Per effettuare i test si è ricorsi all'utilizzo del \textit{framework}
+\textit{mocha}\footnote{Mocha è un \textit{framework} per l'esecuzione di test
+d'unità scaricabile dall'indirizzo \url{http://mochajs.org/}}, mentre per i
+test d'integrazione si è utilizzato la funzionalità già integrata presente in
+Amazon AWS APIGateway, in cui è possibile simulare la ricezione di un evento
+impostando i valori desiderati. Questo ha permesso di rendere anche i test più
+semplici e maggiormente integrati con la piattaforma utilizzata.
