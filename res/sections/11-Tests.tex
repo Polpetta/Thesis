@@ -1,7 +1,5 @@
 % VERIFICA E VALIDAZIONE
 
-% TODO: controllare coniugazioni verbali
-
 \chapter{Verifica e Validazione}
 
 L'attività di verifica e validazione è stata valutata in base al tempo
@@ -19,7 +17,7 @@ valutare la qualità sotto questi due aspetti: dettagli come la corretta
 grammaticale e la forma nelle frasi inviate sono state valutate con attenzione,
 seppur non di fondamentale importanza per il software in sé.
 
-È stata utilizzata la verifica come strumento per il controllo relativo
+Si è applicata la verifica come strumento per il controllo relativo
 al codice e alla documentazione prodotta mentre la validazione ha accertato
 che il prodotto finito soddisfacesse tutti i requisiti fissati in fase di
 analisi.
@@ -39,11 +37,11 @@ mentre i test d'integrazione sono stati effettuati quando si è voluto
 verificare che l'integrazione tra le varie parti funzionasse senza problemi.
 Per effettuare i test si è ricorsi all'utilizzo del \textit{framework}
 \textit{mocha}\footnote{Mocha è un \textit{framework} per l'esecuzione di test
-d'unità scaricabile dall'indirizzo \url{http://mochajs.org/}}, mentre per i
-test d'integrazione si è utilizzato la funzionalità già integrata presente in
-Amazon AWS APIGateway, in cui è possibile simulare la ricezione di un evento
-impostando i valori desiderati. Questo ha permesso di rendere anche i test più
-semplici e maggiormente integrati con la piattaforma utilizzata.
+d'unità liberamente scaricabile dall'indirizzo \url{http://mochajs.org/}},
+mentre per i test d'integrazione si è utilizzato la funzionalità già integrata
+presente in Amazon AWS APIGateway, in cui è possibile simulare la ricezione di
+un evento impostando i valori desiderati. Questo ha permesso di rendere anche i
+test più semplici e maggiormente integrati con la piattaforma utilizzata.
 
 \begin{figure}[H]
   \centering
@@ -51,21 +49,21 @@ semplici e maggiormente integrati con la piattaforma utilizzata.
   \caption{Logo del \textit{framework} usato per i test Mocha}
 \end{figure}
 
-Il prodotto durante lo sviluppo del prodotto si sono utilizzati diversi
-ambienti:
+Durante lo sviluppo del prodotto si sono utilizzati diversi ambienti:
 \begin{itemize}
   \item ambiente di sviluppo, anche denominato \textit{dev};
   \item ambiente di certificazione di qualità detto \textit{qa};
   \item ambiente di produzione, chiamato \textit{prod}.
 \end{itemize}
 Questa suddivisione ha portato una migliore organizzazione. In un ambiente di
-sviluppo, lo sviluppatore si accertava che le funzionalità implementate
-funzionassero tramite l'esecuzione dei test dinamici.
-Una completata la funzionalità, si eseguiva il codice in un ambiente di
-testing, in cui veniva integrato con le altre componenti e venivano eseguiti
-test di integrazione, per valutare il funzionamento con i diversi componenti
-della piattaforma. Inoltre in questa fase veniva simulato l'utilizzo del
-\textit{bot} da parte di un utente medio, per valutare che la qualità legata al
-soddisfacimento della clientela fosse raggiunta.
-Una volta ottenuti i risultati desiderati, si è proceduto a rilasciare il
+sviluppo, lo sviluppatore si accerta che le funzionalità implementate
+funzionino tramite l'esecuzione di test dinamici.
+Una volta completato un insieme di funzionalità, si esegue il codice in un
+ambiente di testing, in cui le nuove funzionalità vengono integrate con le
+altre già esistenti: vengono eseguiti poi test di integrazione, per
+valutare il comportamente dei diversi componenti della piattaforma. Inoltre
+in questa fase viene simulato l'utilizzo del \textit{bot} da parte di un
+utente medio, per valutare che la qualità legata al soddisfacimento della
+clientela sia adeguata.
+Una volta ottenuti i risultati desiderati, si procede a rilasciare il
 prodotto in un ambiente di produzione e a renderlo disponibile al pubblico.
