@@ -1,20 +1,22 @@
 % VERIFICA E VALIDAZIONE
 
+% TODO: controllare coniugazioni verbali
+
 \chapter{Verifica e Validazione}
 
 L'attività di verifica e validazione è stata valutata in base al tempo
 disponibile durante il tirocinio. È stato impostante soprattutto cercare un
 buon equilibrio nell'eseguire l'attività di verifica: troppo tempo investito
-nell'attività di verifica avrebbe portato ad un altro rischio di non finire
-completamente il prodotto, mentre non investire abbastanza tempo avrebbe
-portato alla creazione di un prodotto di scarsa qualità.
+infatti avrebbe portato ad un alto rischio di non finire completamente il
+prodotto, mentre non investire abbastanza tempo avrebbe portato ad una qualità
+bassa con la presenza di difetti.
 
 La qualità del prodotto è stata valutata non solamente nei termini del
 soddisfacimento dei requisiti, ma anche nei termini di soddisfazione dei
 clienti: portare a termine un prodotto che fosse in grado di attirare nuova
-clientela è, per PastBook, un obiettivo importante. È quindi stato necessario
+clientela era, per PastBook, un obiettivo importante. È quindi stato necessario
 valutare la qualità sotto questi due aspetti: dettagli come la corretta
-grammatica e forma  nelle frasi inviate sono state valutate con attenzione,
+grammaticale e la forma nelle frasi inviate sono state valutate con attenzione,
 seppur non di fondamentale importanza per il software in sé.
 
 È stata utilizzata la verifica come strumento per il controllo relativo
@@ -26,8 +28,11 @@ La verifica e la validazione hanno trovato maggiormente posto nell'analisi
 dinamica del codice: l'analisi dinamica è stata effettuata utilizzando test
 ripetibili che permettessero di individuare possibili errori sul codice
 scritto durante la loro esecuzione.
-I due tipi di test più utilizzati sono stati i test di unità e i test di
-integrazione.
+I due tipi di test più utilizzati sono stati:
+\begin{itemize}
+  \item Test di unità
+  \item Test di integrazione
+\end{itemize}
 I test di unità si sono applicati soprattutto nelle situazioni in cui si è
 voluto verificare il corretto funzionamento di piccole porzioni di codice,
 mentre i test d'integrazione sono stati effettuati quando si è voluto
@@ -40,4 +45,27 @@ Amazon AWS APIGateway, in cui è possibile simulare la ricezione di un evento
 impostando i valori desiderati. Questo ha permesso di rendere anche i test più
 semplici e maggiormente integrati con la piattaforma utilizzata.
 
-% TODO: parlare anche dei tre stati del prodotto: dev, qa, prod.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{MochaLogo}
+  \caption{Logo del \textit{framework} usato per i test Mocha}
+\end{figure}
+
+Il prodotto durante lo sviluppo del prodotto si sono utilizzati diversi
+ambienti:
+\begin{itemize}
+  \item ambiente di sviluppo, anche denominato \textit{dev};
+  \item ambiente di certificazione di qualità detto \textit{qa};
+  \item ambiente di produzione, chiamato \textit{prod}.
+\end{itemize}
+Questa suddivisione ha portato una migliore organizzazione. In un ambiente di
+sviluppo, lo sviluppatore si accertava che le funzionalità implementate
+funzionassero tramite l'esecuzione dei test dinamici.
+Una completata la funzionalità, si eseguiva il codice in un ambiente di
+testing, in cui veniva integrato con le altre componenti e venivano eseguiti
+test di integrazione, per valutare il funzionamento con i diversi componenti
+della piattaforma. Inoltre in questa fase veniva simulato l'utilizzo del
+\textit{bot} da parte di un utente medio, per valutare che la qualità legata al
+soddisfacimento della clientela fosse raggiunta.
+Una volta ottenuti i risultati desiderati, si è proceduto a rilasciare il
+prodotto in un ambiente di produzione e a renderlo disponibile al pubblico.
