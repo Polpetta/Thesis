@@ -16,23 +16,20 @@
 
 Dato l'utilizzo dell'architettura \textit{serverless}, non si è applicato nella
 scrittura delle \gls{api} alcun tipo particolare di \textit{pattern}.
-L'architettura
-di tipo \textit{serverless} infatti definisce in modo chiaro la delegazione
-delle varie responsabilità a componenti molto piccoli e ben definiti. Questo
-inoltre ha permesso di ottenere tempi di risposta molto brevi.
+L'architettura di tipo \textit{serverless} infatti definisce in modo chiaro la
+delegazione delle varie responsabilità a componenti molto piccoli e ben
+definiti. Questo inoltre ha permesso di ottenere tempi di risposta molto brevi.
 La parte dedicata alla interazione con gli utenti è stata chiamata
 \textit{webhook} a livello progettuale, per distinguerla dalle \gls{api}.
 
 \subsection{Descrizione delle \gls{api}}
 Come già accennato nella sezione \ref{prj:serverless:api}, le funzionalità più
 importanti sono state suddivise in differenti \gls{api}, ognuna delle quali
-risiede
-in una propria istanza di AWS Lambda.
+risiede in una propria istanza di AWS Lambda.
 
 Comparando questa architettura con un classico pattern \textbf{MVC}, queste
-\gls{api}
-corrisponderebbero al \textit{Model}, che si occupa di gestire parti della
-logica della applicazione. Essendo queste parti costituite da una sola
+\gls{api} corrisponderebbero al \textit{Model}, che si occupa di gestire parti
+della logica della applicazione. Essendo queste parti costituite da una sola
 responsabilità e con un solo compito, la loro implementazione si è
 concretizzata nella realizzazione di una sola classe per \gls{api}.
 
@@ -45,15 +42,13 @@ natura del servizio che PastBot ricopre, si è scelto di usare una modellazione
 ad eventi per gestire le richieste provenienti dalla piattaforma Facebook
 Messenger. In base agli eventi che vengono gestiti PastBot si occupa di fare le
 chiamate alle \gls{api} corrette. Comparandolo con il pattern di tipo
-\textbf{MVC},
-\textit{webhook} si occupa di ricoprire la \textit{View} e il
+\textbf{MVC}, \textit{webhook} si occupa di ricoprire la \textit{View} e il
 \textit{Controller}.
 
 \section{Descrizione delle classi}
 Di seguito si eseguirà una descrizione delle classi più significative che
 compongono PastBot e le relative \gls{api}, suddivise in base alla componente
-alla
-quale appartengono.
+alla quale appartengono.
 
 \begin{figure}[H]
   \centering
@@ -88,9 +83,9 @@ ottenere informazioni a tempo di esecuzione sul tipo di funzione lambda che si
 sta eseguendo.
   \item \textbf{callback}: tramite questo parametro è possibile, se necessario,
 ritornare dati (in formato \gls{javascript_object_notation}) al chiamante o
-segnalare uno stato di errore
-durante l'esecuzione. Essendo questo parametro opzionale, se non se ne farà uso
-la risposta che si otterrà sarà un valore nullo.
+segnalare uno stato di errore durante l'esecuzione. Essendo questo parametro
+opzionale, se non se ne farà uso la risposta che si otterrà sarà un valore
+nullo.
 \end{itemize}
 
 \subsection{api::putPastBotCollectionPhoto}
@@ -102,8 +97,7 @@ salvate indirettamente tramite il servizio \textit{Filestack}. Questo
 servizio di salvataggio dati ha permesso una facile gestione dei dati
 riservati, compreso il caricamento. Il caricamento della foto avviene inviando
 l'indirizzo \gls{url} dell'allegato fornito da Facebook Messenger direttamente
-al
-servizio \textit{Filestack}.
+al servizio \textit{Filestack}.
 
 
 Questa classe per funzionare necessita del modulo nativo aggiuntivo
@@ -166,8 +160,8 @@ effettuate tramite le \gls{api}, creando quindi un livello di indirettezza e una
 maggiore estendibilità.
 Il nome \textit{webhook} è stato dato per differenziare il \textit{bot} dalle
 \gls{api}. Essendo infatti il \textit{bot} scritto con le stesse tecnologie
-delle \gls{api}
-si è dovuto porre una differenza a livello di nome, per evitare incomprensioni.
+delle \gls{api} si è dovuto porre una differenza a livello di nome, per evitare
+incomprensioni.
 
 \begin{figure}[H]
   \centering
@@ -211,14 +205,11 @@ effettuate dagli utenti.
 
 Il meotodo \textbf{processASyncAttachments} si occupa dell'invio delle foto
 alla rispettiva \gls{api}. L'invio delle foto viene effettuato in maniera
-asincrona
-tramite l'utilizzo della classe \textit{Promise} messa a disposizione dal
-linguaggio JavaScript. Vengono effettuate multiple chiamate alla stessa
-\gls{api}
-tramite la classe \textbf{PastBotAPI}, che si occupa di prendere le immagini
-inviate dall'utente e inoltrarle alle \gls{api} messe a disposizione dal
-servizio di
-salvataggio file \textit{Filestorage}.
+asincrona tramite l'utilizzo della classe \textit{Promise} messa a disposizione
+dal linguaggio JavaScript. Vengono effettuate multiple chiamate alla stessa
+\gls{api} tramite la classe \textbf{PastBotAPI}, che si occupa di prendere le
+immagini inviate dall'utente e inoltrarle alle \gls{api} messe a disposizione
+dal servizio di salvataggio file \textit{Filestorage}.
 L'allegato non viene direttamente inviato al \textit{bot}. Messenger infatti
 invia l'\gls{url} dell'allegato. Questo permette di velocizzare ulteriormente le
 operazioni, in quanto si manipola una stringa di testo e non un file binario
@@ -238,8 +229,8 @@ state create per dividere le responsabilità presenti nella classe
 \textbf{Messaging}. \textbf{ButtonAdder} si occupa della creazione e
 restituzione dei bottoni grafici che poi verranno visualizzati dagli utenti.
 Questi bottoni devono essere degli oggetti di tipo
-\gls{javascript_object_notation} che seguano quanto
-specificato dalla documentazione di Messenger.
+\gls{javascript_object_notation} che seguano quanto specificato dalla
+documentazione di Messenger.
 \textbf{Utils} contiene un metodo per ottenere il numero di foto presenti in un
 album. Questo metodo è stato utilizzato soprattutto per operazioni di conteggio.
 
