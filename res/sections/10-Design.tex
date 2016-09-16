@@ -10,7 +10,7 @@ Dato l'utilizzo dell'architettura \textit{serverless}, non si è applicato nella
 scrittura delle \gls{api} alcun tipo particolare di \textit{pattern}.
 L'architettura di tipo \textit{serverless} infatti definisce in modo chiaro la
 delegazione delle varie responsabilità a componenti molto piccoli e ben
-definiti. Questo inoltre ha permesso di ottenere tempi di risposta molto brevi.
+definiti. Questo ha permesso di ottenere tempi di risposta molto brevi.
 La parte dedicata alla interazione con gli utenti è stata chiamata
 \textit{webhook} a livello progettuale, per distinguerla dalle \gls{api}.
 
@@ -19,7 +19,8 @@ Come già accennato nella sezione \ref{prj:serverless:api}, le funzionalità pi�
 importanti sono state suddivise in differenti \gls{api}, ognuna delle quali
 risiede in una propria istanza di AWS Lambda.
 
-Comparando questa architettura con un classico pattern \textbf{MVC}, queste
+Comparando questa architettura con un classico pattern
+\textbf{MVC}\footnote{\textbf{M}odel \textbf{V}iew \textbf{C}ontroller}, queste
 \gls{api} corrisponderebbero al \textit{Model}, che si occupa di gestire parti
 della logica della applicazione. Essendo queste parti costituite da una sola
 responsabilità e con un solo compito, la loro implementazione si è
@@ -51,7 +52,7 @@ alla quale appartengono.
 \subsection{API}
 
 Le classi che appartengono a questa componente hanno lo scopo di eseguire le
-operazioni sulla base di dati di PastBot. Avendo uno solo scopo e una sola
+operazioni sulla base di dati di PastBot. Avendo un solo scopo e una sola
 responsabilità, son risultate di facile progettazione.
 Per evitare ripetizioni, è riportato qui uno schema generico di una classe
 di una \gls{api}:
@@ -67,9 +68,9 @@ di una \gls{api}:
 parametri al metodo che andrà a invocare. Questi metodi sono:
 \begin{itemize}
   \item \textbf{event}: è un oggetto in formato
-\gls{javascript_object_notation} che contiene i campi
-dell'evento che viene inviato alla funzione lambda. Questi campi possono essere
-definiti in maniera specifica tramite APIGateway.
+\gls{javascript_object_notation} che contiene i campi dell'evento che viene
+inviato alla funzione lambda. Questi campi possono essere definiti in maniera
+specifica tramite APIGateway.
   \item \textbf{context}: AWS Lambda usa questo parametro al fine di poter
 ottenere informazioni a tempo di esecuzione sul tipo di funzione lambda che si
 sta eseguendo.
@@ -82,41 +83,42 @@ nullo.
 
 \subsection{api::putPastBotCollectionPhoto}
 
-Questa classe si occupa di aggiungere le foto inviate dall'Utente direttamente
-nel database di PastBot. Essendo la \textit{privacy} un argomento molto
-importante quando si trattano i dati personali degli utenti, le foto vengono
-salvate indirettamente tramite il servizio \textit{Filestack}. Questo
-servizio di salvataggio dati ha permesso una facile gestione dei dati
-riservati, compreso il caricamento. Il caricamento della foto avviene inviando
-l'indirizzo \gls{url} dell'allegato fornito da Facebook Messenger direttamente
-al servizio \textit{Filestack}.
+La classe che implementa \textbf{putPastBotCollectionPhoto} si occupa di
+aggiungere le foto inviate dall'Utente direttamente nel database di PastBot.
+Essendo la \textit{privacy} un argomento molto importante quando si trattano i
+dati personali degli utenti, si è scelto di salvarle indirettamente tramite il
+servizio \textit{Filestack}. Questo servizio di salvataggio dati ha permesso
+una facile gestione dei dati riservati, compreso il loro caricamento. Il
+salvataggio della foto avviene inviando l'indirizzo \gls{url} dell'allegato
+fornito da Facebook Messenger direttamente a \textit{Filestack}.
 
 
-Questa classe per funzionare necessita del modulo nativo aggiuntivo
+Questa classe per funzionare necessita del modulo nativo aggiuntivo chiamato
 \textit{https}, che permette di connettersi a indirizzi web in maniera sicura
 per il trasferimento di dati.
 
 \subsection{api::getPastBotUser}
 
-Questa classe si occupa di ritornare al chiamante le informazioni sull'utente
-richieste. Viene eseguita quindi una interrogazione del database degli utenti,
-in cui verrà cercato l'\textit{id} fornito nell'oggetto della richiesta. Se
-l'utente viene trovato, verranno ritornate le informazioni su di esso e la
-lista degli album (denominati anche \textit{collection}) creati da quell'utente
-tramite il \textit{bot}.
+\textbf{getPastBotUser} si occupa di ritornare al chiamante le informazioni
+sull'utente richieste. Viene eseguita quindi una interrogazione del database
+degli utenti, in cui verrà cercato l'\textit{id} fornito nell'oggetto della
+richiesta. Se l'utente viene trovato, verranno ritornate le informazioni su di
+esso e anche la lista degli album (denominati anche \textit{collection}) creati
+da quell'utente tramite il \textit{bot}.
 Se l'utente non è presente nella base di dati viene ritornato nell'oggetto uno
 stato di errore.
 
 \subsection{api::getPastBotCollection}
 
-Questa classe ritorna le informazioni sull'ultimo album attivo. È necessario
-fornire l'\textit{id} dell'utente per poter ottenere l'informazione.
+La responsabilità di \textbf{getPastBotCollection} è di ritornare le
+informazioni sull'ultimo album attivo. È necessario fornire l'\textit{id}
+dell'utente per poter ottenere l'informazione.
 Se viene fornito un \textit{id} non valido o non presente nella base di dati di
 PastBot verrà ritornato nell'oggetto di ritorno uno stato di errore.
 
 \subsection{api::createPastBotUser}
 
-La classe accetta un nuovo utente e si occupa di aggiungerlo alla lista
+Il componente accetta un nuovo utente e si occupa di aggiungerlo alla lista
 degli utenti presenti nella base di dati di PastBot. È necessario passare un
 identificativo che sia univoco per quell'utente. Se viene passato un
 identificativo che è già presente nella base di dati la classe si occuperà di
@@ -124,21 +126,22 @@ ritornare al chiamante uno stato di errore.
 
 \subsection{api::deletePastBotCollectionPhoto}
 
-La classe si occupa di cancellare tutte le foto presenti all'interno di un
-album dato. La cancellazione sancisce l'eliminazione completa dai database di
-PastBot e dal servizio \textit{Filestack}.
+La responsabilità che \textbf{deletePastBotCollectionPhoto} assolve è quella di
+di cancellare tutte le foto presenti all'interno di un album dato. La
+cancellazione sancisce l'eliminazione completa dai database di PastBot e dal
+servizio \textit{Filestack}.
 Lo stato della cancellazione viene riportato nell'oggetto che verrà ritornato
 al chiamante.
 
 \subsection{api::addPastBotMessage}
 
-Questa classe ha l'incarico di salvare il messaggio ricevuto nella base di
-dati. Questa funzione serve in futuro a PastBook per poter eseguire raccolta
-dati e studi su di essi.
+\textbf{addPastBotMessage} ha l'incarico di salvare il messaggio ricevuto nella
+base di dati. Questa funzione serve in futuro a PastBook per poter eseguire
+raccolta dati e studi su di essi.
 
 \subsection{api::createPastBotCollection}
 
-La responsabilità di questa classe è quella di creare un nuovo album dato un
+L'utilità di questo componente è quella di creare un nuovo album dato un
 utente esistente. Se l'identificativo dell'utente non è valido verrà ritornato
 un messaggio di errore, altrimenti verrà creato un nuovo album, che porterà a
 sua volta un identificativo univoco.
