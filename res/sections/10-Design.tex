@@ -50,6 +50,7 @@ alla quale appartengono.
 \end{figure}
 
 \subsection{API}
+\label{design:api}
 
 Le classi che appartengono a questa componente hanno lo scopo di eseguire le
 operazioni sulla base di dati di PastBot. Avendo un solo scopo e una sola
@@ -149,10 +150,10 @@ sua volta un identificativo univoco.
 \subsection{\textit{Webhook}}
 
 Le classi all'interno di questo componente si occupano di gestire l'intera
-interazione con gli utenti, dalla ricezione del messaggio fino alla loro
-risposta. Le operazioni relative al salvataggio e recupero di informazioni sono
-effettuate tramite le \gls{api}, creando quindi un livello di indirettezza e una
-maggiore estendibilità.
+interazione con gli utenti, dalla ricezione del messaggio fino al suo invio. Le
+operazioni relative al salvataggio e recupero di informazioni sono effettuate
+tramite le \gls{api} illustrate in \ref{design:api}, creando quindi un livello
+di indirettezza e una maggiore estendibilità.
 Il nome \textit{webhook} è stato dato per differenziare il \textit{bot} dalle
 \gls{api}. Essendo infatti il \textit{bot} scritto con le stesse tecnologie
 delle \gls{api} si è dovuto porre una differenza a livello di nome, per evitare
@@ -169,9 +170,9 @@ Messenger attua una politica di concatenazione dei messaggi in arrivo: se un
 utente invia per esempio due messaggi in rapida successione, viene generato un
 solo evento, che conterrà un \textit{array} di messaggi inviati dall'utente. È
 quindi stato creato inizialmente una classe \textbf{EntryProcessor} la quale si
-occupa di ricevere l'evento e di estrarne i messaggi in esso contenuto. I
-messaggi vengono posti in una coda di esecuzione, che viene "eseguita" quando
-tutti i messaggi vengono estratti dall'evento.
+occupa di ricevere l'evento e di estrarne i messaggi che vengono posti in una
+coda di esecuzione processata quando tutti i messaggi vengono estratti
+dall'evento.
 Questa coda viene quindi passata alla classe \textbf{MessagingEventProcessor},
 che si occupa di elaborare singolarmente e in maniera asincrona ogni messaggio
 presente nella lista. In questa maniera, vengono gestiti diversi eventi nello
@@ -184,7 +185,7 @@ quanto è stato ritenuto più importante avere una buona velocità di risposta.
 Per ogni messaggio ottenuto si identifica il tipo di messaggio, e in base al
 tipo di messaggio viene chiamato il metodo adatto. Grazie al modulo NPM
 \textit{Dashbot} è possibile storicizzare i dati ricevuti per poterne poi
-eseguire un'analisi dettagliata sui messaggi ricevuti.
+eseguire un'analisi dettagliata.
 I tipi di messaggi che l'utente può inviare su Messenger sono i seguenti:
 \begin{itemize}
   \item Messaggio di testo
@@ -194,26 +195,26 @@ I tipi di messaggi che l'utente può inviare su Messenger sono i seguenti:
 I messaggi di testo vengono ulteriormente analizzati nel metodo
 \textbf{processText} che individua specificatamente il tipo di comando che
 l'utente ha mandato. Questa sezione è stata studiata in maniera tale che in
-futuro possa essere utilizzato un sistema per interpretare il linguaggio
-artificiale, in maniera tale da avere una miglior gestione delle richieste
-effettuate dagli utenti.
+futuro possa essere integrato facilmente un sistema per interpretare il
+linguaggio naturale, in maniera tale da avere una miglior comprensione delle
+richieste effettuate dagli utenti.
 
 Il meotodo \textbf{processASyncAttachments} si occupa dell'invio delle foto
 alla rispettiva \gls{api}. L'invio delle foto viene effettuato in maniera
 asincrona tramite l'utilizzo della classe \textit{Promise} messa a disposizione
 dal linguaggio JavaScript. Vengono effettuate multiple chiamate alla stessa
-\gls{api} tramite la classe \textbf{PastBotAPI}, che si occupa di prendere le
+\gls{api} tramite la classe \textbf{PastBotAPI}, che si occupa di prelevare le
 immagini inviate dall'utente e inoltrarle alle \gls{api} messe a disposizione
 dal servizio di salvataggio file \textit{Filestorage}.
 L'allegato non viene direttamente inviato al \textit{bot}. Messenger infatti
 invia l'\gls{url} dell'allegato. Questo permette di velocizzare ulteriormente le
-operazioni, in quanto si manipola una stringa di testo e non un file binario
-che potrebbe essere più oneroso da processare.
+operazioni, in quanto si manipola una stringa e non un file binario che
+potrebbe essere più oneroso da processare.
 
-\textbf{processSticker} ha la responsabilità di occuparsi degli sticker
+\textbf{processSticker} ha la responsabilità di occuparsi degli \textit{sticker}
 ricevuti. Se lo \textit{sticker} inviato è il simbolo del classico "mi piace"
 di Facebook PastBot risponderà nella stessa maniera, altrimenti, verrà inviato
-un altro simbolo, in maniera tale da menterene la conversazione attiva e
+un altro simbolo, in maniera tale da mantenere la conversazione attiva e
 intrattenere l'utente.
 
 \paragraph*{La classe Messaging} Questa classe si occupa di inviare i messaggi
@@ -227,14 +228,16 @@ Questi bottoni devono essere degli oggetti di tipo
 \gls{javascript_object_notation} che seguano quanto specificato dalla
 documentazione di Messenger.
 \textbf{Utils} contiene un metodo per ottenere il numero di foto presenti in un
-album. Questo metodo è stato utilizzato soprattutto per operazioni di conteggio.
+album. Questo metodo è stato utilizzato soprattutto per segnalare all'utente il
+numero delle foto attualmente caricate e aiutarlo nel raggiungere la soglia
+minima per poter acquistare un album.
 
 \paragraph*{La classe FBMessenger} La responsabilità di questa classe è, come
 già accennato, quella di inviare i messaggi agli utenti. Il metodo
 \textbf{send} si occupa di inviare i dati alle \gls{api} di Messenger. Tutti gli
 altri metodi impostano i dati da inviare, contenendo il testo del messaggio
-formulato in base alle proprietà che l'utente detiene. Da qui si è deciso di
-integrarsi con il modulo NPM per le statistiche di \textit{Dashbot}. A ogni
-messaggio che il \textit{bot} invia si applica un tipo particolare di
-etichetta. In questa maniera nelle statistiche è possibile conoscere il tipo di
-messaggio più inviato da parte del \textit{bot}.
+formulato in base alle proprietà che l'utente detiene. Da qui tramite il modulo
+NPM per le statistiche \textit{Dashbot} si salvano i messaggi inviati dal
+\textit{bot}. A ogni messaggio che il \textit{bot} invia si applica un tipo
+particolare di etichetta. In questa maniera nelle statistiche è possibile
+conoscere il tipo di messaggio più inviato da parte del \textit{bot}.
