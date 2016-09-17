@@ -46,7 +46,7 @@ alla quale appartengono.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.5]{design/overallDesign}
-  \caption{Design generale dell'applicazione}
+  \caption{Progettazione generale dell'applicazione}
 \end{figure}
 
 \subsection{API}
@@ -69,23 +69,23 @@ di una \gls{api}:
 parametri al metodo che andrà a invocare. Questi metodi sono:
 \begin{itemize}
   \item \textbf{event}: è un oggetto in formato
-\gls{javascript_object_notation} che contiene i campi dell'evento che viene
-inviato alla funzione lambda. Questi campi possono essere definiti in maniera
-specifica tramite APIGateway.
-  \item \textbf{context}: AWS Lambda usa questo parametro al fine di poter
-ottenere informazioni a tempo di esecuzione sul tipo di funzione lambda che si
-sta eseguendo.
+\glslink{javascript_object_notation}{JSON} che contiene i campi dell'evento che
+viene inviato alla funzione Lambda. Questi campi possono essere definiti in
+maniera specifica tramite APIGateway.
+  \item \textbf{context}: il programma in esecuzione può usare questo parametro
+al fine di poter ottenere informazioni a tempo di esecuzione sul tipo di
+funzione Lambda che si sta eseguendo.
   \item \textbf{callback}: tramite questo parametro è possibile, se necessario,
-ritornare dati (in formato \gls{javascript_object_notation}) al chiamante o
-segnalare uno stato di errore durante l'esecuzione. Essendo questo parametro
-opzionale, se non se ne farà uso la risposta che si otterrà sarà un valore
-nullo.
+ritornare dati (in formato \glslink{javascript_object_notation}{JSON}) al
+chiamante o segnalare uno stato di errore durante l'esecuzione. Essendo questo
+parametro opzionale, se non se ne farà uso la risposta il chiamante otterrà sarà
+un valore nullo.
 \end{itemize}
 
 \subsection{api::putPastBotCollectionPhoto}
 
 La classe che implementa \textbf{putPastBotCollectionPhoto} si occupa di
-aggiungere le foto inviate dall'Utente direttamente nel database di PastBot.
+aggiungere le foto inviate dall'utente direttamente nel database di PastBot.
 Essendo la \textit{privacy} un argomento molto importante quando si trattano i
 dati personali degli utenti, si è scelto di salvarle indirettamente tramite il
 servizio \textit{Filestack}. Questo servizio di salvataggio dati ha permesso
@@ -128,7 +128,7 @@ ritornare al chiamante uno stato di errore.
 \subsection{api::deletePastBotCollectionPhoto}
 
 La responsabilità che \textbf{deletePastBotCollectionPhoto} assolve è quella di
-di cancellare tutte le foto presenti all'interno di un album dato. La
+cancellare tutte le foto presenti all'interno di un album dato. La
 cancellazione sancisce l'eliminazione completa dai database di PastBot e dal
 servizio \textit{Filestack}.
 Lo stato della cancellazione viene riportato nell'oggetto che verrà ritornato
@@ -188,9 +188,9 @@ tipo di messaggio viene chiamato il metodo adatto. Grazie al modulo NPM
 eseguire un'analisi dettagliata.
 I tipi di messaggi che l'utente può inviare su Messenger sono i seguenti:
 \begin{itemize}
-  \item Messaggio di testo
-  \item \textit{Sticker}
-  \item Allegati
+  \item messaggio di testo;
+  \item \textit{sticker};
+  \item allegati.
 \end{itemize}
 I messaggi di testo vengono ulteriormente analizzati nel metodo
 \textbf{processText} che individua specificatamente il tipo di comando che
@@ -199,7 +199,7 @@ futuro possa essere integrato facilmente un sistema per interpretare il
 linguaggio naturale, in maniera tale da avere una miglior comprensione delle
 richieste effettuate dagli utenti.
 
-Il meotodo \textbf{processASyncAttachments} si occupa dell'invio delle foto
+Il metodo \textbf{processASyncAttachments} si occupa dell'invio delle foto
 alla rispettiva \gls{api}. L'invio delle foto viene effettuato in maniera
 asincrona tramite l'utilizzo della classe \textit{Promise} messa a disposizione
 dal linguaggio JavaScript. Vengono effettuate multiple chiamate alla stessa
@@ -207,7 +207,7 @@ dal linguaggio JavaScript. Vengono effettuate multiple chiamate alla stessa
 immagini inviate dall'utente e inoltrarle alle \gls{api} messe a disposizione
 dal servizio di salvataggio file \textit{Filestorage}.
 L'allegato non viene direttamente inviato al \textit{bot}. Messenger infatti
-invia l'\gls{url} dell'allegato. Questo permette di velocizzare ulteriormente le
+invia l'\gls{url} dell'allegato permettendo di velocizzare ulteriormente le
 operazioni, in quanto si manipola una stringa e non un file binario che
 potrebbe essere più oneroso da processare.
 
@@ -225,7 +225,7 @@ state create per dividere le responsabilità presenti nella classe
 \textbf{Messaging}. \textbf{ButtonAdder} si occupa della creazione e
 restituzione dei bottoni grafici che poi verranno visualizzati dagli utenti.
 Questi bottoni devono essere degli oggetti di tipo
-\gls{javascript_object_notation} che seguano quanto specificato dalla
+\glslink{javascript_object_notation}{JSON} che seguano quanto specificato dalla
 documentazione di Messenger.
 \textbf{Utils} contiene un metodo per ottenere il numero di foto presenti in un
 album. Questo metodo è stato utilizzato soprattutto per segnalare all'utente il
