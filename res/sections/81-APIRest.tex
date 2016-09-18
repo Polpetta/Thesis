@@ -1,0 +1,77 @@
+\chapter{API Rest}
+
+\section{Introduzione}
+La prima definizione di \gls{api} Rest si ha grazie alla tesi
+"\textit{Architectural Styles and the Design of Network-based Software
+Architectures}" dello studente \textbf{Roy Fielding} negli anni 2000, che
+espone un nuovo tipo di architettura per sistemi di ipertesto distribuiti, come
+ad esempio il \textit{World Wide Web}.
+
+Questo metodo di trasferimento dati tenta di definire un'interfaccia senza
+l'aggiunta di sistemi di autenticazione come \gls{soap}\footnote{Il protocollo
+\gls{soap} viene utilizzato per effettuare lo
+scambio di informazioni in maniera strutturata. Il formato utilizzato per lo
+scambio dati è il formato \gls{xml}. L'uso di questo protocollo dovrebbe essere
+effettuato tramite l'utilizzo del paradigma della programmazione ad oggetti.
+\gls{soap} è indipendente dalla piattaforma e dal sistema operativo utilizzato,
+dando la possibilità quindi di avere una completa compatibilità anche su
+sistemi differenti. \gls{soap} si è evolto negli anni nel formato
+\textit{XML-RPC}.} o i \textit{Cookies}.
+
+\section{REST}
+
+\gls{rest} detta un insieme di linee guida riassumibili in cinque principi:
+\begin{enumerate}
+  \item identificazione delle risorse;
+  \item utilizzo esplicito di metodi \gls{http};
+  \item risorse autodescrittive;
+  \item collegamenti tra risorse;
+  \item comunicazioni prive di stato.
+\end{enumerate}
+
+\subsection{Identificazione delle risorse}
+Per risorsa si intende un qualsiasi elemento oggetto di elaborazione.
+Le risorse rappresentano un concetto fondamentale nelle \gls{api} di tipo
+\gls{rest}. Queste risorse vengono richieste tipicamente da una macchia
+denominata \textit{client} verso una macchina denominata \textit{server}. Le
+richieste vengono solitamente effettuate tramite il protocollo \gls{http}, ma
+questo non dev'essere necessario. È possibile stabilire anche il formato delle
+risorse.
+
+\subsection{Utilizzo esplicito di metodi \gls{http}}
+Le richieste se effettuate tramite l'utilizzo del protocollo \gls{http} possono
+essere effettuate utilizzando i metodi \gls{crud}. Il protocollo \gls{http}
+mappa i metodi \gls{crud} nella seguente maniera:
+\begin{itemize}
+  \item \textbf{create} è associato a richieste di tipo PUT o POST;
+  \item \textbf{read} è associato a richieste di tipo GET;
+  \item \textbf{update} è associato a richieste di tipo PUT o POST;
+  \item \textbf{delete} è associato a richieste di tipo DELETE.
+\end{itemize}
+
+\subsection{Risorse autodescrittive}
+I principi \gls{rest} non impongono vincoli sulle modalità di rappresentazione
+di una risorsa. L'utilizzo di formati standard però è consigliato, in maniera
+tale da avere una migliore comunicazione con i client. Per ottenere una
+rappresentazione standard è possibile rappresentare le risorse con l'adeguato
+tipo \gls{mime}.
+Per contro, un \textit{client} ha la possibilità di richiedere la risorsa
+secondo uno specifico formato. In questa maniera, il \textit{server} può avere
+più modalità di rappresentazione per una risorsa.
+
+\subsection{Collegamenti tra risorse}
+È possibile che siano presenti relazioni tra le risorse. Un metodo consigliato
+per la rappresentazione di dipendenze tra le risorse è tramite un
+identificatore univoco per le varie risorse. In questa maniera, è possibile
+collegare diverse risorse tramite un \gls{url} univoco.
+
+\subsection{Comunicazioni prive di stato}
+Questa caratteristica è possibile trovarla proprio nel protocollo \gls{http},
+dove non si mantiene un collegamento attivo e non esiste il concetto di
+"sessione" e ciascuna richiesta non ha alcuna relazione con le richieste
+precedenti o successive. Questo concetto è stato portato anche nei servizi di
+tipo \gls{rest}.
+In questa maniera è il \textit{client} che si deve occupare di mantenere di
+mantenere lo stato dell'applicazione, permettendo di avere una scalabilità lato
+\textit{server}, in quanto non sono presenti problemi di sincronizzazione delle
+varie sessioni o mantenimenti di stato.
