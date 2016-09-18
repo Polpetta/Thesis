@@ -1,0 +1,69 @@
+% VERIFICA E VALIDAZIONE
+
+\chapter{Verifica e Validazione}
+
+L'attività di verifica e validazione è stata valutata in base al tempo
+disponibile durante il tirocinio. È stato importante soprattutto cercare un
+buon equilibrio nell'eseguire l'attività di verifica: troppo tempo investito
+infatti avrebbe portato ad un alto rischio di non finire completamente il
+prodotto, mentre non investire abbastanza tempo avrebbe portato ad una qualità
+bassa con la presenza di difetti.
+
+La qualità del prodotto è stata valutata non solamente nei termini del
+soddisfacimento dei requisiti, ma anche nei termini di soddisfazione dei
+clienti: portare a termine un prodotto che fosse in grado di attirare nuova
+clientela era, per PastBook, un obiettivo importante. È quindi stato necessario
+valutare la qualità sotto questi due aspetti: dettagli come la corretta
+grammaticale e la forma nelle frasi inviate sono state valutate con attenzione,
+seppur non di fondamentale importanza per il software in sé.
+
+Si è applicata la verifica come strumento per il controllo relativo
+al codice e alla documentazione prodotta mentre la validazione ha accertato
+che il prodotto finito soddisfacesse tutti i requisiti fissati in fase di
+analisi.
+
+La verifica e la validazione hanno trovato maggiormente posto nell'analisi
+dinamica del codice: l'analisi dinamica è stata effettuata utilizzando test
+ripetibili che permettessero di individuare possibili errori sul codice
+scritto durante la loro esecuzione.
+I due tipi di test più utilizzati sono stati:
+\begin{itemize}
+  \item Test di unità
+  \item Test di integrazione
+\end{itemize}
+I test di unità si sono applicati soprattutto nelle situazioni in cui si è
+voluto verificare il corretto funzionamento di piccole porzioni di codice,
+mentre i test d'integrazione sono stati effettuati quando si è voluto
+verificare che l'integrazione tra le varie parti funzionasse senza problemi.
+Per effettuare i test si è ricorsi all'utilizzo del \textit{framework}
+\textit{mocha}\footnote{Mocha è un \textit{framework} per l'esecuzione di test
+d'unità liberamente scaricabile dall'indirizzo \url{http://mochajs.org/}},
+mentre per i test d'integrazione si è utilizzato la funzionalità già integrata
+presente in Amazon AWS APIGateway, in cui è possibile simulare la ricezione di
+un evento impostando i valori desiderati. Questo ha permesso di rendere anche i
+test più semplici e maggiormente integrati con la piattaforma utilizzata.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{MochaLogo}
+  \caption{Logo del \textit{framework} usato per i test Mocha}
+\end{figure}
+
+Durante lo sviluppo del prodotto si sono utilizzati diversi ambienti:
+\begin{itemize}
+  \item ambiente di sviluppo, anche denominato \textit{dev};
+  \item ambiente di certificazione di qualità detto \textit{qa};
+  \item ambiente di produzione, chiamato \textit{prod}.
+\end{itemize}
+Questa suddivisione ha portato una migliore organizzazione. In un ambiente di
+sviluppo, lo sviluppatore si accerta che le funzionalità implementate
+funzionino tramite l'esecuzione di test dinamici.
+Una volta completato un insieme di funzionalità, si esegue il codice in un
+ambiente di test, in cui le nuove funzionalità vengono integrate con le
+altre già esistenti: vengono eseguiti poi test di integrazione, per
+valutare il comportamento dei diversi componenti della piattaforma. Inoltre
+in questa fase viene simulato l'utilizzo del \textit{bot} da parte di un
+utente medio, per valutare che la qualità legata al soddisfacimento della
+clientela sia adeguata.
+Una volta ottenuti i risultati desiderati, si procede a rilasciare il
+prodotto in un ambiente di produzione e a renderlo disponibile al pubblico.
