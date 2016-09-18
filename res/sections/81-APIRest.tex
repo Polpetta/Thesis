@@ -34,9 +34,9 @@ Per risorsa si intende un qualsiasi elemento oggetto di elaborazione.
 Le risorse rappresentano un concetto fondamentale nelle \gls{api} di tipo
 \gls{rest}. Queste risorse vengono richieste tipicamente da una macchia
 denominata \textit{client} verso una macchina denominata \textit{server}. Le
-richieste vengono solitamente effettuate tramite il protocollo \gls{http}, ma
-questo non dev'essere necessario. È possibile stabilire anche il formato delle
-risorse.
+richieste vengono solitamente effettuate tramite il protocollo \gls{http}, ma è
+possibile utilizzare un tipo di protocollo diverso. È possibile stabilire anche
+il formato delle risorse.
 
 \subsection{Utilizzo esplicito di metodi \gls{http}}
 Le richieste se effettuate tramite l'utilizzo del protocollo \gls{http} possono
@@ -54,24 +54,24 @@ I principi \gls{rest} non impongono vincoli sulle modalità di rappresentazione
 di una risorsa. L'utilizzo di formati standard però è consigliato, in maniera
 tale da avere una migliore comunicazione con i client. Per ottenere una
 rappresentazione standard è possibile rappresentare le risorse con l'adeguato
-tipo \gls{mime}.
-Per contro, un \textit{client} ha la possibilità di richiedere la risorsa
-secondo uno specifico formato. In questa maniera, il \textit{server} può avere
-più modalità di rappresentazione per una risorsa.
+tipo \gls{mime}, per contro, un \textit{client} ha la possibilità di richiedere
+la risorsa secondo uno specifico formato: in questa maniera, il \textit{server}
+può fornire più modi di rappresentare per una risorsa.
 
 \subsection{Collegamenti tra risorse}
 È possibile che siano presenti relazioni tra le risorse. Un metodo consigliato
-per la rappresentazione di dipendenze tra le risorse è tramite un
-identificatore univoco per le varie risorse. In questa maniera, è possibile
-collegare diverse risorse tramite un \gls{url} univoco.
+per rappresentarle e distinguerle è tramite l'utilizzo di un identificatore
+ogni volta diverso.
+In questa maniera, è possibile avere diversi collegamenti tra risorse tramite
+un \gls{url} univoco.
 
 \subsection{Comunicazioni prive di stato}
 Questa caratteristica è possibile trovarla proprio nel protocollo \gls{http},
-dove non si mantiene un collegamento attivo e non esiste il concetto di
+dove non si mantiene un collegamento attivo, non esiste il concetto di
 "sessione" e ciascuna richiesta non ha alcuna relazione con le richieste
 precedenti o successive. Questo concetto è stato portato anche nei servizi di
 tipo \gls{rest}.
-In questa maniera è il \textit{client} che si deve occupare di mantenere di
-mantenere lo stato dell'applicazione, permettendo di avere una scalabilità lato
+In questa maniera è il \textit{client} che si deve occupare di mantenere lo
+stato dell'applicazione, permettendo di avere un'alta scalabilità lato
 \textit{server}, in quanto non sono presenti problemi di sincronizzazione delle
-varie sessioni o mantenimenti di stato.
+varie sessioni o mantenimenti di stato tra le varie macchine.
