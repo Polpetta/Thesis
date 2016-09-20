@@ -20,7 +20,7 @@ brillante idea la \gls{startup} cresce diventando nel 2016 una società a tutti
 gli effetti.
 
 L'idea di PastBook è quella di fornire un libro dei ricordi alle
-persone, prendendo i momenti direttamente dai \textit{social network} a cui
+persone, prendendo i momenti direttamente dai \textit{social network} che ormai
 tutti siamo abituati ad usare. Fornendo l'integrazione a diverse piattaforme
 l'applicazione permette di creare in un unico sito il proprio album, per poi
 poterlo ordinare con diverse grandezze e ottenere così una copia stampata.
@@ -32,7 +32,7 @@ clienti, programmatori e lato \textit{marketing}.
 
 Il servizio clienti si occupa di processare eventuali richieste dei clienti,
 come per esempio modificare un libro dopo aver eseguito il pagamento, ottenere
-un rimborso o avere più semplicemente informazioni riguardo il prodotto.
+un rimborso o avere più semplicemente informazioni riguardo al prodotto.
 
 I programmatori si occupano della parte più tecnica del servizio: è importante
 infatti mantenere aggiornata la piattaforma, aggiungendo funzionalità
@@ -42,7 +42,7 @@ possibile.
 Il reparto \textit{marketing} è legato al reparto tecnico. Ogni nuova
 funzionalità viene infatti annunciata tramite i \textit{social network}
 dell'azienda, per ottenere una massima diffusione. Vengono anche pensate a
-strategie di mercato, come prezzi speciali o offerte per nuovi prodotti.
+strategie di mercato, come offerte speciali o prezzi per nuovi prodotti.
 
 \subsection{Organizzazione interna}
 
@@ -74,7 +74,7 @@ di qualità.
 \end{itemize}
 
 Quando è necessario aggiungere nuove funzionalità i programmatori sono
-obbligati e creare un nuovo ramo a partire da \textit{develop}, che abbia come
+obbligati a creare un nuovo ramo a partire da \textit{develop}, che abbia come
 suffisso la scritta "\textit{feature}/". Dopo questo suffisso, è necessario dare
 al ramo un nome esplicativo che però non risulti troppo lungo.
 
@@ -90,8 +90,8 @@ avere.
 Viene adottata una progettazione volta a all'estensione: in questa
 maniera sarà sempre facile poter aggiungere altre funzionalità a quelle già
 esistenti, per ottenere quindi un prodotto che sia facilmente estendibile e che
-richieda meno tempo in futuro per lo sviluppo, richiedendo di conseguenza anche
-meno risorse.
+necessiti di meno tempo in futuro per lo sviluppo, richiedendo di conseguenza
+anche meno risorse.
 
 \subsection{Attività di sincronizzazione giornaliere}
 
@@ -108,9 +108,8 @@ L'attività di \textit{deploy} si suddivide nei seguenti passi:
 \begin{enumerate}
 
 \item Fusione dei vari \textit{branch} della nuova funzionalità sviluppata nel
-ramo di \textit{develop};
-\item Caricamento del ramo \textit{develop} in un ambiente di test denominato
-QA;
+ramo denominato \textit{develop};
+\item Caricamento del ramo \textit{develop} in un ambiente di test;
 \item \textit{Testing} delle varie funzionalità per assicurarsi che tutto
 funzioni senza problemi;
 \item Una volta accertato che il tutto funzioni, fusione del ramo
@@ -123,5 +122,5 @@ viene fuso nel ramo \textit{prod}, in cui viene conservato tutto il codice che
 
 Se la nuova funzionalità prodotta non viene ritenuta ancora matura per poterla
 rilasciare in un ambiente di produzione si decide di rimandare la sua
-distribuzione alla prossima settimana, avendo così il tempo di risolvere
-eventuali difetti riscontrati nella fase di \textit{testing}.
+distribuzione alla prossima successiva, avendo così il tempo di risolvere
+eventuali difetti riscontrati nel periodo di \textit{testing}.
