@@ -5,7 +5,7 @@
 
 \section{I ricordi}
 
-La vita di ogni persona è composta da ricordi. Sempre più oggi giorno la gente
+La vita di ogni persona è composta da ricordi. Sempre più oggigiorno la gente
 salva i propri istanti tramite i \textit{social network}, come ad esempio
 Facebook o Instagram. Ma questi momenti tendono a svanire col tempo o possono
 perdersi nella vastità di internet. Quello che PastBook offre è la
@@ -79,8 +79,8 @@ inviare anche altri contenuti, come file generici o video. In questo caso, il
 senza lanciare un messaggio di errore o fermare l'operazione di caricamento.
 Questa scelta è stata presa in quando è possibile che questo tipo di errore
 avvenga maggiormente quando l'utente vuole inviare un gran numero di foto nella
-chat, ed eseguire azioni come segnalare l'errore o fermare il processo di
-salvataggio delle immagini potrebbe portare a reazioni come frustrazione e
+conversazione, ed eseguire azioni come segnalare l'errore o fermare il processo
+di salvataggio delle immagini potrebbe portare a reazioni come frustrazione e
 fastidio.
 
 \paragraph*{Errori di interpretazione} È anche possibile che le persone
@@ -110,11 +110,11 @@ elencano le possibili:
   \item richiedere informazioni riguardo ai costi di spedizione e ai formati
 degli album;
   \item creare un nuovo album;
-  \item inviare foto al \textit{bot} tramite la chat utente;
+  \item inviare foto al \textit{bot} tramite la \textit{chat} utente;
   \item vedere la lista delle foto inviate e attualmente presenti all'interno
 dell'album;
   \item richiedere di vedere, a grandezza originale e senza alcuna riduzione di
-risoluzione un'immagine presente nella lista dell'album che si sta creando;
+risoluzione, un'immagine presente nella lista dell'album che si sta creando;
   \item richiedere di cancellare una specifica foto dall'album che si sta
 creando;
   \item procedere con l'acquisto dell'album.
@@ -233,37 +233,37 @@ valore intero;
   \item \textbf{timeout}: indica il tempo massimo di esecuzione della singola
 funzione Lambda: infatti è possibile che la macchina abbia dei periodi di
 esecuzione più lunghi di quelli desiderati. Se l'esecuzione supera il limite
-impostato, l'esecuzione della funzione verrà interrotta. Questo valore
-attualmente può essere impostato a un massimo di 5 minuti;
+impostato verrà interrotta. Questo valore attualmente può essere impostato a un
+massimo di 5 minuti;
 
   %http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
   \item \textbf{role}: all'interno dell'ambiente Amazon AWS sono presenti i
 ruoli, che danno la possibilità di definire i permessi delle varie risorse
 all'interno del servizio, siano essi utenti della compagnia o servizi in
-esecuzione. Ogni permesso è identificato tramite un \textit{Amazon Resource
-Name} (anche abbreviato in ARN), che segue la seguente definizione:
+esecuzione. Ogni permesso è identificato tramite un \gls{arn}, che segue la
+definizione:
 \begin{verbatim}
   arn:partition:service:region:account-id:resource
 \end{verbatim}
 dove:
   \begin{itemize}
-    \item[arn] identifica che si tratta di un ruolo;
+    \item \textbf{arn} identifica che si tratta di un ruolo;
 
-    \item[partition] indica il tipo di luogo in cui si trova la risorsa.
+    \item \textbf{partition} indica il tipo di luogo in cui si trova la risorsa.
 Attualmente è solamente disponibile il valore "aws";
 
-    \item[service] indica il servizio. Nel caso della configurazione necessaria
-per il tirocinio, il valore è stato impostato a "lambda";
+    \item \textbf{service} indica il servizio. Nel caso della configurazione
+necessaria per il tirocinio, il valore è stato impostato a "lambda";
 
-    \item[region] indica la regione dove questa risorsa è allocata. Amazon AWS
-Services è un servizio presente in più regioni del mondo, e ogni regione
-permette di avere una propria configurazione;
+    \item \textbf{region} indica la regione dove questa risorsa è allocata.
+Amazon AWS Services è un servizio presente in più regioni del mondo, e ogni
+regione permette di avere una propria configurazione;
 
-    \item[account-id] indica l'id dell'\textit{account} con cui si sta
-assegnando il permesso;
+    \item \textbf{account-id} indica l'\textit{id} dell'\textit{account} con cui
+si sta assegnando il permesso;
 
-    \item[resource] è il nome della risorsa, che è univoco per quel determinato
-servizio nella regione selezionata.
+    \item \textbf{resource} è il nome della risorsa, che è univoco per quel
+determinato servizio nella regione selezionata.
   \end{itemize}
   L'assegnazione di un ruolo è obbligatorio e se non correttamente configurato
 durante l'esecuzione del codice si potrebbero riscontrare problemi con i
@@ -290,9 +290,9 @@ funzione che Amazon Lambda chiamerà quando ne sarà richiesta l'esecuzione.
 Una volta definito il file di configurazione per il progetto è possibile
 cominciare a lavorare sulle funzioni che poi verranno caricate nel servizio
 Amazon Lambda. Queste funzioni devono trovarsi all'interno di una propria
-cartella all'interno di "function". Il nome della cartella indicherà anche il
-nome della funzione. Per ogni funzione è poi possibile scrivere il codice che
-verrà eseguito.
+cartella all'interno di "\textit{function}". Il nome della cartella indicherà
+anche il nome della funzione: per ogni funzione è poi possibile scrivere il
+codice che verrà eseguito.
 
 \paragraph*{Personalizzazione delle configurazioni} Apex è uno strumento
 flessibile che permette di definire in maniera dettagliata ulteriori
@@ -359,7 +359,7 @@ che scriveranno a PastBot;
 una singola foto da una determinata collezione;
 
   \item \textbf{getPastBotCollection}: ritorna la collezione attualmente attiva
-dato un id di un utente iscritto;
+dato un \textit{id} di un utente iscritto;
 
   \item \textbf{getPastBotUser}: ritorna tutte le informazioni attualmente
 presenti su quell'utente, come la lista delle collezioni create e la lista
@@ -554,7 +554,7 @@ in grado di creare statistiche riguardo a:
   \item numero di messaggi scambiati per utente;
   \item conteggio dei messaggi ricevuti e inviati;
   \item tipo di testo ricevuto;
-  \item lunghezza delle sessioni di chat per utente.
+  \item lunghezza delle sessioni di \textit{chat} per utente.
 \end{itemize}
 I dati vengono poi mostrati tramite diversi tipi di grafici e permette di avere
 una visione generale sull'utilizzo del \textit{bot} e sul suo gradimento.
