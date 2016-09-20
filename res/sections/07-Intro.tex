@@ -12,7 +12,7 @@
 \end{figure}
 
 % Reference: http://pastbook.pr.co/
-PastBook, viene aperta a Milano nel 2011 come un \textit{hobby}. Nel 2012 il
+PastBook viene aperta a Milano nel 2011 come un \textit{hobby}. Nel 2012 il
 fondatore, capo tecnico e \glslink{scrumMaster}{Scrum Master} di eBay Italia
 Stefano Cutello, sposta l'azienda ad Amsterdam per entrare nell'acceleratore
 per \gls{startup} Rockstart. Grazie ai finanziamenti dell'acceleratore e alla
@@ -21,7 +21,7 @@ gli effetti.
 
 L'idea di PastBook è quella di fornire un libro dei ricordi alle
 persone, prendendo i momenti direttamente dai \textit{social network} a cui
-tutti siamo abiuati ad usare. Fornendo l'integrazione a diverse piattaforme
+tutti siamo abituati ad usare. Fornendo l'integrazione a diverse piattaforme
 l'applicazione permette di creare in un unico sito il proprio album, per poi
 poterlo ordinare con diverse grandezze e ottenere così una copia stampata.
 
@@ -57,18 +57,18 @@ All'interno del reparto tecnico dove avviene lo sviluppo del codice sono state
 adottate varie convenzioni riguardo all'organizzazione del sistema di
 versionamento e allo stile di scrittura del codice.
 
-\subsubsection{Sitema di versionamento}
+\subsubsection{Sistema di versionamento}
 
-Il sistema di vesionamento, presenta diversi branch specifici per i vari
-ambienti di lavoro:
+Il sistema di versionamento, presenta diversi \textit{branch} specifici per i
+vari ambienti di lavoro:
 \begin{itemize}
 
-\item[develop] in questo ramo è presente il codice ancora in fase di sviluppo,
-che deve essere sottoposto a revisione;
-\item[qa] qui è presente il codice attualmente sotto uno stato di revisione e
-testing, in cui ci si vuole assicurare che tutte le attività implementate siano
-prive di errori e rispondano come dovuto;
-\item[prod] in questo ramo è presente il codice attualmente impiegato
+\item \textbf{develop} in questo ramo è presente il codice ancora in fase di
+sviluppo, che deve essere sottoposto a revisione;
+\item \textbf{qa} qui è presente il codice attualmente sotto uno stato di
+revisione e \textit{testing}, in cui ci si vuole assicurare che tutte le
+attività implementate siano prive di errori e rispondano come dovuto;
+\item \textbf{prod} in questo ramo è presente il codice attualmente impiegato
 nell'ambiente di produzione, che viene ritenuto stabile e che ha passato i test
 di qualità.
 \end{itemize}
@@ -107,13 +107,14 @@ Ogni lunedì di ogni settimana il reparto tecnico è chiamato all'attività di
 L'attività di \textit{deploy} si suddivide nei seguenti passi:
 \begin{enumerate}
 
-\item Fusione dei vari branch della nuova feature sviluppata nel ramo di
-\textit{develop};
-\item Caricamento del ramo branch in un ambiente di test denominato QA;
-\item Testing delle varie funzionalità per assicurarsi che tutto funzioni senza
-problemi;
-\item Una volta accertato che il tutto funzioni, fusione del branch develop nel
-branch \textit{qa};
+\item Fusione dei vari \textit{branch} della nuova funzionalità sviluppata nel
+ramo di \textit{develop};
+\item Caricamento del ramo \textit{develop} in un ambiente di test denominato
+QA;
+\item \textit{Testing} delle varie funzionalità per assicurarsi che tutto
+funzioni senza problemi;
+\item Una volta accertato che il tutto funzioni, fusione del ramo
+\textit{develop} nel ramo \textit{qa};
 \item Ottenuta l'approvazione del capo tecnico, avviene il \textit{deploy}
 della nuova funzionalità nell'ambiente di produzione e il ramo \textit{qa}
 viene fuso nel ramo \textit{prod}, in cui viene conservato tutto il codice che
@@ -123,4 +124,4 @@ viene fuso nel ramo \textit{prod}, in cui viene conservato tutto il codice che
 Se la nuova funzionalità prodotta non viene ritenuta ancora matura per poterla
 rilasciare in un ambiente di produzione si decide di rimandare la sua
 distribuzione alla prossima settimana, avendo così il tempo di risolvere
-eventuali difetti riscontrati nella fase di testing.
+eventuali difetti riscontrati nella fase di \textit{testing}.
