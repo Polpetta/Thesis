@@ -206,8 +206,8 @@ Come è possibile notare nella figura, sono presenti diversi file di
 configurazione di tipo \glslink{javascript_object_notation}{JSON}. Prima
 dell'estensione del file è possibile notare come siano appuntati i vari tipi di
 \textit{environment}, per cui è possibile creare una configurazione diversa.
-All'interno del file "project.<environment>.json" è possibile inserire i
-seguenti campi:
+All'interno del file "\textit{project.<environment>.json}" è possibile inserire
+i seguenti campi:
 \begin{itemize}
   \item \textbf{name}: il nome del progetto;
   \item \textbf{description}: una descrizione del progetto (questo campo può
@@ -304,7 +304,7 @@ dei campi che si vuole personalizzare per quella funzione, consentendo quindi
 la creazione di una configurazione globale per tutto il progetto e una
 personalizzata per ogni funzionalità.
 Come convenzione interna della compagnia è stato deciso di nominare tutti i
-file che vengono poi eseguiti dal servizio Lambda con il nome di
+file principali che vengono poi eseguiti dal servizio Lambda con il nome di
 \textit{index.js}.
 
 \newpage
@@ -318,14 +318,14 @@ file che vengono poi eseguiti dal servizio Lambda con il nome di
 
 Il \textit{bot} durante lo sviluppo ha richiesto la
 necessità di dipendenze di terze parti, e per questo è stato deciso di
-integrarle tramite il gestore di moduli JavaScript NPM.
+integrarle tramite il gestore di moduli JavaScript \gls{npm}.
 
-NPM è un acronimo per Node Package Manager, e provvede a fornire una serie di
-moduli creati da altri utenti. Questi moduli possono instaurare delle dipendeze
-tra di loro, creando un sistema in cui il riutilizzo gioca un ruolo chiave.
+\gls{npm} provvede a fornire una serie di moduli creati da altri utenti. Questi
+moduli possono instaurare dipendenze tra di loro, creando un sistema in cui il
+riutilizzo gioca un ruolo chiave.
 Questa cooperazione di pacchetti permette la creazione di altro software in
 maniera più semplice.
-NPM offre anche la possibilità di rendere i pacchetti privati e non
+\gls{npm} offre anche la possibilità di rendere i pacchetti privati e non
 condivisibili pubblicamente, consentendo ad aziende di sviluppare codice
 proprietario in moduli per riutilizzarlo per diversi progetti interni.
 
