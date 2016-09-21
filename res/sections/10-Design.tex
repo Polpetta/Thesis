@@ -171,8 +171,7 @@ utente invia per esempio due messaggi in rapida successione, viene generato un
 solo evento, che conterrà un \textit{array} di messaggi inviati dall'utente. È
 quindi stato creato inizialmente una classe \textbf{EntryProcessor} la quale si
 occupa di ricevere l'evento e di estrarne i messaggi che vengono posti in una
-coda di esecuzione processata quando tutti i messaggi vengono estratti
-dall'evento.
+coda di esecuzione.
 Questa coda viene quindi passata alla classe \textbf{MessagingEventProcessor},
 che si occupa di elaborare singolarmente e in maniera asincrona ogni messaggio
 presente nella lista. In questa maniera, vengono gestiti diversi eventi nello
