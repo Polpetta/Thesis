@@ -330,8 +330,8 @@ condivisibili pubblicamente, consentendo ad aziende di sviluppare codice
 proprietario in moduli per riutilizzarlo per diversi progetti interni.
 
 All'azione di caricamento, Apex riconosce la dipendenza da altri moduli
-JavaScript, provvedendo quindi a generare un file .zip che li contenga tutti e
-a caricarli nel servizio.
+JavaScript, provvedendo quindi a generare un file compresso che li contenga
+tutti e a caricarli nel servizio.
 
 \subsubsection{Progettazione della struttura \glslink{serverless}{serverless}}
 \label{prj:serverless:api}
@@ -396,7 +396,7 @@ assicurata una bassa latenza per prestazioni maggiori.
 La definizione di un determinato \gls{url} permette di configurare l'evento ad
 esso associato in base al tipo di richiesta \gls{crud}. Al momento della
 definizione, è necessario selezionare quale servizio gestirà la richiesta. Ai
-fini del progetto, a ogni \gls{url} è stata associata una chiamata a una
+fini del progetto, a ogni \gls{url} è stata associato una chiamata a una
 specifica funzione Lambda.
 
 In questa maniera, tramite l'utilizzo di un gestore di \gls{api} si è potuto
@@ -423,7 +423,7 @@ un apposito editor di testo.
 
 La decisione di usare questo strumento per definire i punti d'accesso
 all'applicazione è stata presa in merito al supporto nativo che il servizio
-Amazon AWS APIGateway fornisce a Swagger. Quindi si è proceduti nella seguente
+Amazon AWS APIGateway fornisce a Swagger. Si è proceduti quindi nella seguente
 maniera:
 \begin{enumerate}
   \item progettazione dei punti d'accesso all'applicazione;
@@ -476,8 +476,8 @@ quei servizi che necessitano di poca latenza e debbano scalare in un futuro.
 AWS DynamoDB è totalmente gestito da Amazon, ed è consigliato per le
 applicazioni legate al mondo del web.
 Ai fini di PastBot, DynamoDB è stato essenziale per salvare i messaggi, gli
-utenti e gli album con le relative foto. Il trasferimento dei dati è stato
-eseguito inviando direttamente oggetti di tipo
+utenti e gli album con gli indirizzi alle relative foto. Il trasferimento dei
+dati è stato eseguito inviando direttamente oggetti di tipo
 \glslink{javascript_object_notation}{JSON} al database.
 
 \subsubsection{Messenger e Facebook}
