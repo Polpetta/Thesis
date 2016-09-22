@@ -5,7 +5,7 @@
 
 \section{I ricordi}
 
-La vita di ogni persona è composta da ricordi. Sempre più oggi giorno la gente
+La vita di ogni persona è composta da ricordi. Sempre più oggigiorno la gente
 salva i propri istanti tramite i \textit{social network}, come ad esempio
 Facebook o Instagram. Ma questi momenti tendono a svanire col tempo o possono
 perdersi nella vastità di internet. Quello che PastBook offre è la
@@ -79,8 +79,8 @@ inviare anche altri contenuti, come file generici o video. In questo caso, il
 senza lanciare un messaggio di errore o fermare l'operazione di caricamento.
 Questa scelta è stata presa in quando è possibile che questo tipo di errore
 avvenga maggiormente quando l'utente vuole inviare un gran numero di foto nella
-chat, ed eseguire azioni come segnalare l'errore o fermare il processo di
-salvataggio delle immagini potrebbe portare a reazioni come frustrazione e
+conversazione, ed eseguire azioni come segnalare l'errore o fermare il processo
+di salvataggio delle immagini potrebbe portare a reazioni come frustrazione e
 fastidio.
 
 \paragraph*{Errori di interpretazione} È anche possibile che le persone
@@ -110,11 +110,11 @@ elencano le possibili:
   \item richiedere informazioni riguardo ai costi di spedizione e ai formati
 degli album;
   \item creare un nuovo album;
-  \item inviare foto al \textit{bot} tramite la chat utente;
+  \item inviare foto al \textit{bot} tramite la \textit{chat} utente;
   \item vedere la lista delle foto inviate e attualmente presenti all'interno
 dell'album;
   \item richiedere di vedere, a grandezza originale e senza alcuna riduzione di
-risoluzione un'immagine presente nella lista dell'album che si sta creando;
+risoluzione, un'immagine presente nella lista dell'album che si sta creando;
   \item richiedere di cancellare una specifica foto dall'album che si sta
 creando;
   \item procedere con l'acquisto dell'album.
@@ -206,8 +206,8 @@ Come è possibile notare nella figura, sono presenti diversi file di
 configurazione di tipo \glslink{javascript_object_notation}{JSON}. Prima
 dell'estensione del file è possibile notare come siano appuntati i vari tipi di
 \textit{environment}, per cui è possibile creare una configurazione diversa.
-All'interno del file "project.<environment>.json" è possibile inserire i
-seguenti campi:
+All'interno del file "\textit{project.<environment>.json}" è possibile inserire
+i seguenti campi:
 \begin{itemize}
   \item \textbf{name}: il nome del progetto;
   \item \textbf{description}: una descrizione del progetto (questo campo può
@@ -233,37 +233,37 @@ valore intero;
   \item \textbf{timeout}: indica il tempo massimo di esecuzione della singola
 funzione Lambda: infatti è possibile che la macchina abbia dei periodi di
 esecuzione più lunghi di quelli desiderati. Se l'esecuzione supera il limite
-impostato, l'esecuzione della funzione verrà interrotta. Questo valore
-attualmente può essere impostato a un massimo di 5 minuti;
+impostato verrà interrotta. Questo valore attualmente può essere impostato a un
+massimo di 5 minuti;
 
   %http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
   \item \textbf{role}: all'interno dell'ambiente Amazon AWS sono presenti i
 ruoli, che danno la possibilità di definire i permessi delle varie risorse
 all'interno del servizio, siano essi utenti della compagnia o servizi in
-esecuzione. Ogni permesso è identificato tramite un \textit{Amazon Resource
-Name} (anche abbreviato in ARN), che segue la seguente definizione:
+esecuzione. Ogni permesso è identificato tramite un \gls{arn}, che segue la
+definizione:
 \begin{verbatim}
   arn:partition:service:region:account-id:resource
 \end{verbatim}
 dove:
   \begin{itemize}
-    \item[arn] identifica che si tratta di un ruolo;
+    \item \textbf{arn} identifica che si tratta di un ruolo;
 
-    \item[partition] indica il tipo di luogo in cui si trova la risorsa.
+    \item \textbf{partition} indica il tipo di luogo in cui si trova la risorsa.
 Attualmente è solamente disponibile il valore "aws";
 
-    \item[service] indica il servizio. Nel caso della configurazione necessaria
-per il tirocinio, il valore è stato impostato a "lambda";
+    \item \textbf{service} indica il servizio. Nel caso della configurazione
+necessaria per il tirocinio, il valore è stato impostato a "lambda";
 
-    \item[region] indica la regione dove questa risorsa è allocata. Amazon AWS
-Services è un servizio presente in più regioni del mondo, e ogni regione
-permette di avere una propria configurazione;
+    \item \textbf{region} indica la regione dove questa risorsa è allocata.
+Amazon AWS Services è un servizio presente in più regioni del mondo, e ogni
+regione permette di avere una propria configurazione;
 
-    \item[account-id] indica l'id dell'\textit{account} con cui si sta
-assegnando il permesso;
+    \item \textbf{account-id} indica l'\textit{id} dell'\textit{account} con cui
+si sta assegnando il permesso;
 
-    \item[resource] è il nome della risorsa, che è univoco per quel determinato
-servizio nella regione selezionata.
+    \item \textbf{resource} è il nome della risorsa, che è univoco per quel
+determinato servizio nella regione selezionata.
   \end{itemize}
   L'assegnazione di un ruolo è obbligatorio e se non correttamente configurato
 durante l'esecuzione del codice si potrebbero riscontrare problemi con i
@@ -290,9 +290,9 @@ funzione che Amazon Lambda chiamerà quando ne sarà richiesta l'esecuzione.
 Una volta definito il file di configurazione per il progetto è possibile
 cominciare a lavorare sulle funzioni che poi verranno caricate nel servizio
 Amazon Lambda. Queste funzioni devono trovarsi all'interno di una propria
-cartella all'interno di "function". Il nome della cartella indicherà anche il
-nome della funzione. Per ogni funzione è poi possibile scrivere il codice che
-verrà eseguito.
+cartella all'interno di "\textit{function}". Il nome della cartella indicherà
+anche il nome della funzione: per ogni funzione è poi possibile scrivere il
+codice che verrà eseguito.
 
 \paragraph*{Personalizzazione delle configurazioni} Apex è uno strumento
 flessibile che permette di definire in maniera dettagliata ulteriori
@@ -304,7 +304,7 @@ dei campi che si vuole personalizzare per quella funzione, consentendo quindi
 la creazione di una configurazione globale per tutto il progetto e una
 personalizzata per ogni funzionalità.
 Come convenzione interna della compagnia è stato deciso di nominare tutti i
-file che vengono poi eseguiti dal servizio Lambda con il nome di
+file principali che vengono poi eseguiti dal servizio Lambda con il nome di
 \textit{index.js}.
 
 \newpage
@@ -318,20 +318,20 @@ file che vengono poi eseguiti dal servizio Lambda con il nome di
 
 Il \textit{bot} durante lo sviluppo ha richiesto la
 necessità di dipendenze di terze parti, e per questo è stato deciso di
-integrarle tramite il gestore di moduli JavaScript NPM.
+integrarle tramite il gestore di moduli JavaScript \gls{npm}.
 
-NPM è un acronimo per Node Package Manager, e provvede a fornire una serie di
-moduli creati da altri utenti. Questi moduli possono instaurare delle dipendeze
-tra di loro, creando un sistema in cui il riutilizzo gioca un ruolo chiave.
+\gls{npm} provvede a fornire una serie di moduli creati da altri utenti. Questi
+moduli possono instaurare dipendenze tra di loro, creando un sistema in cui il
+riutilizzo gioca un ruolo chiave.
 Questa cooperazione di pacchetti permette la creazione di altro software in
 maniera più semplice.
-NPM offre anche la possibilità di rendere i pacchetti privati e non
+\gls{npm} offre anche la possibilità di rendere i pacchetti privati e non
 condivisibili pubblicamente, consentendo ad aziende di sviluppare codice
 proprietario in moduli per riutilizzarlo per diversi progetti interni.
 
 All'azione di caricamento, Apex riconosce la dipendenza da altri moduli
-JavaScript, provvedendo quindi a generare un file .zip che li contenga tutti e
-a caricarli nel servizio.
+JavaScript, provvedendo quindi a generare un file compresso che li contenga
+tutti e a caricarli nel servizio.
 
 \subsubsection{Progettazione della struttura \glslink{serverless}{serverless}}
 \label{prj:serverless:api}
@@ -359,7 +359,7 @@ che scriveranno a PastBot;
 una singola foto da una determinata collezione;
 
   \item \textbf{getPastBotCollection}: ritorna la collezione attualmente attiva
-dato un id di un utente iscritto;
+dato un \textit{id} di un utente iscritto;
 
   \item \textbf{getPastBotUser}: ritorna tutte le informazioni attualmente
 presenti su quell'utente, come la lista delle collezioni create e la lista
@@ -396,7 +396,7 @@ assicurata una bassa latenza per prestazioni maggiori.
 La definizione di un determinato \gls{url} permette di configurare l'evento ad
 esso associato in base al tipo di richiesta \gls{crud}. Al momento della
 definizione, è necessario selezionare quale servizio gestirà la richiesta. Ai
-fini del progetto, a ogni \gls{url} è stata associata una chiamata a una
+fini del progetto, a ogni \gls{url} è stata associato una chiamata a una
 specifica funzione Lambda.
 
 In questa maniera, tramite l'utilizzo di un gestore di \gls{api} si è potuto
@@ -423,7 +423,7 @@ un apposito editor di testo.
 
 La decisione di usare questo strumento per definire i punti d'accesso
 all'applicazione è stata presa in merito al supporto nativo che il servizio
-Amazon AWS APIGateway fornisce a Swagger. Quindi si è proceduti nella seguente
+Amazon AWS APIGateway fornisce a Swagger. Si è proceduti quindi nella seguente
 maniera:
 \begin{enumerate}
   \item progettazione dei punti d'accesso all'applicazione;
@@ -476,8 +476,8 @@ quei servizi che necessitano di poca latenza e debbano scalare in un futuro.
 AWS DynamoDB è totalmente gestito da Amazon, ed è consigliato per le
 applicazioni legate al mondo del web.
 Ai fini di PastBot, DynamoDB è stato essenziale per salvare i messaggi, gli
-utenti e gli album con le relative foto. Il trasferimento dei dati è stato
-eseguito inviando direttamente oggetti di tipo
+utenti e gli album con gli indirizzi alle relative foto. Il trasferimento dei
+dati è stato eseguito inviando direttamente oggetti di tipo
 \glslink{javascript_object_notation}{JSON} al database.
 
 \subsubsection{Messenger e Facebook}
@@ -554,7 +554,7 @@ in grado di creare statistiche riguardo a:
   \item numero di messaggi scambiati per utente;
   \item conteggio dei messaggi ricevuti e inviati;
   \item tipo di testo ricevuto;
-  \item lunghezza delle sessioni di chat per utente.
+  \item lunghezza delle sessioni di \textit{chat} per utente.
 \end{itemize}
 I dati vengono poi mostrati tramite diversi tipi di grafici e permette di avere
 una visione generale sull'utilizzo del \textit{bot} e sul suo gradimento.
