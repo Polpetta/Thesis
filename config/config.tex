@@ -5,16 +5,17 @@
 %**************************************************************
 % Frontespizio
 %**************************************************************
-\newcommand{\myName}{Autore}                                    % autore
-\newcommand{\myTitle}{Titolo della tesi}                    
+\newcommand{\myName}{Davide Polonio}                                    % autore
+\newcommand{\myTitle}{PastBot: un bot per la piattaforma Facebook Messenger
+per l'interazione con gli utenti}
 \newcommand{\myDegree}{Tesi di laurea triennale}                % tipo di tesi
 \newcommand{\myUni}{Università degli Studi di Padova}           % università
 \newcommand{\myFaculty}{Corso di Laurea in Informatica}         % facoltà
 \newcommand{\myDepartment}{Dipartimento di Matematica}          % dipartimento
-\newcommand{\myProf}{Professore}                                % relatore
+\newcommand{\myProf}{Mauro Conti}                               % relatore
 \newcommand{\myLocation}{Padova}                                % dove
-\newcommand{\myAA}{2012-2013}                                   % anno accademico
-\newcommand{\myTime}{Dec 2012}                                  % quando
+\newcommand{\myAA}{2015-2016}                                   % anno
+\newcommand{\myTime}{Ott 2016}                                  % quando
 
 
 %**************************************************************
@@ -29,12 +30,12 @@
 %**************************************************************
 % Impostazioni di biblatex
 %**************************************************************
-\bibliography{res/bibliography} % database di biblatex 
+\bibliography{res/bibliography} % database di biblatex
 
 \defbibheading{bibliography}
 {
     \cleardoublepage
-    \phantomsection 
+    \phantomsection
     \addcontentsline{toc}{chapter}{\bibname}
     \chapter*{\bibname\markboth{\bibname}{\bibname}}
 }
@@ -45,6 +46,13 @@
 \DeclareBibliographyCategory{web}
 
 \addtocategory{web}{site:agile-manifesto}
+\addtocategory{web}{site:aws-lambda}
+\addtocategory{web}{site:aws-api-gateway}
+\addtocategory{web}{site:apex}
+\addtocategory{web}{site:swagger}
+\addtocategory{web}{site:messenger-facebook}
+\addtocategory{web}{site:aws-dynamodb}
+\addtocategory{web}{site:mocha}
 
 \defbibheading{web}{\section*{Siti Web consultati}}
 
@@ -84,8 +92,10 @@
     linktocpage=true,
     pdfstartpage=1,
     pdfstartview=FitV,
-    % decommenta la riga seguente per avere link in nero (per esempio per la stampa in bianco e nero)
-    %colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=1, pdfstartview=FitV,
+    % decommenta la riga seguente per avere link in nero (per esempio per la
+%stampa in bianco e nero)
+    %colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=1,
+%pdfstartview=FitV,
     breaklinks=true,
     pdfpagemode=UseNone,
     pageanchor=true,
@@ -140,7 +150,7 @@
     breaklines=true,
     frameround=ftff,
     frame=single
-} 
+}
 
 
 %**************************************************************
@@ -182,8 +192,9 @@
 \newenvironment{risk}[1]{
     \refstepcounter{riskcounter}        % increment counter
     \par \noindent                      % start new paragraph
-    \textbf{\arabic{riskcounter}. #1}   % display the title before the 
-                                        % content of the environment is displayed 
+    \textbf{\arabic{riskcounter}. #1}   % display the title before the
+                                        % content of the environment is
+%displayed
 }{
     \par\medskip
 }
@@ -204,13 +215,16 @@
 % #1: ID
 % #2: Nome
 \newenvironment{usecase}[2]{
-    \renewcommand{\theusecasecounter}{\usecasename #1}  % this is where the display of 
-                                                        % the counter is overwritten/modified
+    \renewcommand{\theusecasecounter}{\usecasename #1}  % this is where the
+%display of
+                                                        % the counter is
+%overwritten/modified
     \refstepcounter{usecasecounter}             % increment counter
     \vspace{10pt}
     \par \noindent                              % start new paragraph
-    {\large \textbf{\usecasename #1: #2}}       % display the title before the 
-                                                % content of the environment is displayed 
+    {\large \textbf{\usecasename #1: #2}}       % display the title before the
+                                                % content of the environment is
+%displayed
     \medskip
 }{
     \medskip
@@ -231,7 +245,7 @@
 \newenvironment{namespacedesc}{
     \vspace{10pt}
     \par \noindent                              % start new paragraph
-    \begin{description} 
+    \begin{description}
 }{
     \end{description}
     \medskip
