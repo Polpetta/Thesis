@@ -36,12 +36,6 @@ degli esseri umani.
 \newpage
 
 \section{PastBot}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.2]{PastBotLogoLong}
-  \caption{Logo di PastBot}
-\end{figure}
 Appena uscita la possibilità di creare \textit{bot} su Facebook e collegarli
 alle pagine delle aziende PastBook si è subito attivata per creare il suo
 \textit{bot} che aiuti le persone nella creazione degli album in maniera
@@ -59,6 +53,13 @@ gli offrirà la possibilità di acquistarlo. Questo porterà l'utente in una
 procedura automatica di acquisto, in cui gli unici campi richiesti saranno
 solamente selezionare il tipo di pagamento, la località dove spedire il libro
 dei ricordi appena creato e in che formato lo si desidera. \\
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{PastBotLogoLong}
+  \caption{Logo di PastBot}
+\end{figure}
 
 Essendo l'utente un essere umano si è dovuto considerare dei possibili errori
 che esso può commettere:
@@ -124,11 +125,6 @@ creando;
 
 \subsubsection{Amazon AWS Lambda}
 %https://aws.amazon.com/lambda/
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.08]{LambdaLogo}
-  \caption{Logo di Amazon AWS Lambda}
-\end{figure}
 PastBook basa i suoi servizi nel \glslink{cloud}{cloud} grazie a Amazon AWS
 Services. Per realizzare il \textit{bot} è quindi stato deciso di pensarlo
 utilizzando un'architettura \glslink{serverless}{serverless} con database non
@@ -171,15 +167,14 @@ scegliere di ricevere tutti i campi dell'evento.
 Per poter automatizzare anche questa configurazione, creando
 quindi un sistema completamente automatizzato per la distribuzione del
 codice, si è deciso di utilizzare lo strumento liberamente disponibile Apex.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.08]{LambdaLogo}
+  \caption{Logo di Amazon AWS Lambda}
+\end{figure}
 
 \subsubsection{Apex}
 % http://apex.run/
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.5]{ApexLogo}
-  \caption{Logo di Apex}
-\end{figure}
-
 Apex è uno strumento che permette di automatizzare la fase di distribuzione del
 codice sorgente con configurazioni personalizzabili in base all'ambiente in cui
 si distribuisce il programma. Oltre a queste funzionalità, permette anche di:
@@ -307,14 +302,16 @@ Come convenzione interna della compagnia è stato deciso di nominare tutti i
 file principali che vengono poi eseguiti dal servizio Lambda con il nome di
 \textit{index.js}.
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{ApexLogo}
+  \caption{Logo di Apex}
+\end{figure}
+
+
 \newpage
 
 \subsubsection{NPM}
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.08]{NpmLogo}
-  \caption{Logo di NPM}
-\end{figure}
 
 Il \textit{bot} durante lo sviluppo ha richiesto la
 necessità di dipendenze di terze parti, e per questo è stato deciso di
@@ -332,6 +329,11 @@ proprietario in moduli per riutilizzarlo per diversi progetti interni.
 All'azione di caricamento, Apex riconosce la dipendenza da altri moduli
 JavaScript, provvedendo quindi a generare un file compresso che li contenga
 tutti e a caricarli nel servizio.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.08]{NpmLogo}
+  \caption{Logo di NPM}
+\end{figure}
 
 \subsubsection{Progettazione della struttura \glslink{serverless}{serverless}}
 \label{prj:serverless:api}
@@ -375,11 +377,7 @@ ricevere i messaggi è stata determinata anche grazie al servizio Amazon AWS
 APIGateway.
 
 \subsubsection{APIGateway}
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.5]{ApigatewayLogo}
-  \caption{Logo di APIGateway}
-\end{figure}
+
 APIGateway è uno dei molti servizi presenti all'interno di Amazon AWS Services
 e serve per la gestione e l'instradamento delle richieste.
 Oltre a permettere la definizione e la gestione di \gls{api} in maniera
@@ -406,14 +404,13 @@ come esse sono strutturate internamente e di come esse verranno gestite.
 Le \gls{api} hanno richiesto una loro definizione e una loro progettazione
 prima di essere implementate su APIGateway, e per compiere questo passo si è
 ricorsi allo strumento Swagger.
-
-
-\subsubsection{Swagger}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.4]{SwaggerLogo}
-  \caption{Logo di Swagger}
+  \includegraphics[scale=0.5]{ApigatewayLogo}
+  \caption{Logo di APIGateway}
 \end{figure}
+
+\subsubsection{Swagger}
 Swagger è uno strumento potente che permette la rappresentazione di \gls{api}
 per il web con relativa documentazione. È utilizzabile tramite la definizione
 di un file di configurazione di tipo \gls{yaml}: in questa maniera si vengono a
@@ -441,14 +438,16 @@ file, e non distribuita nell'interfaccia grafica dello strumento di comando di
 APIGateway.
 Il sistema di versionamento utilizzato durante il tirocinio è stato Git.
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{SwaggerLogo}
+  \caption{Logo di Swagger}
+\end{figure}
+
+
 \newpage
 
 \subsubsection{Git}
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.4]{GitLogo}
-  \caption{Logo di Git}
-\end{figure}
 Git è un sistema di versionamento, ovvero uno strumento che aiuta i
 programmatori a tenere traccia delle modifiche che un file o una porzione di
 codice ricevono. Utilizzare questo sistema di versionamento ha diversi vantaggi
@@ -464,12 +463,13 @@ maniera univoca quella determinata versione del codice. Così facendo, si può
 avere uno storico delle versioni stabili.
 % Il resto su git è già stato detto nell'introduzione
 
-\subsubsection{DynamoDB}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.08]{DynamoDBLogo}
-  \caption{Logo di DynamoDB}
+  \includegraphics[scale=0.4]{GitLogo}
+  \caption{Logo di Git}
 \end{figure}
+
+\subsubsection{DynamoDB}
 DynamoDB è un altro dei servizi che Amazon AWS mette a disposizione. Questo
 offre un database flessibile di tipo \glslink{nosql}{NoSQL}, per tutti
 quei servizi che necessitano di poca latenza e debbano scalare in un futuro.
@@ -480,12 +480,13 @@ utenti e gli album con gli indirizzi alle relative foto. Il trasferimento dei
 dati è stato eseguito inviando direttamente oggetti di tipo
 \glslink{javascript_object_notation}{JSON} al database.
 
-\subsubsection{Messenger e Facebook}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.4]{MessengerLogo}
-  \caption{Logo di Messenger}
+  \includegraphics[scale=0.08]{DynamoDBLogo}
+  \caption{Logo di DynamoDB}
 \end{figure}
+
+\subsubsection{Messenger e Facebook}
 PastBot è nato per essere integrato con le \gls{api} della piattaforma di
 messaggistica istantanea Facebook Messenger.
 Prima di poter cominciare a sviluppare un \textit{bot} per la piattaforma
@@ -531,13 +532,13 @@ L'applicazione creata è poi stata associata a una pagina di Facebook. In questa
 maniera gli utenti, scrivendo alla pagina, mandano il messaggio direttamente al
 \textit{bot} che provvederà poi a rispondergli nella maniera adeguata.
 
-
-\subsubsection{DashBot}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.5]{DashBotLogo}
-  \caption{Logo di DashBot}
+  \includegraphics[scale=0.4]{MessengerLogo}
+  \caption{Logo di Messenger}
 \end{figure}
+
+\subsubsection{DashBot}
 La compagnia ha ritenuto importante raccogliere dati sull'utilizzo del
 \textit{bot} per poter offrire un servizio migliore all'utenza in futuro. Per
 adempiere a questo obiettivo è stato deciso di utilizzare la piattaforma web
@@ -558,3 +559,9 @@ in grado di creare statistiche riguardo a:
 \end{itemize}
 I dati vengono poi mostrati tramite diversi tipi di grafici e permette di avere
 una visione generale sull'utilizzo del \textit{bot} e sul suo gradimento.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{DashBotLogo}
+  \caption{Logo di DashBot}
+\end{figure}
