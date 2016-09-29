@@ -1,0 +1,50 @@
+\documentclass[]{beamer}
+
+\usetheme{Ilmenau} %theme
+\usecolortheme{beaver}
+
+%Unipd Colors
+\definecolor{unipd}{RGB}{155,0,20}
+
+\setbeamercolor{structure}{fg=unipd}
+\setbeamercolor{title}{fg=unipd}
+\setbeamercolor{titlelike}{fg=unipd}
+
+\usepackage[utf8]{inputenc} %utf-8 input
+\usepackage{float}
+
+
+\title{PastBot: un bot per la piattaforma Facebook Messenger per l'interazione con gli utenti}
+\author[Davide Polonio]{\includegraphics[width=0.6\textwidth]{logo.png}}
+\date{13-10-2016}
+\institute[Universit\`a degli studi di Padova]
+          {
+              Dipartimento di Matematica\\
+              Corso di Laurea in Informatica\\
+              Universit\`a degli studi di Padova
+          }
+          
+\subject{Computer Science}
+
+%\graphicspath{{res/img/}}
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+
+\setbeamercolor{footline}{fg=unipd}
+\setbeamerfont{footline}{series=\bfseries}
+
+\begin{document}
+\graphicspath{ {res/img/} }
+
+%\begin{frame}
+%  \tableofcontents
+%\end{frame}
+
+\input{res/listOfSlide}
+
+\end{document}
