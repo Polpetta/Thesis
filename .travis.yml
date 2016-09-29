@@ -1,0 +1,21 @@
+language:
+- generic
+dist: trusty
+sudo: true
+addons:
+  apt:
+    packages:
+    - texlive-latex-extra
+    - texlive-luatex
+    - cm-super
+    - texlive-bibtex-extra
+    - latexmk
+    - tex4ht
+    - biber
+    - texlive-fonts-recommended
+    - texlive-lang-italian
+    - latex-xcolor
+script:
+- make
+after_failure:
+- cat Presentazione.log
