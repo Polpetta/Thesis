@@ -15,6 +15,7 @@ addons:
     - texlive-fonts-recommended
     - texlive-lang-italian
     - latex-xcolor
+    - latex-beamer
 script:
 - make
 after_failure:
