@@ -2,6 +2,6 @@
 #License: GPLv3
 
 all:
-	latexmk -silent -pdflatex='pdflatex -interaction=nonstopmode' -pdf -jobname='Presentazione'
+	latexmk -pdflatex='pdflatex -interaction=nonstopmode' -pdf -jobname='Presentazione'
 clean:
 	latexmk -C
