@@ -4,4 +4,4 @@
 all:
 	latexmk -pdflatex='pdflatex -interaction=nonstopmode' -pdf -jobname='Presentazione'
 clean:
-	latexmk -C
+	latexmk -C -jobname='Presentazione'
