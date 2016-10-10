@@ -5,16 +5,19 @@
 
   \frametitle{Progettazione}
 
-  Architettura \textit{serverless}
+  Architettura \textit{serverless}\\
+  Caratteristiche:
   \begin{itemize}
   \item Maggiore velocit\`a di sviluppo
   \item Migliore separazione delle responsabilit\`a
-  \item Nessun costo di gestione dei sistemi
+  \item Nessun costo iniziale nella gestione dei sistemi
+  \item Facile scalabilit\`a
+  \item L'applicazione dev'essere senza stato
   \end{itemize}
 
   \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.35]{Serverless}
+    \includegraphics[scale=0.23]{Serverless}
   \end{figure}
 \end{frame}
 
@@ -28,6 +31,25 @@
 
 \begin{frame}
 
-  %architettura serverless
+  Vantaggi portati nello sviluppo di PastBot:
+  \begin{itemize}
+  \item Manutenzione dei server gestita da terze parti
+  \item Bassa latenza per l'accesso al database NoSQL
+  \item Messaggi processati separatamente in maniera asincrona
+  \item Facile gestione e caricamento del codice tramite Apex
+  \item Log e eventi raggruppati in un'unica \textit{dashboard}
+  \end{itemize}
+
+  %\begin{figure}[H]
+  %  \centering
+  %  \includegraphics[scale=0.05]{advantage}
+  %\end{figure}
+
+  Svantaggi:
+  \begin{itemize}
+  \item Tempo di esecuzione limitato
+  \item Tempi di avvio relativamente lunghi
+  \end{itemize}
+  
 
 \end{frame}
